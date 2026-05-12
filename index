@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<!-- UAE Premium Cleanup V3: Desert-to-Space Glassmorphism, UAE naming system, Masdar lens, Arabic selective RTL. -->
+
+<html dir="ltr" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="El Ghali Sany — UAE Desert-to-Space smart-city portfolio connecting Emirati heritage, Centennial 2071, PDPL-aware AI governance, Masdar-ready sustainability, MBZUAI-aligned research logic, and an Amanah evidence vault." name="description"/>
+<title>El Ghali Sany | UAE Desert-to-Space AI Portfolio</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Kufi+Arabic:wght@400;600;700;900&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{
+  color-scheme:light;
+  --gulf-turquoise:#0C7B77;--gulf-turquoise-light:#22AAA3;--deep:#0E1B29;--desert-gold:#CFA24C;--pearl-mist:#F7F0E0;--paper:#FCFCFA;
+  --gulf-turquoise-deep:#118C86;--aqua-glow:#52C6C0;--bronze-gold:#8E6C2F;--space-violet:#5F668C;--ink:#13202B;--muted:#586573;
+  --white:#fff;--line:rgba(207,162,76,.17);--glass:rgba(255,255,255,.74);
+  --shadow:0 26px 72px rgba(14,27,41,.12);--shadow-soft:0 16px 38px rgba(14,27,41,.08);--radius:28px;
+  --font-en:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-ar:'Noto Naskh Arabic','Cairo','Noto Kufi Arabic',Tahoma,sans-serif;
+}
+
+/* UAE DESIGN TOKENS — Pearl White / Gulf Turquoise / Desert Gold */
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:var(--font-en);color:var(--ink);min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 10% 10%,rgba(82,198,192,.12),transparent 22%),radial-gradient(circle at 88% 8%,rgba(207,162,76,.10),transparent 24%),radial-gradient(circle at 72% 78%,rgba(95,102,140,.09),transparent 26%),linear-gradient(135deg,#ffffff 0%,#f9f7f1 46%,#f4fbfb 100%);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-2;opacity:.02;background-image:linear-gradient(90deg,transparent 44%,var(--bronze-gold) 45%,var(--bronze-gold) 55%,transparent 56%),linear-gradient(0deg,transparent 44%,var(--bronze-gold) 45%,var(--bronze-gold) 55%,transparent 56%);background-size:84px 84px,84px 84px;background-position:18px 18px,18px 18px}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.02;background:radial-gradient(circle at 18% 80%,transparent 0 72px,var(--gulf-turquoise-deep) 73px 74px,transparent 75px),radial-gradient(circle at 22% 80%,transparent 0 112px,var(--gulf-turquoise-deep) 113px 114px,transparent 115px),radial-gradient(circle at 82% 22%,transparent 0 88px,var(--space-violet) 89px 90px,transparent 91px);mix-blend-mode:multiply}
+body.rtl{font-family:var(--font-ar);direction:rtl;font-size:110%}body.masdar{--paper:#F9FFFD;--pearl-mist:#EAF8F6;--gulf-turquoise:#0B8F88;--gulf-turquoise-light:#34C7BE;--gulf-turquoise-deep:#08716D;--aqua-glow:#6EDBD4}
+body.masdar .metric[data-masdar-focus="true"]{border-color:rgba(13,90,48,.20);box-shadow:0 0 0 4px rgba(52,190,149,.09),var(--shadow-soft)}
+.metric-note{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:6px 10px;border-radius:999px;background:rgba(13,90,48,.08);border:1px solid rgba(13,90,48,.14);color:var(--gulf-turquoise);font-size:.76rem;font-weight:900;line-height:1.25}
+.metric-note[hidden]{display:none!important}
+.masdar-lens-badge{background:linear-gradient(135deg,rgba(13,90,48,.13),rgba(52,190,149,.10));color:var(--gulf-turquoise)!important;border-color:rgba(13,90,48,.18)!important}
+.masdar-lens-badge[hidden]{display:none!important}
+.masdar-why{margin:18px 0 0;padding:22px;border-radius:26px;background:linear-gradient(135deg,rgba(13,90,48,.11),rgba(52,190,149,.09));border:1px solid rgba(13,90,48,.14);box-shadow:var(--shadow-soft)}
+.masdar-why[hidden]{display:none!important}
+.masdar-why h3{color:var(--bronze-gold);font-size:1.14rem;margin-bottom:10px}
+.masdar-why p{color:var(--muted);line-height:1.72;font-weight:650}
+.masdar-points{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+.masdar-point{padding:14px;border-radius:18px;background:rgba(255,255,255,.82);border:1px solid var(--line)}
+.masdar-point b{display:block;color:var(--gulf-turquoise);margin-bottom:6px;font-size:.9rem}
+.masdar-point span{display:block;color:var(--muted);line-height:1.55;font-size:.88rem;font-weight:650}
+.masdar-inline-note{margin-top:14px;padding:13px 14px;border-radius:16px;background:rgba(255,255,255,.74);border:1px dashed rgba(13,90,48,.24);color:var(--muted);font-weight:700;line-height:1.58}
+.rank-main{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0}.rank-main strong{font-weight:800;color:var(--ink)}
+.project-tag{display:inline-flex;align-items:center;padding:4px 8px;border-radius:999px;background:rgba(13,90,48,.10);border:1px solid rgba(13,90,48,.16);color:var(--gulf-turquoise);font-size:.71rem;font-weight:900;line-height:1}
+.rank-row.sustainable-project{border-color:rgba(13,90,48,.18);background:linear-gradient(135deg,rgba(246,255,243,.92),rgba(255,255,255,.86));box-shadow:0 10px 20px rgba(13,90,48,.09)}
+.rank-row.sustainable-project b{color:var(--gulf-turquoise-light)}
+body.masdar #stressLab{border-color:rgba(13,90,48,.18)}
+@media(max-width:760px){.masdar-points{grid-template-columns:1fr 1fr}}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:.22em}button{font:inherit;cursor:pointer}:focus-visible{outline:4px solid #111827;outline-offset:3px;border-radius:12px}
+.skip{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}.skip:focus{left:18px;top:18px;width:auto;height:auto;background:var(--gulf-turquoise);color:#fff;padding:12px 16px;border-radius:12px;z-index:1000;font-weight:900}body.rtl .skip:focus{right:18px;left:auto}.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}.icon-universal{transform:none!important}
+.nav{position:sticky;top:0;z-index:80;background:rgba(255,249,239,.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);box-shadow:0 12px 32px rgba(16,36,29,.08)}
+.nav-inner{max-width:1480px;margin:auto;padding:12px clamp(14px,2vw,28px);display:flex;align-items:center;gap:16px;justify-content:space-between}.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.04em;min-width:230px;line-height:1.05}.rtl .logo{letter-spacing:0}.logo-mark{width:48px;height:48px;border-radius:16px;background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-deep),var(--space-violet));display:grid;place-items:center;color:#fff;box-shadow:0 14px 28px rgba(0,108,53,.24);flex:0 0 auto}.logo-mark svg{width:28px;height:28px}
+.nav-links{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.nav a,.nav button{min-height:44px;border-radius:999px;border:1px solid rgba(122,78,54,.24);background:rgba(255,255,255,.74);padding:8px 13px;font-weight:850;font-size:.84rem;color:var(--ink);white-space:nowrap}.nav a:hover,.nav button:hover{border-color:var(--gulf-turquoise-deep);box-shadow:0 8px 24px rgba(0,124,137,.14);text-decoration:none}.nav button.active{background:var(--gulf-turquoise);color:#fff;border-color:var(--gulf-turquoise)}
+.nav-link-bi{position:relative;overflow:hidden;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;min-width:max-content}.nav-link-bi .ar-hover{font-family:'Noto Kufi Arabic','Cairo',sans-serif;font-size:.72rem;color:var(--gulf-turquoise);opacity:0;max-height:0;transform:translateY(6px);transition:all .25s ease}.nav-link-bi:hover .en-label{transform:translateY(-1px)}.nav-link-bi:hover .ar-hover{opacity:1;max-height:20px;transform:translateY(0)}
+.container{max-width:1360px;margin:auto;padding:22px}.glass,.hero-card,.panel,.module,.doc-card{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter:blur(18px)}
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:22px;align-items:stretch;min-height:680px;padding-top:12px}.hero-card{position:relative;overflow:hidden;padding:42px;background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(255,249,239,.76))}.hero-card::after{content:"";position:absolute;inset:auto -10% -20% 38%;height:260px;background:radial-gradient(circle,rgba(0,163,173,.18),transparent 64%);pointer-events:none}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(0,108,53,.12);color:var(--gulf-turquoise);font-weight:900;font-size:.84rem;margin-bottom:24px}
+h1{font-size:clamp(2.45rem,5vw,5.55rem);line-height:.96;letter-spacing:-.075em;margin-bottom:24px;max-width:1080px}.rtl h1{letter-spacing:-.02em;line-height:1.16}.gradient{background:linear-gradient(110deg,var(--space-violet),var(--gulf-turquoise-deep),var(--gulf-turquoise));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(1rem,1.6vw,1.26rem);line-height:1.78;color:var(--muted);font-weight:650;max-width:920px;margin-bottom:24px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 18px;border-radius:16px;font-weight:900;min-height:48px;border:1px solid var(--line);background:#fff}.cta.primary{background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-deep));color:#fff;border:0;box-shadow:0 15px 28px rgba(0,108,53,.2)}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 10px;font-size:.78rem;font-weight:900;background:rgba(0,124,137,.10);color:#005b64;border:1px solid rgba(0,124,137,.14)}.badge.supported{background:rgba(0,108,53,.11);color:var(--gulf-turquoise)}.badge.assumption{background:rgba(161,59,57,.10);color:var(--space-violet)}.badge.limit{background:rgba(122,78,54,.12);color:var(--bronze-gold)}
+.hero-side{display:grid;gap:16px}.metric{padding:24px;border-radius:24px;background:rgba(255,255,255,.82);border:1px solid var(--line);box-shadow:var(--shadow-soft);position:relative;overflow:hidden}.metric::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,var(--gulf-turquoise),var(--aqua-glow),var(--space-violet));opacity:.78}.metric b{display:block;font-size:clamp(2rem,3vw,3.1rem);line-height:1;color:var(--bronze-gold);margin:6px 0 8px}.metric span{display:block;line-height:1.65;color:var(--muted);font-weight:650}
+.page-section{padding:34px 0}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:22px;margin-bottom:18px}.kicker{font-size:.82rem;font-weight:900;text-transform:uppercase;letter-spacing:.16em;color:var(--gulf-turquoise);margin-bottom:8px}.rtl .kicker{letter-spacing:.05em}h2{font-size:clamp(1.7rem,3.2vw,3rem);line-height:1.08;letter-spacing:-.045em;max-width:980px}.rtl h2{letter-spacing:0;line-height:1.22}.section-note{max-width:760px;color:var(--muted);line-height:1.75;font-weight:650}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.panel,.module{padding:24px;box-shadow:var(--shadow-soft)}.panel h3,.module h3,.doc-card h3{color:var(--bronze-gold);font-size:1.08rem;margin-bottom:10px}.panel p,.module p,.doc-card p{color:var(--muted);line-height:1.72;font-weight:650}.arch-board{display:grid;grid-template-columns:.82fr 1.18fr;gap:16px;align-items:start}
+.timeline{position:relative;display:grid;gap:12px}.timeline::before{content:"";position:absolute;left:20px;top:10px;bottom:10px;width:4px;background:linear-gradient(var(--gulf-turquoise),var(--gulf-turquoise-deep),var(--space-violet));border-radius:99px}.rtl .timeline::before{right:20px;left:auto}.tl-item{position:relative;padding:18px 18px 18px 54px;border-radius:20px;background:rgba(255,255,255,.82);border:1px solid var(--line);box-shadow:var(--shadow-soft);transition:.2s}.rtl .tl-item{padding:18px 54px 18px 18px}.tl-item::before{content:"";position:absolute;left:10px;top:20px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-deep));border:4px solid #fff;box-shadow:0 0 0 1px var(--line)}.rtl .tl-item::before{right:10px;left:auto}.tl-item b{display:block;color:var(--bronze-gold);margin-bottom:4px}.tl-item span{display:block;color:var(--muted);line-height:1.6;font-weight:650}.tl-item.active-map{border-color:var(--aqua-glow);box-shadow:0 0 0 4px rgba(0,163,173,.13),var(--shadow-soft);transform:translateY(-2px)}
+.dashboard{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.skill{padding:17px;border-radius:18px;background:rgba(255,255,255,.86);border:1px solid var(--line);min-height:168px;transition:.2s}.skill:hover{border-color:var(--aqua-glow);transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,124,137,.13)}.skill b{display:block;color:var(--gulf-turquoise);font-size:.95rem;margin-bottom:8px}.skill p{font-size:.9rem;line-height:1.6;color:var(--muted);font-weight:650}
+.map-shell{display:grid;grid-template-columns:1fr .9fr;gap:16px;align-items:start}.smart-map{min-height:460px;border-radius:28px;border:1px solid var(--line);box-shadow:var(--shadow-soft);position:relative;overflow:hidden;background:linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.16) 1px,transparent 1px),radial-gradient(circle at 20% 44%,rgba(0,108,53,.32),transparent 19%),radial-gradient(circle at 72% 26%,rgba(0,163,173,.32),transparent 22%),radial-gradient(circle at 65% 70%,rgba(215,183,119,.45),transparent 22%),linear-gradient(135deg,#fdf4dd,#e8f6ef);background-size:48px 48px,48px 48px,auto,auto,auto,auto}.map-road{position:absolute;background:rgba(122,78,54,.33);border-radius:999px;transform-origin:center}.r1{width:82%;height:9px;left:8%;top:46%;transform:rotate(-9deg)}.r2{width:76%;height:7px;left:12%;top:62%;transform:rotate(22deg)}.r3{width:54%;height:6px;left:20%;top:31%;transform:rotate(48deg)}.r4{width:62%;height:7px;left:26%;top:74%;transform:rotate(-29deg)}.node{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--bronze-gold);box-shadow:0 0 0 9px rgba(122,78,54,.14),0 0 26px rgba(122,78,54,.28)}.mode-dooh .node{background:var(--aqua-glow);box-shadow:0 0 0 11px rgba(0,163,173,.18),0 0 34px rgba(0,163,173,.55)}.mode-hybrid .node:nth-child(even){background:var(--aqua-glow);box-shadow:0 0 0 11px rgba(0,163,173,.18),0 0 34px rgba(0,163,173,.55)}.n1{left:23%;top:43%}.n2{left:42%;top:58%}.n3{left:64%;top:38%}.n4{left:72%;top:71%}.n5{left:34%;top:26%}.n6{left:52%;top:78%}.map-label{position:absolute;left:18px;bottom:18px;right:18px;padding:14px;border-radius:18px;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);border:1px solid var(--line);font-weight:850;color:var(--ink)}
+.switch-row{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px 0}.switch-row button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-weight:900;min-height:42px}.switch-row button.active{background:var(--gulf-turquoise);color:#fff;border-color:var(--gulf-turquoise)}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.pipe{position:relative;padding:18px;border-radius:18px;background:rgba(255,255,255,.86);border:1px solid var(--line);min-height:176px;overflow:hidden}.pipe::before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--gulf-turquoise),var(--aqua-glow),var(--space-violet));opacity:.86}.pipe small{display:inline-flex;padding:5px 8px;border-radius:999px;background:rgba(0,108,53,.10);color:var(--gulf-turquoise);font-weight:900;margin-bottom:8px}.pipe b{display:block;color:var(--bronze-gold);margin-bottom:8px}.pipe span{display:block;color:var(--muted);line-height:1.55;font-weight:650;font-size:.92rem}
+.evidence{position:relative}.evidence:hover::after{content:attr(data-tip);position:absolute;left:18px;right:18px;bottom:18px;background:#10241D;color:#fff;border-radius:14px;padding:12px;line-height:1.5;font-size:.86rem;font-weight:700;z-index:3}.rtl .evidence:hover::after{direction:rtl}
+.engine{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.layer{padding:20px;border-radius:20px;background:rgba(255,255,255,.86);border:1px solid var(--line);box-shadow:var(--shadow-soft)}.layer b{display:block;color:var(--gulf-turquoise);margin-bottom:8px}.layer p{font-size:.92rem;color:var(--muted);line-height:1.62;font-weight:650}
+.lab{margin-top:16px;padding:22px;border-radius:24px;background:linear-gradient(135deg,rgba(0,108,53,.10),rgba(0,124,137,.10));border:1px solid var(--line)}.lab.netzero{background:linear-gradient(135deg,rgba(13,90,48,.22),rgba(52,190,149,.14));box-shadow:0 0 0 4px rgba(52,190,149,.08)}.control-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.control{padding:16px;border-radius:18px;background:rgba(255,255,255,.75);border:1px solid var(--line)}.control label{display:flex;justify-content:space-between;gap:10px;font-weight:900;color:var(--bronze-gold);margin-bottom:8px}.control output{color:var(--gulf-turquoise)}input[type="range"]{width:100%;accent-color:var(--gulf-turquoise)}.rank-list{display:grid;gap:8px;margin-top:14px}.rank-row{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.78);border:1px solid var(--line);transition:.2s}.rank-row b{color:var(--gulf-turquoise)}.rank-row span{font-weight:800;color:var(--ink)}.rank-row em{font-style:normal;color:var(--muted);font-weight:800;font-size:.88rem}.insight{margin-top:12px;padding:13px;border-radius:16px;background:rgba(16,36,29,.88);color:#fff;line-height:1.55;font-weight:750}.insight.flash{animation:pulseFlash .9s ease}@keyframes pulseFlash{0%{transform:scale(.99);opacity:.72}50%{transform:scale(1.01);opacity:1}100%{transform:scale(1);opacity:1}}
+.checklist{display:grid;gap:10px}.check{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:14px;border-radius:16px;background:rgba(255,255,255,.86);border:1px solid var(--line)}.check input{width:20px;height:20px;accent-color:var(--gulf-turquoise)}.check b{display:block;color:var(--bronze-gold);margin-bottom:3px}.check span{display:block;color:var(--muted);font-weight:650;line-height:1.45}.state{font-size:.76rem;border-radius:999px;padding:6px 9px;font-weight:900;background:rgba(0,108,53,.11);color:var(--gulf-turquoise)}.state.partial{background:rgba(215,183,119,.2);color:var(--bronze-gold)}
+.gift-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.gift-card{padding:22px;border-radius:22px;background:rgba(255,255,255,.86);border:1px solid var(--line);box-shadow:var(--shadow-soft)}.gift-letter{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-deep));color:#fff;font-weight:900;margin-bottom:14px}.gift-card h3{color:var(--bronze-gold);margin-bottom:10px}.gift-card p{color:var(--muted);line-height:1.68;font-weight:650}
+.gantt{display:grid;gap:10px;margin-top:18px}.g-row{display:grid;grid-template-columns:260px 1fr;gap:12px;align-items:center}.g-label{font-weight:900;color:var(--bronze-gold)}.g-label span{display:block;font-size:.84rem;color:var(--muted);font-weight:700;line-height:1.45}.g-track{height:40px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid var(--line);position:relative;overflow:hidden}.g-bar{position:absolute;top:5px;bottom:5px;border-radius:999px;background:linear-gradient(90deg,var(--gulf-turquoise),var(--aqua-glow));box-shadow:0 8px 20px rgba(0,108,53,.18)}
+.docs-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.doc-card{padding:20px;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;justify-content:space-between;min-height:285px}.doc-card .meta{display:block;margin:10px 0 14px;color:var(--muted);line-height:1.55;font-weight:650;font-size:.9rem}.doc-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.doc-actions a,.doc-actions button{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-weight:900;color:var(--ink);font-size:.86rem}.doc-actions a.primary,.doc-actions button.primary{background:var(--gulf-turquoise);color:#fff;border-color:var(--gulf-turquoise)}
+.source-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.source{padding:16px;border-radius:18px;background:rgba(255,255,255,.78);border:1px solid var(--line)}.source b{display:block;color:var(--bronze-gold);margin-bottom:8px}.source a{color:#005b64;font-weight:850;word-break:break-word}.source p{color:var(--muted);font-weight:650;line-height:1.5;font-size:.9rem;margin-top:6px}.system-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.pillar{padding:22px;border-radius:24px;background:rgba(255,255,255,.82);border:1px solid var(--line);box-shadow:var(--shadow-soft)}.pillar h3{color:var(--bronze-gold);margin-bottom:14px}.pillar ul{padding-inline-start:18px;display:grid;gap:10px}.pillar li{color:var(--muted);line-height:1.55;font-weight:650}
+.modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;background:rgba(16,36,29,.42);backdrop-filter:blur(10px);padding:18px}.modal.open{display:grid}.modal-card{max-width:920px;width:min(920px,100%);border-radius:30px;background:rgba(255,255,255,.92);border:1px solid var(--line);box-shadow:0 34px 90px rgba(16,36,29,.32);padding:26px}.modal-head{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:16px}.close{background:var(--deep)!important;color:#fff!important;border:0!important;border-radius:999px!important;padding:10px 13px!important;font-weight:900!important}.toast{position:fixed;right:18px;bottom:18px;z-index:110;max-width:440px;padding:16px 18px;border-radius:20px;background:#10241D;color:#fff;box-shadow:0 20px 60px rgba(16,36,29,.3);display:none;line-height:1.55;font-weight:750}.toast.show{display:block;animation:pulseFlash .5s ease}.rtl .toast{right:auto;left:18px}
+.footer{margin-top:28px;padding:28px;border-radius:30px 30px 0 0;background:linear-gradient(135deg,#10241D,#234137);color:#fff}.footer p{color:rgba(255,255,255,.78);line-height:1.7;max-width:980px}.footer b{color:#fff}.small-note{margin-top:14px;padding:15px;border-radius:18px;background:rgba(255,255,255,.74);border:1px solid var(--line);color:var(--muted);line-height:1.65;font-weight:650}.dark-note{background:rgba(16,36,29,.88);color:#fff;border-color:rgba(255,255,255,.16)}
+@media(max-width:1180px){.hero,.grid-2,.arch-board,.map-shell{grid-template-columns:1fr}.grid-3,.engine,.gift-grid,.docs-grid,.source-grid{grid-template-columns:repeat(2,1fr)}.grid-4,.dashboard,.pipeline,.system-pillars{grid-template-columns:repeat(2,1fr)}.nav-inner{align-items:flex-start;flex-direction:column}.nav-links{justify-content:flex-start}.control-grid{grid-template-columns:1fr}}
+@media(max-width:760px){.container{padding:14px}.hero-card,.panel,.module,.doc-card{border-radius:22px;padding:20px}.grid-3,.grid-4,.dashboard,.pipeline,.engine,.gift-grid,.docs-grid,.source-grid,.system-pillars{grid-template-columns:1fr}.section-head{display:block}.g-row{grid-template-columns:1fr}.nav-links a,.nav-links button{width:100%;text-align:center}.nav-links{width:100%}h1{font-size:2.45rem}.hero{min-height:auto}.rank-row{grid-template-columns:1fr}.smart-map{min-height:330px}.source-grid{grid-template-columns:1fr}.hero-side{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+
+:root{--font-mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;}
+/* ── SUMO Simulation Dashboard ── */
+.egs-sumo-shell {
+ background: #050505;
+ color: #E8FCEE;
+ border: 1px solid #004400;
+ font-family: var(--font-mono);
+}
+.egs-sumo-toolbar {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 6px;
+ padding: 7px;
+ border-bottom: 1px solid #004400;
+ background: #071107;
+}
+.egs-mode-btn,
+.egs-zone-btn,
+.egs-control-btn {
+ border: 1px solid #004400;
+ background: #101b10;
+ color: #75a875;
+ border-radius: 3px;
+ padding: 5px 9px;
+ font-family: var(--font-mono);
+ font-size: 10px;
+ cursor: pointer;
+ line-height: 1.15;
+}
+.egs-mode-btn:hover,
+.egs-zone-btn:hover,
+.egs-control-btn:hover { color: #00FF88; border-color: #00AA55; }
+.egs-mode-btn.active,
+.egs-zone-btn.active {
+ background: rgba(0,255,136,.12);
+ color: var(--tc, #00FF88);
+ border-color: var(--tc, #00FF88);
+ box-shadow: inset 0 -2px 0 var(--tc, #00FF88);
+}
+.egs-sumo-grid {
+ display: grid;
+ grid-template-columns: minmax(0, 1fr) 220px;
+ min-height: 430px;
+}
+.egs-map-wrap { position: relative; min-height: 430px; background: #0A0A0A; }
+#egsSumoMap { position:absolute; inset:0; z-index:1; min-height:430px; }
+#egsTrafficCanvas { position:absolute; inset:0; z-index:500; width:100%; height:100%; pointer-events:none; }
+.egs-map-badge {
+ position: absolute;
+ z-index: 700;
+ top: 10px; left: 10px;
+ max-width: calc(100% - 20px);
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 7px 9px;
+ color: #00FF88;
+ pointer-events: none;
+}
+.egs-map-badge strong { display:block; font-size: 11px; margin-bottom:2px; }
+.egs-map-badge span { display:block; font-size: 9px; color:#77aa77; line-height:1.35; }
+.egs-legend {
+ position: absolute;
+ z-index: 700;
+ left: 10px; bottom: 10px;
+ display:flex; gap:8px; flex-wrap:wrap;
+ background: rgba(0, 10, 0, .82);
+ border: 1px solid #004400;
+ border-radius: 3px;
+ padding: 6px 8px;
+ font-size: 9px;
+ color:#77aa77;
+ pointer-events:none;
+}
+.egs-dot { display:inline-block; width:10px; height:10px; border-radius:99px; margin-right:4px; vertical-align:-1px; }
+.egs-dot.green { background:#00FF88; }
+.egs-dot.yellow { background:#FFD700; }
+.egs-dot.red { background:#FF3355; }
+.egs-side {
+ background: #050505;
+ border-left: 1px solid #004400;
+ display:flex;
+ flex-direction:column;
+}
+.egs-kpis { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid #004400; }
+.egs-kpi { padding:8px 7px; border-right:1px solid #004400; border-bottom:1px solid #004400; text-align:center; }
+.egs-kpi:nth-child(2n) { border-right:none; }
+.egs-kpi-label { color:#446644; font-size:8px; margin-bottom:3px; }
+.egs-kpi-val { color:#00FF88; font-size:18px; font-weight:700; line-height:1; }
+.egs-controls { padding:8px; border-bottom:1px solid #004400; }
+.egs-control-row { margin-bottom:8px; }
+.egs-control-row label { display:block; color:#668866; font-size:8px; margin-bottom:3px; }
+.egs-control-row input[type="range"] { width:100%; accent-color:#00FF88; }
+.egs-control-buttons { display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px; }
+.egs-note { padding:8px; color:#668866; font-size:9px; line-height:1.5; overflow-y:auto; }
+.egs-hidden { display:none !important; }
+.egs-link-row { display:flex; gap:5px; flex-wrap:wrap; padding:7px; border-top:1px solid #004400; }
+.egs-small-tag { border:1px solid #004400; color:#668866; padding:2px 6px; border-radius:2px; font-size:8px; }
+@media (max-width: 760px) {
+ .egs-sumo-grid { grid-template-columns: 1fr; }
+ .egs-side { border-left:none; border-top:1px solid #004400; }
+ .egs-map-wrap, #egsSumoMap { min-height: 360px; }
+}
+
+/* ── UAE portfolio compatibility wrapper for imported SUMO block ── */
+#sumo-dashboard{
+  margin-top:18px;
+  overflow:hidden;
+}
+#sumo-dashboard .ph{
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border-radius:20px 20px 0 0;
+  min-height:48px;
+}
+#sumo-dashboard .ph-en{
+  font-size:.72rem;
+  font-weight:700;
+  white-space:normal;
+}
+#sumo-dashboard .pb{
+  border-radius:0 0 20px 20px;
+  overflow:hidden;
+}
+#sumo-dashboard [data-zh]{display:none!important;}
+body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
+
+
+
+
+
+
+/* Reviewer-clean pass: heritage + Daour method + scope and evidence */
+.fixed-line{position:fixed;inset-inline-start:50%;bottom:18px;width:170px;height:3px;transform:translateX(-50%) scaleX(var(--scroll-scale,.12));transform-origin:center;background:linear-gradient(90deg,transparent,var(--aqua-glow),#fff,var(--aqua-glow),transparent);box-shadow:0 0 22px rgba(0,163,173,.75);border-radius:99px;pointer-events:none;z-index:30;opacity:.72}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.tag{padding:7px 10px;border-radius:999px;background:rgba(0,124,137,.10);border:1px solid rgba(0,124,137,.14);color:#005c66;font-weight:850;font-size:.82rem}.assumption{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;background:rgba(161,59,57,.10);color:var(--space-violet);font-size:.78rem;font-weight:900;margin-top:12px}.bridge-banner{padding:20px 22px;border-radius:24px;background:linear-gradient(135deg,rgba(161,59,57,.08),rgba(0,108,53,.08));border:1px solid var(--line);margin-top:16px;box-shadow:var(--shadow-soft)}.bridge-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:rgba(161,59,57,.11);color:var(--space-violet);font-weight:900;margin-bottom:14px}.bridge-banner p{color:var(--muted);line-height:1.72;font-weight:650}.merge-decision{margin-top:16px;padding:18px;border-radius:20px;background:rgba(16,36,29,.88);color:#fff;box-shadow:var(--shadow-soft)}.merge-decision b{display:block;margin-bottom:8px}.merge-decision span{display:block;line-height:1.62;color:rgba(255,255,255,.88);font-weight:650}.daour-shell{padding:24px;border-radius:30px;background:rgba(255,255,255,.82);border:1px solid var(--line);box-shadow:var(--shadow);overflow:hidden}.daour-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:20px}.daour-note{max-width:760px;line-height:1.75;color:var(--muted);font-weight:650}.daour-cycle-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;gap:14px;align-items:center;justify-items:center}.daour-hub-cell{grid-column:2;grid-row:2;width:100%;display:flex;align-items:center;justify-content:center}.daour-hub{position:relative;width:220px;height:220px;flex:0 0 220px}.daour-hub-svg{width:100%;height:100%}.daour-hub-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:126px;height:126px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:10px;background:linear-gradient(135deg,var(--space-violet),var(--gulf-turquoise));color:#fff;box-shadow:0 14px 28px rgba(20,40,30,.22);z-index:2}.daour-hub-inner b{display:block;font-size:.73rem;font-weight:900;margin-bottom:3px;line-height:1.2}.daour-hub-inner span{font-size:.62rem;font-weight:750;line-height:1.35;opacity:.92}.daour-stop{padding:14px;border-radius:17px;background:rgba(255,255,255,.94);border:1.5px solid var(--line);box-shadow:var(--shadow-soft);width:100%;cursor:pointer;transition:box-shadow .22s,border-color .22s,transform .16s}.daour-stop:hover,.daour-stop.active{border-color:var(--aqua-glow);box-shadow:0 12px 28px rgba(0,124,137,.18);transform:translateY(-2px)}.daour-stop h3{font-size:.9rem;color:var(--bronze-gold);margin-bottom:4px;line-height:1.3;font-weight:900}.daour-stop p{font-size:.78rem;line-height:1.5;color:var(--muted);font-weight:650}.daour-stop .meta{display:block;margin-top:6px;font-size:.7rem;font-weight:900;color:var(--gulf-turquoise)}.daour-stop .mini-tag{display:inline-block;margin-bottom:6px;padding:3px 7px;border-radius:999px;background:rgba(0,124,137,.1);font-size:.68rem;font-weight:900;color:#005c66}.ds-1{grid-column:2;grid-row:1}.ds-2{grid-column:3;grid-row:1}.ds-3{grid-column:3;grid-row:2}.ds-4{grid-column:3;grid-row:3}.ds-5{grid-column:2;grid-row:3}.ds-6{grid-column:1;grid-row:3}.ds-7{grid-column:1;grid-row:2}.method-merge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.method-card{padding:16px;border-radius:18px;background:rgba(255,255,255,.88);border:1px solid var(--line);box-shadow:var(--shadow-soft)}.method-card b{display:block;color:var(--bronze-gold);margin-bottom:6px}.method-card span{display:block;color:var(--muted);line-height:1.55;font-weight:650;font-size:.9rem}.clarity-panel{margin-top:18px;padding:24px;border-radius:26px;background:linear-gradient(135deg,rgba(0,108,53,.10),rgba(161,59,57,.08));border:1px solid var(--line);box-shadow:var(--shadow-soft)}.clarity-panel h3{color:var(--bronze-gold);font-size:1.25rem;margin-bottom:10px}.clarity-panel p{color:var(--muted);line-height:1.72;font-weight:650}.clarity-commitments{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}.clarity-item{padding:15px;border-radius:16px;background:rgba(255,255,255,.88);border:1px solid rgba(122,78,54,.14)}.clarity-item b{display:block;color:var(--gulf-turquoise);margin-bottom:6px}.accessibility-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.access-card{padding:22px;border-radius:24px;background:rgba(255,255,255,.84);border:1px solid var(--line);box-shadow:var(--shadow-soft);min-height:180px}.access-card h3{margin-bottom:10px;color:var(--bronze-gold);font-size:1.08rem}.access-card p{line-height:1.72;color:var(--muted);font-weight:650}.review-footer-note{margin-top:12px;color:rgba(255,255,255,.80);line-height:1.7}
+@media(max-width:1060px){.daour-top{display:block}.method-merge-grid,.clarity-commitments,.accessibility-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.fixed-line{bottom:12px;opacity:.48}.daour-cycle-wrap{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto auto}.daour-hub-cell{grid-column:1/3;grid-row:1}.ds-1{grid-column:1;grid-row:2}.ds-2{grid-column:2;grid-row:2}.ds-3{grid-column:1;grid-row:3}.ds-4{grid-column:2;grid-row:3}.ds-5{grid-column:1;grid-row:4}.ds-6{grid-column:2;grid-row:4}.ds-7{grid-column:1/3;grid-row:5;max-width:340px;justify-self:center}.method-merge-grid,.clarity-commitments,.accessibility-grid{grid-template-columns:1fr}.daour-shell{padding:18px;border-radius:22px}}
+@media (prefers-reduced-motion:reduce){.fixed-line{display:none}.daour-stop{transition:none!important}}
+
+/* Arabic localization correction */
+body.rtl .nav-link-bi .ar-hover{display:none!important}
+body.rtl .nav-link-bi .en-label{font-family:var(--font-ar);font-size:.9rem}
+body.rtl .lead, body.rtl .section-note, body.rtl p, body.rtl li, body.rtl span{line-height:1.9}
+body.rtl .modal-card{text-align:right}
+
+
+/* === GitHub-safe file references: no broken assets/docs links === */
+.file-ref{
+  text-decoration:none!important;
+  cursor:pointer;
+  word-break:break-word;
+}
+.doc-actions .file-ref{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:14px;
+  padding:10px 12px;
+  font-weight:900;
+  color:var(--ink);
+  font-size:.86rem;
+  max-width:100%;
+}
+.doc-actions a.primary.file-ref,
+.doc-actions button.primary.file-ref{
+  background:var(--gulf-turquoise);
+  color:#fff;
+  border-color:var(--gulf-turquoise);
+}
+.cta.file-ref{min-height:48px;border-radius:16px}
+.source .file-ref{
+  display:inline;
+  padding:0;
+  border:0;
+  background:transparent;
+  border-radius:0;
+  color:#005b64;
+  font-weight:850;
+  font-size:inherit;
+  line-height:inherit;
+}
+.file-ref::before{content:none!important;display:none!important;}
+body.rtl .file-ref::before{content:none!important;display:none!important;}
+
+
+/* === PREMIUM UAE / MBZUAI HEADER REDESIGN === */
+.premium-nav{
+  position:sticky;
+  top:0;
+  z-index:120;
+  isolation:isolate;
+  background:
+    linear-gradient(180deg,rgba(255,252,246,.97),rgba(255,249,239,.91)),
+    radial-gradient(circle at 96% 50%,rgba(0,124,137,.09),transparent 32%);
+  border-bottom:1px solid rgba(122,78,54,.13);
+  box-shadow:0 14px 38px rgba(16,36,29,.08);
+  backdrop-filter:blur(18px);
+}
+.premium-nav::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,rgba(215,183,119,.86),transparent);
+  pointer-events:none;
+}
+.premium-nav::after{
+  content:"";
+  position:absolute;
+  inset:0 0 0 auto;
+  width:min(420px,30vw);
+  opacity:.08;
+  background-image:
+    linear-gradient(45deg,transparent 46%,var(--bronze-gold) 47%,var(--bronze-gold) 49%,transparent 50%),
+    linear-gradient(-45deg,transparent 46%,var(--gulf-turquoise-deep) 47%,var(--gulf-turquoise-deep) 49%,transparent 50%);
+  background-size:44px 44px;
+  pointer-events:none;
+  z-index:-1;
+}
+body.rtl .premium-nav::after{inset:0 auto 0 0;}
+.premium-nav-inner{
+  max-width:1480px;
+  margin:auto;
+  padding:18px clamp(16px,2.6vw,42px);
+  display:grid;
+  grid-template-columns:minmax(286px,.55fr) minmax(0,1.45fr);
+  align-items:center;
+  gap:28px;
+}
+body.rtl .premium-nav-inner{grid-template-columns:minmax(0,1.45fr) minmax(286px,.55fr);}
+.brand-card{
+  min-width:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:999px;
+  background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,249,239,.72));
+  border:1px solid rgba(122,78,54,.18);
+  box-shadow:0 14px 36px rgba(16,36,29,.08), inset 0 1px 0 rgba(255,255,255,.75);
+  text-decoration:none!important;
+  position:relative;
+  overflow:hidden;
+}
+body.rtl .brand-card{grid-column:2;flex-direction:row;}
+body.rtl .nav-workspace{grid-column:1;grid-row:1;}
+.brand-card::after{
+  content:"";
+  position:absolute;
+  inset:12px auto 12px -1px;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(215,183,119,.85),transparent);
+}
+body.rtl .brand-card::after{inset:12px -1px 12px auto;}
+.brand-mark{
+  width:62px;
+  height:62px;
+  border-radius:22px;
+  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(255,249,239,.82));
+  border:1px solid rgba(0,108,53,.20);
+  box-shadow:0 16px 34px rgba(0,108,53,.15), inset 0 1px 0 rgba(255,255,255,.92);
+  color:var(--gulf-turquoise);
+}
+.brand-mark svg{width:42px;height:42px;filter:none;}
+.brand-mark .zaouia-node{display:block;}
+.brand-mark .zaouia-node .soft-layer{opacity:.34;}
+.brand-mark .zaouia-node .node-core{opacity:.92;}
+.brand-mark .zaouia-node .node-link{opacity:.82;}
+.brand-copy{display:grid;gap:4px;min-width:0;line-height:1.18;}
+.brand-copy strong{
+  font-size:1.13rem;
+  color:var(--deep);
+  font-weight:900;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+}
+body.rtl .brand-copy strong{font-size:1.22rem;letter-spacing:0;}
+.brand-copy span{
+  font-size:.86rem;
+  color:var(--muted);
+  font-weight:750;
+  white-space:normal;
+}
+.brand-copy span .ltr, .brand-copy .ltr{font-weight:900;color:var(--gulf-turquoise);}
+.nav-workspace{display:grid;gap:14px;min-width:0;}
+.premium-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:10px;
+  flex-wrap:wrap;
+  padding:0 0 14px;
+  border-bottom:1px solid rgba(122,78,54,.13);
+  overflow:visible;
+}
+body.rtl .premium-links{justify-content:flex-start;}
+.premium-links .nav-link-bi{
+  min-height:44px;
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:999px;
+  background:linear-gradient(180deg,rgba(255,255,255,.83),rgba(255,249,239,.68));
+  border:1px solid rgba(122,78,54,.16);
+  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 1px 0 rgba(255,255,255,.8);
+  color:var(--ink);
+  font-weight:850;
+  font-size:.86rem;
+  line-height:1;
+  white-space:nowrap;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+body.rtl .premium-links .nav-link-bi{flex-direction:row-reverse;font-family:var(--font-ar);font-size:.95rem;}
+.premium-links .nav-link-bi:hover{
+  transform:translateY(-1px);
+  border-color:rgba(0,124,137,.28);
+  box-shadow:0 13px 28px rgba(0,124,137,.10), inset 0 1px 0 rgba(255,255,255,.86);
+  text-decoration:none;
+}
+.premium-links .nav-link-bi[href="#heritage"]{
+  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 0 0 1.5px rgba(0,108,53,.18), inset 0 1px 0 rgba(255,255,255,.84);
+}
+.premium-links .nav-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:24px;
+  color:var(--bronze-gold);
+  font-weight:950;
+  opacity:.78;
+  font-variant-numeric:tabular-nums;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.premium-links .nav-title{display:inline-block;}
+.premium-links .ar-hover{display:none!important;}
+.nav-controls{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:12px;
+  flex-wrap:wrap;
+}
+body.rtl .nav-controls{justify-content:flex-start;}
+.nav-action{
+  min-height:48px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius:999px;
+  border:1px solid rgba(122,78,54,.16);
+  background:linear-gradient(180deg,rgba(255,255,255,.87),rgba(255,249,239,.70));
+  color:var(--ink);
+  padding:10px 16px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(16,36,29,.07), inset 0 1px 0 rgba(255,255,255,.84);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+}
+.nav-action:hover{transform:translateY(-1px);text-decoration:none;box-shadow:0 15px 30px rgba(16,36,29,.11), inset 0 1px 0 rgba(255,255,255,.84);}
+.pitch-action{
+  background:linear-gradient(135deg,var(--gulf-turquoise),#07543a);
+  color:#fff;
+  border-color:transparent;
+  box-shadow:0 14px 30px rgba(0,108,53,.23), inset 0 1px 0 rgba(255,255,255,.18);
+  padding-inline:18px;
+}
+.pitch-action .action-icon{width:24px;height:24px;display:grid;place-items:center;}
+.pitch-action svg{width:24px;height:24px;}
+.lang-action{
+  width:54px;
+  padding-inline:0;
+  color:var(--gulf-turquoise);
+  font-family:var(--font-en);
+  font-weight:950;
+  letter-spacing:.02em;
+}
+.lang-action.active{background:var(--deep);color:#fff;border-color:var(--deep);}
+.masdar-action{padding-inline:14px 12px;}
+body.rtl .masdar-action{padding-inline:12px 14px;}
+.masdar-icon{width:24px;height:24px;display:grid;place-items:center;color:var(--gulf-turquoise);}
+.masdar-icon svg{width:25px;height:25px;}
+.masdar-switch{
+  width:46px;
+  height:26px;
+  border-radius:999px;
+  padding:3px;
+  background:rgba(122,78,54,.14);
+  border:1px solid rgba(122,78,54,.10);
+  display:inline-flex;
+  justify-content:flex-start;
+  transition:background .2s ease;
+}
+.masdar-switch span{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 3px 8px rgba(16,36,29,.22);
+  transition:transform .2s ease;
+}
+.masdar-action.active .masdar-switch{background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-light));}
+.masdar-action.active .masdar-switch span{transform:translateX(20px);}
+body.rtl .masdar-action.active .masdar-switch span{transform:translateX(-20px);}
+.masdar-action.active{border-color:rgba(0,108,53,.24);box-shadow:0 12px 28px rgba(0,108,53,.13), inset 0 1px 0 rgba(255,255,255,.86);}
+body.rtl .nav-action{font-family:var(--font-ar);font-size:.96rem;}
+@media(max-width:1180px){
+  .premium-nav-inner{grid-template-columns:1fr;gap:16px;}
+  body.rtl .premium-nav-inner{grid-template-columns:1fr;}
+  body.rtl .brand-card,body.rtl .nav-workspace{grid-column:1;grid-row:auto;}
+  .brand-card{max-width:620px;justify-self:stretch;}
+  .premium-links,.nav-controls,body.rtl .premium-links,body.rtl .nav-controls{justify-content:flex-start;}
+}
+@media(max-width:760px){
+  .premium-nav-inner{padding:14px;gap:12px;}
+  .brand-card{border-radius:24px;padding:12px 14px;}
+  .brand-mark{width:50px;height:50px;border-radius:18px;}
+  .brand-copy strong{font-size:1rem;}
+  .brand-copy span{font-size:.78rem;}
+  .premium-links{
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:10px;
+  }
+  .premium-links::-webkit-scrollbar{display:none;}
+  .premium-links .nav-link-bi{min-width:max-content;padding:10px 14px;}
+  .nav-controls{display:grid;grid-template-columns:1fr auto;align-items:center;}
+  .pitch-action{grid-column:1/-1;width:100%;}
+  .masdar-action{min-width:0;}
+}
+
+
+/* === HEADER POSITION CORRECTION: keep header at page top, not fixed during scroll === */
+html{scroll-padding-top:96px!important;}
+body.has-fixed-header{padding-top:0!important;}
+.nav.premium-nav,.premium-nav,.nav{position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;}
+
+/* === MASDAR LENS TOGGLE FIX: active state must not become a heavy green block === */
+.nav .masdar-action{
+  min-height:48px;
+  gap:12px;
+  padding:9px 14px;
+  background:linear-gradient(180deg,rgba(255,255,255,.90),rgba(255,249,239,.74)) !important;
+  color:var(--deep) !important;
+  border:1px solid rgba(122,78,54,.16) !important;
+  box-shadow:0 10px 24px rgba(16,36,29,.065), inset 0 1px 0 rgba(255,255,255,.86) !important;
+}
+.nav .masdar-action:hover{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.78)) !important;
+  border-color:rgba(0,108,53,.26) !important;
+  box-shadow:0 14px 30px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.90) !important;
+}
+.nav .masdar-action.active{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.82)) !important;
+  color:var(--deep) !important;
+  border-color:rgba(0,108,53,.30) !important;
+  box-shadow:0 14px 32px rgba(0,108,53,.11), inset 0 0 0 1px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.92) !important;
+}
+.nav .masdar-action .masdar-icon{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  border-radius:999px;
+  background:rgba(0,108,53,.085);
+  color:var(--gulf-turquoise);
+  box-shadow:inset 0 0 0 1px rgba(0,108,53,.10);
+}
+.nav .masdar-action .masdar-icon svg{
+  width:34px;
+  height:34px;
+  display:block;
+}
+
+.nav .masdar-action .masdar-icon img.uae-emblem-img{
+  width:34px;
+  height:34px;
+  display:block;
+  object-fit:contain;
+  border-radius:0;
+  background:#fff;
+}
+.nav .masdar-action.active .masdar-icon{
+  background:linear-gradient(135deg,rgba(0,108,53,.14),rgba(52,190,149,.12));
+  color:var(--gulf-turquoise);
+}
+.nav .masdar-action .control-label{
+  color:var(--deep) !important;
+  font-weight:900;
+  line-height:1;
+  white-space:nowrap;
+}
+.nav .masdar-action.active .control-label{
+  color:var(--gulf-turquoise) !important;
+}
+.nav .masdar-action .masdar-switch{
+  width:48px;
+  height:28px;
+  flex:0 0 48px;
+  padding:3px;
+  border-radius:999px;
+  background:rgba(122,78,54,.13) !important;
+  border:1px solid rgba(122,78,54,.12) !important;
+  box-shadow:inset 0 1px 3px rgba(16,36,29,.12);
+}
+.nav .masdar-action .masdar-switch span{
+  width:20px;
+  height:20px;
+  background:#fff;
+  box-shadow:0 3px 9px rgba(16,36,29,.24);
+}
+.nav .masdar-action.active .masdar-switch{
+  background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-light)) !important;
+  border-color:rgba(0,108,53,.18) !important;
+}
+.nav .masdar-action.active .masdar-switch span{transform:translateX(20px);}
+body.rtl .nav .masdar-action.active .masdar-switch span{transform:translateX(-20px);}
+body.rtl .nav .masdar-action{direction:rtl;}
+body.rtl .nav .masdar-action .control-label{font-family:var(--font-ar);font-size:.98rem;}
+@media(max-width:760px){
+  .nav .masdar-action{justify-content:space-between;min-width:min(100%,320px);}
+}
+
+
+/* Reviewer-clean alignment fixes */
+.footer .footer-inner{
+  max-width:980px;
+  margin-inline:auto;
+  text-align:center;
+}
+.footer .footer-review-note,
+.footer .review-footer-note{
+  max-width:920px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.footer .review-footer-note{
+  margin-top:12px;
+}
+body.rtl .footer .footer-review-note,
+body.rtl .footer .review-footer-note{
+  direction:rtl;
+  text-align:center;
+}
+body.rtl .footer .review-footer-note span{
+  display:inline-block;
+  direction:rtl;
+  unicode-bidi:isolate;
+}
+body.rtl .source-grid,
+body.rtl .docs-grid{
+  direction:rtl;
+}
+body.rtl .source,
+body.rtl .doc-card{
+  text-align:right;
+}
+body.rtl .source a,
+body.rtl .doc-actions{
+  justify-content:center;
+}
+
+
+
+/* === RTL readability pass for academic reviewers === */
+body.rtl .section-head{
+  display:block;
+  text-align:center;
+  margin-inline:auto;
+}
+body.rtl .section-head > div,
+body.rtl .section-head .kicker,
+body.rtl .section-head h2,
+body.rtl .section-note{
+  margin-inline:auto;
+  text-align:center;
+}
+body.rtl .section-head h2{
+  max-width:920px;
+  text-wrap:balance;
+}
+body.rtl .section-note{
+  max-width:820px;
+  margin-top:12px;
+  direction:rtl;
+}
+body.rtl .doc-card{
+  direction:rtl;
+  text-align:right;
+  align-items:stretch;
+}
+body.rtl .doc-card h3,
+body.rtl .doc-card .meta{
+  text-align:right;
+  direction:rtl;
+}
+body.rtl .doc-card .badge{
+  align-self:flex-start;
+}
+body.rtl .doc-actions{
+  justify-content:center;
+  direction:rtl;
+}
+body.rtl .doc-actions a,
+body.rtl .doc-actions button{
+  direction:rtl;
+  unicode-bidi:plaintext;
+  text-align:center;
+  white-space:normal;
+}
+body.rtl .control label{
+  direction:rtl;
+  align-items:flex-start;
+}
+body.rtl .control output,
+body.rtl .metric b,
+body.rtl .metric .ltr,
+body.rtl .rank-row b{
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+body.rtl .control small{
+  display:block;
+  direction:rtl;
+  text-align:right;
+  line-height:1.65;
+}
+body.rtl .rank-list{
+  direction:rtl;
+}
+body.rtl .rank-row{
+  grid-template-columns:auto 1fr auto;
+  direction:rtl;
+  text-align:right;
+}
+body.rtl .rank-row b{grid-column:1;grid-row:1;text-align:right;}
+body.rtl .rank-row .rank-main,
+body.rtl .rank-row > span{grid-column:2;grid-row:1;justify-content:flex-start;text-align:right;}
+body.rtl .rank-row em{grid-column:3;grid-row:1;text-align:left;white-space:nowrap;}
+body.rtl .rank-main strong{direction:rtl;text-align:right;}
+body.rtl .project-tag{direction:rtl;white-space:nowrap;}
+body.rtl .badge{
+  direction:rtl;
+  unicode-bidi:plaintext;
+  text-align:center;
+}
+.footer .footer-inner,
+.footer .footer-review-note,
+.footer .review-footer-note,
+body.rtl .footer .footer-inner,
+body.rtl .footer .footer-review-note,
+body.rtl .footer .review-footer-note{
+  text-align:center!important;
+  margin-inline:auto!important;
+  justify-content:center!important;
+}
+body.rtl .footer .review-footer-note span{display:inline;}
+body.rtl .source,
+body.rtl .source p,
+body.rtl .source a{
+  text-align:right;
+  direction:rtl;
+}
+body.rtl .source b{display:block;text-align:right;}
+body.rtl .file-ref::after{
+  content:"";
+}
+@media(max-width:760px){
+  body.rtl .rank-row{grid-template-columns:1fr;}
+  body.rtl .rank-row b,
+  body.rtl .rank-row .rank-main,
+  body.rtl .rank-row > span,
+  body.rtl .rank-row em{grid-column:1;text-align:right;}
+}
+
+
+
+/* === UAE Desert-to-Space Glassmorphism Override === */
+:root{
+  --gulf-turquoise:#00A6B4;           /* Gulf Turquoise */
+  --gulf-turquoise-light:#32D3C8;
+  --deep:#102A43;            /* deep night blue */
+  --desert-gold:#C9A227;            /* Desert Gold */
+  --pearl-mist:#FFF3D2;
+  --paper:#FFFDF7;           /* Pearl White */
+  --gulf-turquoise-deep:#007C92;
+  --aqua-glow:#3ED9D0;
+  --bronze-gold:#B8860B;
+  --space-violet:#7C3AED;         /* space violet accent */
+  --ink:#12212F;
+  --muted:#526476;
+  --line:rgba(184,134,11,.18);
+  --glass:rgba(255,255,255,.78);
+}
+body{background:radial-gradient(circle at 8% 8%,rgba(0,166,180,.20),transparent 28%),radial-gradient(circle at 92% 6%,rgba(124,58,237,.16),transparent 30%),radial-gradient(circle at 55% 90%,rgba(201,162,39,.20),transparent 36%),linear-gradient(135deg,#fffdf7 0%,#fff3d2 42%,#eafcff 100%)}
+body::before{opacity:.05;background-image:linear-gradient(45deg,transparent 45%,var(--desert-gold) 46%,var(--desert-gold) 48%,transparent 49%),linear-gradient(-45deg,transparent 45%,var(--gulf-turquoise) 46%,var(--gulf-turquoise) 48%,transparent 49%)}
+.gradient{background:linear-gradient(110deg,var(--desert-gold),var(--gulf-turquoise),var(--space-violet));-webkit-background-clip:text;background-clip:text;color:transparent}.hero-card::after{background:radial-gradient(circle,rgba(124,58,237,.16),transparent 64%)}.metric::before,.pipe::before{background:linear-gradient(90deg,var(--desert-gold),var(--gulf-turquoise),var(--space-violet))}.cta.primary{background:linear-gradient(135deg,var(--gulf-turquoise),var(--deep));}.badge.supported{background:rgba(0,166,180,.10);color:#006E78;border-color:rgba(0,166,180,.20)}.brand-mark{color:var(--gulf-turquoise)}.pitch-action{background:linear-gradient(135deg,var(--gulf-turquoise),var(--deep))}.fixed-line{background:linear-gradient(90deg,transparent,var(--gulf-turquoise),#fff,var(--space-violet),transparent)}
+body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div aria-hidden="true" class="fixed-line"></div>
+<header aria-label="Primary navigation" class="nav premium-nav">
+<div class="nav-inner premium-nav-inner">
+<a aria-label="El Ghali Sany UAE portfolio home" class="logo brand-card" href="#top">
+<span aria-hidden="true" class="logo-mark brand-mark">
+<svg aria-hidden="true" class="zaouia-node" focusable="false" viewbox="0 0 64 64">
+<g class="soft-layer" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8">
+<path d="M32 7 43.5 11.5 52.5 20.5 57 32 52.5 43.5 43.5 52.5 32 57 20.5 52.5 11.5 43.5 7 32 11.5 20.5 20.5 11.5Z"></path>
+<path d="M32 12 44 20 52 32 44 44 32 52 20 44 12 32 20 20Z"></path>
+<path d="M16 16 48 16 48 48 16 48Z"></path>
+<path d="M32 8 56 32 32 56 8 32Z"></path>
+</g>
+<g class="node-link" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2">
+<path d="M32 16v32M16 32h32"></path>
+<path d="M21 21 43 43"></path>
+<path d="M43 21 21 43"></path>
+<path d="M32 32 32 8"></path>
+<path d="M32 32 56 32"></path>
+<path d="M32 32 32 56"></path>
+<path d="M32 32 8 32"></path>
+<path d="M32 32 49 15"></path>
+<path d="M32 32 49 49"></path>
+<path d="M32 32 15 49"></path>
+<path d="M32 32 15 15"></path>
+</g>
+<g class="node-core" fill="currentColor">
+<circle cx="32" cy="32" r="3.8"></circle>
+<circle cx="32" cy="8" r="2.5"></circle>
+<circle cx="56" cy="32" r="2.5"></circle>
+<circle cx="32" cy="56" r="2.5"></circle>
+<circle cx="8" cy="32" r="2.5"></circle>
+<circle cx="15" cy="15" r="2.2"></circle>
+<circle cx="49" cy="15" r="2.2"></circle>
+<circle cx="49" cy="49" r="2.2"></circle>
+<circle cx="15" cy="49" r="2.2"></circle>
+</g>
+</svg>
+</span>
+<span class="brand-copy">
+<strong><span data-ar="الساني الغالي" data-en="El Ghali Sany" id="brandName">El Ghali Sany</span></strong>
+<span data-ar="محفظة الذكاء الحضري لدولة الإمارات" data-en="UAE Urban Intelligence Portfolio" id="brandSubtitle">UAE Urban Intelligence Portfolio</span>
+</span>
+</a>
+<div class="nav-workspace">
+<nav aria-label="Portfolio sections" class="nav-links premium-links">
+<a class="nav-link-bi" href="#heritage"><span class="nav-num">01</span><span class="nav-title" data-ar="الأساس الثقافي" data-en="Foundation">Foundation</span><span class="ar-hover">الأساس الثقافي</span></a>
+<a class="nav-link-bi" href="#human"><span class="nav-num">02</span><span class="nav-title" data-ar="بناء القدرات" data-en="Capability">Capability</span><span class="ar-hover">بناء القدرات</span></a>
+<a class="nav-link-bi" href="#pfe"><span class="nav-num">03</span><span class="nav-title" data-ar="الذكاء الحضري" data-en="Urban Intelligence">Urban Intelligence</span><span class="ar-hover">الذكاء الحضري</span></a>
+<a class="nav-link-bi" href="#engine"><span class="nav-num">04</span><span class="nav-title" data-ar="محرك القرار" data-en="AI Engine">AI Engine</span><span class="ar-hover">محرك القرار</span></a>
+<a class="nav-link-bi" href="#vision"><span class="nav-num">05</span><span class="nav-title" data-ar="ملاءمة السوق" data-en="Venture Fit">Venture Fit</span><span class="ar-hover">ملاءمة السوق</span></a>
+<a class="nav-link-bi" href="#daour"><span class="nav-num">06</span><span class="nav-title" data-ar="منهجية الرحلة" data-en="Journey Method">Journey Method</span><span class="ar-hover">منهجية الرحلة</span></a>
+<a class="nav-link-bi" href="#vault"><span class="nav-num">07</span><span class="nav-title" data-ar="خزنة الأمانة" data-en="Amanah Vault">Amanah Vault</span><span class="ar-hover">خزنة الأمانة</span></a>
+<a class="nav-link-bi" href="#reality"><span class="nav-num">08</span><span class="nav-title" data-ar="النطاق والأدلة" data-en="Scope &amp; Evidence">Scope &amp; Evidence</span><span class="ar-hover">النطاق والأدلة</span></a>
+</nav>
+<div aria-label="Interface controls" class="nav-controls">
+<button class="nav-action pitch-action active" id="pitchBtn" type="button">
+<span aria-hidden="true" class="action-icon"><svg viewbox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H13v2.25h3.25a.9.9 0 0 1 0 1.8h-8.5a.9.9 0 0 1 0-1.8H11V16H6.5A2.5 2.5 0 0 1 4 13.5v-8Zm2.5-.7a.7.7 0 0 0-.7.7v8c0 .39.31.7.7.7h11a.7.7 0 0 0 .7-.7v-8a.7.7 0 0 0-.7-.7h-11Zm2.1 2.45h6.8a.9.9 0 0 1 0 1.8H8.6a.9.9 0 1 1 0-1.8Zm0 3.2h4.2a.9.9 0 1 1 0 1.8H8.6a.9.9 0 1 1 0-1.8Z" fill="currentColor"></path></svg></span>
+<span class="control-label" data-ar="العرض التنفيذي" data-en="Executive Pitch">Executive Pitch</span>
+</button>
+<button aria-pressed="false" class="nav-action lang-action" id="langBtn" type="button">AR</button>
+<button aria-pressed="false" class="nav-action masdar-action" id="masdarBtn" type="button">
+<span aria-hidden="true" class="masdar-icon"><svg aria-hidden="true" focusable="false" viewbox="0 0 64 64"><path d="M32 6c9 8 15 17 15 28 0 13-8 23-15 24-7-1-15-11-15-24C17 23 23 14 32 6Z" fill="none" stroke="currentColor" stroke-width="4"></path><path d="M32 18v34M23 34h18M26 25h12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="4"></path></svg></span>
+<span class="control-label" data-ar="عدسة مصدر" data-en="Masdar Lens">Masdar Lens</span>
+<span aria-hidden="true" class="masdar-switch"><span></span></span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="container" id="main">
+<section aria-labelledby="heroTitle" class="hero" id="top">
+<div class="hero-card">
+<div class="eyebrow" data-ar="من الدار البيضاء · موجّه للإمارات · Centennial 2071 · إنجليزية الأعمال · احترام السيادة اللغوية العربية">Casablanca-born · UAE-facing · Centennial 2071 · Business-English native UX · Arabic sovereignty respect</div>
+<h1 id="heroTitle"><span data-ar="من البيانات الحضرية إلى المراكز المعرفية:">From Urban Data to Cognitive Hubs:</span> <span class="gradient" data-ar="محرك ذكاء اصطناعي قابل للتدقيق لدولة الإمارات.">An Auditable AI Engine for the UAE.</span></h1>
+<p class="lead" data-ar="تعيد هذه المحفظة توجيه عملي البحثي من إطار سعودي إلى إطار إماراتي: من صمود الغواصين على اللؤلؤ وتجار الصحراء إلى طموح مسبار الأمل، والذكاء الاصطناعي الحكومي، والمدن الحيادية الكربون. الهدف هو عرضي كمعماري قرارات ذكاء اصطناعي قادر على تحويل بيانات المرور، والتحليل المكاني، ونمذجة CAPEX/OPEX، وXGBoost، وMCDA إلى نظام مراجعة مؤسسي للمدن الذكية في دبي وأبوظبي ومصدر.">This portfolio reframes my smart-city research for the United Arab Emirates: from the resilience of pearl divers and Bedouin traders to the Hope Probe, government AI leadership, and carbon-neutral urban systems. It positions me as an AI Decision Architect able to translate traffic data, spatial analytics, CAPEX/OPEX modelling, XGBoost, and MCDA into an institutional review engine for Dubai, Abu Dhabi, and Masdar-aligned urban ecosystems.</p>
+<div class="small-note" data-ar="تستعير اللغة البصرية ملمساً فاخراً وهادئاً من تجربة مطارات الإمارات ومن الصفاء المنحوت في متحف اللوفر أبوظبي، مع انحناءات خفيفة تستلهم متحف المستقبل في دبي. النتيجة واجهة زجاجية نظيفة تحافظ على الرصانة المؤسسية.">Visual language: premium, calm, and precise—borrowing tactile cues from Emirates-style terminal experience and the luminous restraint of Louvre Abu Dhabi, with ultra-light curvature inspired by Dubai's Museum of the Future. The result is a clean frosted-glass interface that feels institutional, luxurious, and technically serious.</div>
+<div class="badge-row">
+<span class="badge supported" data-ar="🛡️ متوافق مع مرسوم القانون الاتحادي رقم 45 بشأن حماية البيانات الشخصية PDPL">🛡️ Federal Decree-Law No. 45 (PDPL) Compliant</span>
+<span class="badge supported" data-ar="⚖️ منسجم مع مبادئ أخلاقيات الذكاء الاصطناعي في الإمارات: العدالة والمساءلة والشفافية">⚖️ UAE AI Ethics Guidelines Aligned</span>
+<span class="badge supported" data-ar="🌿 جاهز لمنطق مصدر: الحياد الكربوني، التنقل المستدام، والمدينة منخفضة الطاقة">🌿 Masdar-Ready Sustainability</span>
+<span class="badge supported" data-ar="🚀 Centennial 2071: حكومة مستقبلية، اقتصاد متنوع، وقوة معرفية ناعمة">🚀 Centennial 2071: Future Government + Diversified Economy</span>
+<span class="badge supported masdar-lens-badge" hidden="" id="masdarLensBadge">🌿 Masdar Lens active: net-zero, renewable-energy, and low-carbon mobility assets are foregrounded.</span>
+</div>
+<div class="cta-row">
+<button class="cta primary" data-ar="▶ تشغيل العرض التنفيذي — دقيقتان" id="pitchBtn2" type="button">▶ Launch Executive Pitch (2 Min)</button>
+<a class="cta" data-ar="🧭 ابدأ بالأساس الثقافي الإماراتي" href="#heritage">🧭 Start with the UAE heritage layer</a>
+<a class="cta" data-ar="🔒 افتح خزنة الأمانة للأدلة" href="#vault">🔒 Open the Amanah Evidence Vault</a>
+</div>
+</div>
+<aside aria-label="Key portfolio evidence metrics" class="hero-side">
+<article class="metric" id="metric1"><b class="ltr" id="metric1Value">1.87M MAD</b><span data-ar="صافي قيمة حالية متوقعة في سيناريو DOOH بالدار البيضاء؛ دليل على قابلية تحويل البيانات الحضرية إلى منطق مالي للمشروعات الذكية." id="metric1Text">Projected NPV in the Casablanca DOOH scenario; proof that urban data can be converted into financial decision logic.</span><small class="metric-note" hidden="" id="metric1Note"></small></article>
+<article class="metric" id="metric2"><b class="ltr" id="metric2Value">45.8%</b><span data-ar="تحسن MAE لنموذج XGBoost مقارنة بخط أساس Ridge؛ دليل على الانضباط التنبئي قبل أي نقل إلى السوق الإماراتي." id="metric2Text">MAE reduction of XGBoost versus Ridge; predictive discipline before any UAE market transfer.</span><small class="metric-note" hidden="" id="metric2Note"></small></article>
+<article class="metric" id="metric3"><b class="ltr" id="metric3Value">25</b><span data-ar="مشروعات مدن ذكية مرتبة عبر MCDA/AROMAN حسب العائد، الكربون، المخاطر، والتبعية المؤسسية." id="metric3Text">Smart-city projects ranked through MCDA/AROMAN across return, carbon, risk, and institutional readiness.</span><small class="metric-note" hidden="" id="metric3Note"></small></article>
+<article class="metric" id="metric4"><b class="ltr" id="metric4Value">16-Month</b><span data-ar="مسار MVP قابل للعرض على جهات حكومية أو مستثمرين في الإمارات: اكتشاف، تحقق، لوحة قرار، ثم تقرير جاهزية تجريبي." id="metric4Text">MVP path for UAE government or VC review: discovery, validation, dashboard, then pilot-readiness report.</span><small class="metric-note" hidden="" id="metric4Note"></small></article>
+</aside>
+</section>
+<section aria-labelledby="heritageTitle" class="page-section" id="heritage">
+<div class="section-head"><div><div class="kicker" data-ar="01 — طبقة التراث">01 — The Heritage Layer</div><h2 data-ar="الأساس الثقافي: من اللؤلؤ والبارجيل والتجارة إلى المدن المعرفية." id="heritageTitle">The Cultural Foundation: from pearl diving, Barjeel, and trade to cognitive cities.</h2></div><p class="section-note" data-ar="النسخة الإماراتية لا تبدأ بناطحات السحاب؛ تبدأ بالذاكرة المناخية والاجتماعية التي سبقت المدينة الذكية: البارجيل كنموذج مبكر للتبريد السلبي، اقتصاد اللؤلؤ كمدرسة للمخاطر، والتجارة الخليجية كمنطق للشبكات واللوجستيك.">The UAE version does not start with skyscrapers. It starts with the climate and social intelligence that came before the smart city: the Barjeel as early passive cooling, pearl diving as risk discipline, and Gulf trade as networked logistics.</p></div>
+<div class="grid-3">
+<article class="panel"><h3 data-ar="البارجيل كمنطق تصميم">Barjeel as Design Logic</h3><p data-ar="أتعامل مع أبراج الرياح التقليدية كإشارة منهجية: الحل الحضري الجيد يخفض الطاقة قبل أن يضيف التكنولوجيا. لذلك تقيس نماذجي العائد والكربون والمرونة معاً.">I treat traditional wind towers as a methodological signal: good urban design reduces energy demand before adding technology. My models therefore read return, carbon, and resilience together.</p></article>
+<article class="panel"><h3 data-ar="اللؤلؤ والتجارة كإدارة مخاطر">Pearling and Trade as Risk Management</h3><p data-ar="الغوص على اللؤلؤ والتجارة البدوية والخليجية يقدمان سردية عمل: قرار تحت عدم اليقين، موارد محدودة، ثقة، توقيت، وسمعة. هذه هي نفس أسئلة الاستثمار الحضري الحديث.">Pearling and desert/Gulf trading create a working narrative: decisions under uncertainty, scarce resources, trust, timing, and reputation. These are the same questions inside modern urban investment.</p></article>
+<article class="panel"><h3 data-ar="التنوع والتسامح">Cosmopolitan Inclusion</h3><p data-ar="لأن المجتمع الإماراتي كوزموبوليتاني وتغلب فيه الجاليات الوافدة بينما يشكل المواطنون نحو 10–12٪ فقط، يجب أن تبدأ الواجهة بالإنجليزية كلغة الأعمال العالمية، مع RTL عربي ممتاز يثبت احترام السيادة والثقافة والقرار المحلي. لذلك تقيس أدواتي العدالة في الوصول، اللغة، الحركة، والقبول الاجتماعي—not only profitability.">Because the UAE is a cosmopolitan hub where expatriates dominate and Emiratis represent only around 10–12% of the population, the interface should default to business-grade English while offering excellent Arabic RTL as a visible sign of respect for sovereignty, culture, and local decision authority. My tools therefore evaluate access, language, mobility, and social acceptance—not only profitability.</p></article>
+</div>
+<div class="bridge-banner"><span class="bridge-badge" data-ar="بيت العائلة الإبراهيمية · تسامح · قابلية استخدام اجتماعية">Abrahamic Family House · Tolerance · Social Usability</span><p data-ar="تُترجم روح التعايش إلى معيار UX وتحليلي: هل يخدم النظام سكاناً متعددين؟ هل يشرح قراره؟ هل يحافظ على الخصوصية؟ وهل يمكن لمراجع حكومي أو مستثمر أن يثق في بياناته؟ وفي اللغة البصرية تُذكرنا الفروسية بالصقارة وسباقات الهجن وشعر النبطي بأن الحداثة الإماراتية لا تلغي الموروث، بل تنظمه داخل تجربة رقمية رصينة ومحترمة.">The spirit of coexistence becomes a UX and analytics requirement: does the system serve diverse populations, explain its decisions, protect privacy, and allow a public reviewer or investor to trust the data trail? The visual tone also respects Emirati sovereignty through subtle cues to falconry, camel racing, and Nabati poetic heritage—showing that hyper-modernity does not erase the cultural substrate.</p></div>
+</section>
+<section aria-labelledby="humanTitle" class="page-section" id="human">
+<div class="section-head"><div><div class="kicker" data-ar="02 — بناء القدرات">02 — Capability Development</div><h2 data-ar="خط قدرات نحو معماري قرارات للذكاء الحضري في الإمارات." id="humanTitle">A capability pipeline toward UAE urban-intelligence decision architecture.</h2></div><p class="section-note" data-ar="توضح هذه الطبقة كيف يتحول مساري من المالية والإدارة وسلاسل الإمداد إلى نمذجة قرارات قابلة للمراجعة في بيئة إماراتية تتطلب الدقة والحوكمة واللغة الثنائية.">This layer shows how my path moves from finance, management, and supply chain into auditable decision modelling for a UAE environment that requires precision, governance, and bilingual review.</p></div>
+<div class="arch-board">
+<div class="timeline">
+<article class="tl-item" data-step="1"><b data-ar="2022–2025 · الأساس المالي">2022–2025 · Financial Foundation</b><span data-ar="إدارة، مالية، محاسبة، تحليل مخاطر، وربط الأداء بالتكلفة والعائد.">Management, finance, accounting, risk analysis, and cost-return reasoning.</span></article>
+<article class="tl-item" data-step="2"><b data-ar="2024–2026 · الواقع المهني">2024–2026 · Market Reality</b><span data-ar="تجارب في التحصيل، التقارير، تقسيم المحافظ، وتقييم الاستثمارات الإعلانية.">Debt recovery, reporting, portfolio segmentation, and advertising-investment appraisal.</span></article>
+<article class="tl-item" data-step="3"><b data-ar="2025 · قفزة الذكاء الحضري">2025 · Urban Intelligence Leap</b><span data-ar="مشروع الدار البيضاء: SUMO/GIS، حركة المرور، CAPEX/OPEX، ROI، وتقييم المواقع.">Casablanca project: SUMO/GIS, traffic, CAPEX/OPEX, ROI, and location scoring.</span></article>
+<article class="tl-item" data-step="4"><b data-ar="2025–2027 · التوسع المنهجي">2025–2027 · Systemic Scale</b><span data-ar="إدارة المشتريات وسلاسل الإمداد، التحليل الكمي، ومنطق الأداء الدولي.">Procurement and supply chain, quantitative analysis, and international performance logic.</span></article>
+</div>
+<div class="dashboard">
+<article class="skill" data-highlight="1"><b>Finance</b><p data-ar="تحويل المؤشرات الحضرية إلى NPV، TCO، ROI، CAPEX، وOPEX.">Converting urban signals into NPV, TCO, ROI, CAPEX, and OPEX.</p></article>
+<article class="skill" data-highlight="2"><b>Operations</b><p data-ar="قراءة التدفقات، نقاط الاختناق، وسلاسل القرار في البنية التحتية.">Reading flows, bottlenecks, and decision chains in infrastructure.</p></article>
+<article class="skill" data-highlight="3"><b>AI/MCDA</b><p data-ar="XGBoost، AROMAN، TOPSIS، COPRAS، وتحليل الحساسية.">XGBoost, AROMAN, TOPSIS, COPRAS, and sensitivity analysis.</p></article>
+<article class="skill" data-highlight="4"><b>Governance</b><p data-ar="PDPL، أخلاقيات الذكاء الاصطناعي، وقابلية التدقيق للمراجعين.">PDPL, AI ethics, and reviewer-ready auditability.</p></article>
+</div>
+</div>
+</section>
+<section aria-labelledby="pfeTitle" class="page-section" id="pfe">
+<div class="section-head"><div><div class="kicker" data-ar="03 — الذكاء الحضري">03 — Urban Intelligence</div><h2 data-ar="من دليل الدار البيضاء إلى قابلية النقل نحو دبي وأبوظبي." id="pfeTitle">From Casablanca evidence to Dubai and Abu Dhabi transferability.</h2></div><p class="section-note" data-ar="لا أدّعي نشر نموذج عامل داخل الإمارات. أستخدم مشروعي التطبيقي كدليل منهجي قابل للنقل: حركة المرور، القيمة المالية، القيود التنظيمية، وسيناريوهات الاستثمار الحضري.">I do not claim a deployed UAE model. I use my applied project as transferable proof: traffic, financial value, regulatory constraints, and urban investment scenarios.</p></div>
+<div class="map-shell">
+<div aria-label="Smart city asset comparison map" class="smart-map mode-ooh" id="smartMap">
+<div class="map-road r1"></div><div class="map-road r2"></div><div class="map-road r3"></div><div class="map-road r4"></div>
+<div class="node n1"></div><div class="node n2"></div><div class="node n3"></div><div class="node n4"></div><div class="node n5"></div><div class="node n6"></div>
+<div class="map-label" id="mapLabel">Traditional Asset Mode · Lower CAPEX, static exposure, accelerated break-even.</div>
+</div>
+<div class="panel">
+<div class="switch-row"><button class="active" data-mode="ooh" type="button">Traditional</button><button data-mode="dooh" type="button">Future-Ready</button><button data-mode="hybrid" type="button">Hybrid</button></div>
+<h3 data-ar="لوحة مقارنة الأصول الذكية">Smart City Asset Dashboard</h3>
+<p data-ar="الوضع التقليدي يركز على CAPEX منخفض وتعقيد تقني محدود. في السياق الإماراتي، يصبح هذا خط أساس للمقارنة مع أصول رقمية ذات عائد أعلى ولكن حوكمة أكثر صرامة." id="modeText">Traditional assets emphasize low CAPEX and limited technical complexity. In the UAE context, this becomes the baseline against future-ready digital assets with higher yield and stronger governance requirements.</p>
+<div class="small-note" data-ar="الهدف ليس نسخ الدار البيضاء إلى الإمارات، بل تحويل المنهج إلى أداة معايرة: ما الذي يتغير عندما تكون البيانات أعمق، والحوكمة أشد، والطموح الكربوني أعلى؟">The objective is not to copy Casablanca into the UAE; it is to transfer the method into a calibration tool: what changes when data depth, governance standards, and carbon ambition are higher?</div>
+</div>
+</div>
+<div aria-label="Leaflet SUMO traffic simulation dashboard" class="egs-sumo-shell panel" id="sumo-dashboard">
+<div class="ph"><b>Leaflet/SUMO Transfer Lab</b><span class="ph-en">The Casablanca traffic simulation engine is preserved as the empirical method layer.</span></div>
+<div class="pb">
+<div class="egs-sumo-toolbar"><button class="egs-mode-btn active" data-egs-mode="heatmap">Heatmap</button><button class="egs-mode-btn" data-egs-mode="simulation">Simulation</button><button class="egs-zone-btn active" data-egs-zone="maarif">Maârif</button><button class="egs-zone-btn" data-egs-zone="hay_hassani">Hay Hassani</button><button class="egs-zone-btn" data-egs-zone="ben_msick">Ben M'Sick</button><button class="egs-zone-btn" data-egs-zone="sidi_maarouf">Sidi Maârouf</button><button class="egs-zone-btn" data-egs-zone="bd_mohammed_v">Bd. Mohammed V</button></div>
+<div class="egs-sumo-grid"><div class="egs-map-wrap"><div id="egsSumoMap"></div><canvas id="egsTrafficCanvas"></canvas><div class="egs-map-badge"><strong id="egsStatusTitle">SUMO/GIS Evidence Layer</strong><span id="egsStatusText">Load a zone to inspect heatmap or vehicle simulation.</span></div><div class="egs-legend"><span><i class="egs-dot red"></i>Slow</span><span><i class="egs-dot yellow"></i>Medium</span><span><i class="egs-dot green"></i>Fast</span></div></div><aside class="egs-side"><div class="egs-kpis"><div class="egs-kpi"><div class="egs-kpi-label">POINTS</div><div class="egs-kpi-val" id="egsKpiMain">—</div></div><div class="egs-kpi"><div class="egs-kpi-label">VEHICLES</div><div class="egs-kpi-val" id="egsKpiVehicles">—</div></div><div class="egs-kpi"><div class="egs-kpi-label">AVG SPEED</div><div class="egs-kpi-val" id="egsKpiSpeed">—</div></div><div class="egs-kpi"><div class="egs-kpi-label">MODE</div><div class="egs-kpi-val" id="egsKpiMode">—</div></div></div><div class="egs-controls"><div class="egs-control-row"><label>Heat radius</label><input id="egsRadiusRange" max="35" min="5" type="range" value="18"/></div><div class="egs-control-row"><label>Heat blur</label><input id="egsBlurRange" max="35" min="5" type="range" value="20"/></div><div class="egs-control-row"><label>Intensity</label><input id="egsIntensityRange" max="10" min="1" type="range" value="5"/></div><div class="egs-control-row"><label>Vehicle speed</label><input id="egsSpeedRange" max="10" min="1" type="range" value="6"/></div><div class="egs-control-row"><label>Vehicle size</label><input id="egsVehicleSizeRange" max="12" min="2" type="range" value="6"/></div><div class="egs-control-buttons"><button class="egs-control-btn" id="egsResetHeatmapBtn">Reset Heat</button><button class="egs-control-btn" id="egsResetSimulationBtn">Fit Sim</button><button class="egs-control-btn" id="egsPlayBtn">Play</button><button class="egs-control-btn" id="egsPauseBtn">Pause</button><button class="egs-control-btn" id="egsRestartBtn">Restart</button></div></div><p class="egs-note" id="egsAnalysisText">This dashboard preserves the SUMO/GIS method layer from the original portfolio.</p></aside></div>
+</div>
+</div>
+</section>
+<section aria-labelledby="engineTitle" class="page-section" id="engine">
+<div class="section-head"><div><div class="kicker" data-ar="04 — طبقة التقنية">04 — The Tech Layer</div><h2 data-ar="المحرك الخوارزمي: XGBoost وAROMAN وMCDA لخدمة استراتيجية الإمارات للذكاء الاصطناعي 2031." id="engineTitle">The Algorithmic Engine: XGBoost, AROMAN, and MCDA for the UAE AI Strategy 2031.</h2></div><p class="section-note" data-ar="هذه الطبقة تعرض الذكاء الاصطناعي كأداة قرار قابلة للتدقيق، لا كزينة تقنية. كل ترتيب يجب أن يشرح المدخلات، الأوزان، الحساسية، والحدود.">This layer treats AI as an auditable decision system, not technical decoration. Every ranking must expose inputs, weights, sensitivity, and limits.</p></div>
+<div class="engine">
+<article class="layer"><b data-ar="البيانات">Data</b><p data-ar="حركة المرور، GIS، التكلفة، الانبعاثات، الطلب، والقيود التنظيمية.">Traffic, GIS, cost, emissions, demand, and regulatory constraints.</p></article>
+<article class="layer"><b>XGBoost</b><p data-ar="طبقة التنبؤ بالطلب والأداء قبل تقييم الاستثمار.">Demand and performance forecasting before investment appraisal.</p></article>
+<article class="layer"><b>MCDA / AROMAN</b><p data-ar="ترتيب متعدد المعايير يقارن NPV، المخاطر، الكربون، والجاهزية المؤسسية.">Multi-criteria ranking across NPV, risk, carbon, and institutional readiness.</p></article>
+<article class="layer"><b data-ar="الحوكمة">Governance</b><p data-ar="PDPL، العدالة، المساءلة، الشفافية، وحدود TRIPOD+AI.">PDPL, fairness, accountability, transparency, and TRIPOD+AI boundaries.</p></article>
+</div>
+<div class="masdar-why" hidden="" id="masdarWhyBox"><h3 id="masdarWhyTitle">Why this mode exists</h3><p id="masdarWhyText">Masdar Lens turns the model into a net-zero and renewable-energy reading mode.</p><div class="masdar-points"><div class="masdar-point"><b id="masdarPoint1Title">Carbon indicators</b><span id="masdarPoint1Text">Carbon-sensitive assets become more visible.</span></div><div class="masdar-point"><b id="masdarPoint2Title">Renewable systems</b><span id="masdarPoint2Text">Solar, district cooling, EV, and clean mobility receive analytic emphasis.</span></div><div class="masdar-point"><b id="masdarPoint3Title">Net Zero 2050</b><span id="masdarPoint3Text">The interface signals when the model is read through UAE decarbonization priorities.</span></div><div class="masdar-point"><b id="masdarPoint4Title">Audit value</b><span id="masdarPoint4Text">The policy lens changes weights without hiding baseline evidence.</span></div></div><div class="masdar-inline-note" id="masdarCceNote">This mode adds carbon resilience and mitigation value to the investment logic.</div></div>
+<div class="lab" id="stressLab"><h3 data-ar="مختبر القوة والتقرير">Robustness &amp; Reporting Lab</h3><p data-ar="هذه اللوحة المصغرة تثبت شفافية النموذج: يتغير الترتيب عندما تتغير المفاضلات أو سيناريو سعر الكربون." id="stressLabDesc">This mini-dashboard demonstrates model transparency: rankings shift when normative trade-offs or carbon-price scenarios change.</p><div class="control-grid"><div class="control"><label><span data-ar="المعامل المعياري λ">Normative λ</span><output id="lambdaOut">0.5 · Balanced</output></label><input id="lambdaRange" max="0.7" min="0.3" step="0.1" type="range" value="0.5"/><small data-ar="0.3 = تقليل التكلفة · 0.7 = تعظيم المنفعة">0.3 = Cost-minimization · 0.7 = Benefit-maximization</small></div><div class="control"><label><span data-ar="سعر الكربون">Carbon price</span><output id="carbonOut">€30 · Moderate</output></label><input id="carbonRange" max="3" min="0" step="1" type="range" value="1"/><small>€0 Baseline · €30 Moderate · €85 Below 2°C · €150 Net Zero</small></div></div><div class="rank-list" id="rankList"></div><div class="insight" id="labInsight">Transparency alert: rankings are normative and require stakeholder calibration.</div></div>
+<div class="grid-3" style="margin-top:16px"><article class="check"><input checked="" disabled="" type="checkbox"/><div><b data-ar="العدالة">Fairness</b><span data-ar="اختبار عدم إقصاء السكان المتنوعين أو المناطق ذات البيانات الأقل.">Avoid excluding diverse users or lower-data districts.</span></div><span class="state">Active</span></article><article class="check"><input checked="" disabled="" type="checkbox"/><div><b data-ar="المساءلة">Accountability</b><span data-ar="كل ترتيب يحتاج مالك قرار، فرضية، وسجل تغيير.">Every ranking requires owner, assumption, and change log.</span></div><span class="state">Active</span></article><article class="check"><input checked="" disabled="" type="checkbox"/><div><b data-ar="الشفافية">Transparency</b><span data-ar="عرض المدخلات والأوزان والحساسية والقيود قبل التوصية.">Expose inputs, weights, sensitivity, and limits before recommendation.</span></div><span class="state">Active</span></article></div>
+</section>
+<section aria-labelledby="visionTitle" class="page-section" id="vision">
+<div class="section-head"><div><div class="kicker" data-ar="05 — ملاءمة السوق الإماراتي">05 — UAE Market Fit</div><h2 data-ar="مقترح جاهزية ريادية باستخدام GIFT: من الفجوة إلى تجربة تجريبية قابلة للمراجعة." id="visionTitle">Venture-Readiness Proposal using GIFT: from gap to reviewable pilot.</h2></div><p class="section-note" data-ar="يتموضع المشروع كأداة دعم قرار لتحويل دبي وأبوظبي ومصدر إلى أنظمة حضرية مدعومة بالذكاء الاصطناعي ومنخفضة الكربون، مع احترام التنويع الاقتصادي واللوجستيك العالمي في جبل علي.">The proposal positions my research as a decision-support toolkit for AI-driven, low-carbon urban systems in Dubai, Abu Dhabi, and Masdar, while supporting economic diversification and the Jebel Ali logistics hub logic.</p></div>
+<div class="gift-grid"><article class="gift-card"><span class="gift-letter">G</span><h3>Gap</h3><p data-ar="قرارات البنية التحتية الذكية قد تفشل عندما تنفصل التوقعات التقنية عن الخصوصية، الكربون، والجدوى الاستثمارية.">Smart-infrastructure decisions fail when technical forecasts are disconnected from privacy, carbon, and investment feasibility.</p></article><article class="gift-card"><span class="gift-letter">I</span><h3>Idea</h3><p data-ar="محرك AI-MCDA يحول بيانات المدينة إلى توصيات Go / Revise / Stop قابلة للتدقيق.">An AI-MCDA engine that converts city data into auditable Go / Revise / Stop recommendations.</p></article><article class="gift-card"><span class="gift-letter">F</span><h3>Feasibility</h3><p data-ar="قاعدة إثبات: مشروع PFE، SUMO/GIS، XGBoost، AROMAN، ونمذجة مالية.">Evidence base: PFE, SUMO/GIS, XGBoost, AROMAN, and financial modelling.</p></article><article class="gift-card"><span class="gift-letter">T</span><h3>Timeline</h3><p data-ar="مسار 16 شهراً: اكتشاف، MVP، تحقق، لوحة قرار، وتقرير جاهزية تجريبي.">16-month path: discovery, MVP, validation, decision dashboard, and pilot-readiness report.</p></article></div>
+<div class="gantt"><div class="g-row"><div class="g-label">0–3 months<span>UAE problem framing + PDPL mapping</span></div><div class="g-track"><div class="g-bar" style="left:0;width:22%"></div></div></div><div class="g-row"><div class="g-label">4–7 months<span>MVP dashboard + synthetic UAE scenarios</span></div><div class="g-track"><div class="g-bar" style="left:20%;width:30%"></div></div></div><div class="g-row"><div class="g-label">8–12 months<span>Robustness, ethics, and reviewer testing</span></div><div class="g-track"><div class="g-bar" style="left:45%;width:34%"></div></div></div><div class="g-row"><div class="g-label">13–16 months<span>VC/government review pack</span></div><div class="g-track"><div class="g-bar" style="left:75%;width:23%"></div></div></div></div>
+</section>
+<section aria-labelledby="daourTitle" class="page-section" id="daour">
+<div class="daour-shell"><div class="daour-top"><div><div class="kicker" data-ar="06 — رحلة من الصحراء إلى الفضاء">06 — Desert-to-Space Method</div><h2 data-ar="دورة بحثية: من التجارة واللؤلؤ إلى مسبار الأمل وأنظمة القرار المعرفية." id="daourTitle">A research cycle: from trade and pearling to the Hope Probe and cognitive decision systems.</h2></div><p class="daour-note" data-ar="هذه ليست زخرفة ثقافية؛ إنها طريقة تنظيم: نبدأ بالثقة والموارد، نختبر البيانات، نراجع المخاطر، ثم نعود بمخرج قابل للاستخدام.">This is not decorative culture. It is an organizing method: start with trust and resources, test data, audit risk, and return with a usable output.</p></div><div class="daour-cycle-wrap"><article class="daour-stop ds-1" data-stop="0"><span class="mini-tag">1</span><h3>Intention</h3><p>Define the UAE decision owner and public-value objective.</p><span class="meta">Month 1</span></article><article class="daour-stop ds-2" data-stop="1"><span class="mini-tag">2</span><h3>Cartography</h3><p>Map mobility, carbon, privacy, and investment constraints.</p><span class="meta">Month 2–3</span></article><article class="daour-stop ds-3" data-stop="2"><span class="mini-tag">3</span><h3>Data Trust</h3><p>Build PDPL-aware data structures and evidence trails.</p><span class="meta">Month 4–5</span></article><div class="daour-hub-cell"><div class="daour-hub"><svg aria-hidden="true" class="daour-hub-svg" viewbox="0 0 220 220"><circle cx="110" cy="110" fill="none" r="96" stroke="rgba(0,166,180,.20)" stroke-width="14"></circle><g id="daourSpokeGroup"></g><g id="daourDots"></g></svg><div class="daour-hub-inner"><b>UAE AI Decision Cycle</b><span>Trust → Data → Model → Review → Pilot</span></div></div></div><article class="daour-stop ds-4" data-stop="3"><span class="mini-tag">4</span><h3>Model</h3><p>Run XGBoost, MCDA, and scenario stress tests.</p><span class="meta">Month 6–8</span></article><article class="daour-stop ds-5" data-stop="4"><span class="mini-tag">5</span><h3>Review</h3><p>Test fairness, accountability, transparency, and reporting boundaries.</p><span class="meta">Month 9–10</span></article><article class="daour-stop ds-6" data-stop="5"><span class="mini-tag">6</span><h3>Pilot Pack</h3><p>Convert the model into government/VC review material.</p><span class="meta">Month 11–14</span></article><article class="daour-stop ds-7" data-stop="6"><span class="mini-tag">7</span><h3>Return</h3><p>Deliver a decision dashboard, evidence vault, and venture narrative.</p><span class="meta">Month 15–16</span></article></div></div>
+</section>
+<section aria-labelledby="vaultTitle" class="page-section" id="vault">
+<div class="section-head"><div><div class="kicker" data-ar="07 — خزنة الأمانة">07 — The Amanah Evidence Vault</div><h2 data-ar="مركز تحميل آمن مبني على الأمانة وسلامة البيانات." id="vaultTitle">A secure download center built around Amanah and data integrity.</h2></div><p class="section-note" data-ar="تعرض الخزنة الملفات كأدلة قابلة للمراجعة، مع فصل واضح بين العمل المنجز، النماذج التجريبية، والمقترحات المستقبلية للسوق الإماراتي.">The vault presents files as reviewable evidence, clearly separating completed work, prototypes, and UAE-facing proposals.</p></div>
+<div class="docs-grid"><article class="doc-card"><div><h3>CV &amp; Capability Matrix</h3><span class="badge supported">Profile</span><p class="meta">UAE-facing profile for AI decision architecture, supply chain analytics, finance, and urban intelligence.</p></div><div class="doc-actions"><a class="primary file-ref" download="" href="./CV_El_Ghali_Sany_UAE_AI_Decision_Architect.pdf" rel="noopener" target="_blank">↓ Download CV</a></div></article><article class="doc-card"><div><h3>Empirical Urban Profitability Model</h3><span class="badge supported">PFE Evidence</span><p class="meta">Casablanca OOH/DOOH profitability study using SUMO, GIS, ROI, CAPEX/OPEX, and location scoring.</p></div><div class="doc-actions"><a class="primary file-ref" download="" href="./el_ghali_sany_pfe_casablanca_dooh_profitability.pdf" rel="noopener" target="_blank">↓ Download PFE</a></div></article><article class="doc-card"><div><h3>AI-MCDA Investment Engine</h3><span class="badge supported">Method Paper</span><p class="meta">XGBoost + AROMAN / MCDA smart-city investment ranking with robustness and reporting boundaries.</p></div><div class="doc-actions"><a class="primary file-ref" download="" href="./AI-MCDM_Investment_Scoring_for_Smart_Cities.pdf" rel="noopener" target="_blank">↓ Download Paper</a><button id="copyCitation" type="button">Copy APA</button></div></article><article class="doc-card"><div><h3>UAE Venture Proposal</h3><span class="badge supported">GIFT Pitch</span><p class="meta">Go / Revise / Stop toolkit for low-carbon smart-city pilots in Dubai, Abu Dhabi, and Masdar contexts.</p></div><div class="doc-actions"><a class="primary file-ref" download="" href="./UAE_AI_Mobility_Venture_Readiness_Toolkit.pdf" rel="noopener" target="_blank">↓ Download Proposal</a></div></article><article class="doc-card"><div><h3>Evidence &amp; Source Register</h3><span class="badge supported">Governance</span><p class="meta">Source register for PDPL, AI Strategy 2031, Centennial 2071, Masdar, MBZUAI, and Jebel Ali references.</p></div><div class="doc-actions"><button class="primary" id="modalVault" type="button">Open Pitch</button></div></article></div>
+</section>
+<section aria-labelledby="realityTitle" class="page-section" id="reality">
+<div class="section-head"><div><div class="kicker" data-ar="08 — النطاق والأدلة">08 — Scope &amp; Evidence</div><h2 data-ar="الطموح الإماراتي يُعرض كفرصة تطبيق، وليس كنجاح مُدّعى." id="realityTitle">UAE ambition is treated as an application opportunity, not as a claimed deployment.</h2></div><p class="section-note" data-ar="يمنع هذا القسم المبالغة: أفرق بين أدلتي المنجزة، الإطار الإماراتي الرسمي، والنموذج المقترح الذي يحتاج بيانات وشركاء ومراجعة قانونية.">This section prevents overclaiming: it separates completed evidence, official UAE frameworks, and the proposed model that still requires data access, partners, and legal review.</p></div>
+<div class="grid-4"><article class="panel"><h3>Completed</h3><p>PFE, SUMO/GIS, financial modelling, XGBoost/MCDA methodology, and this portfolio interface.</p></article><article class="panel"><h3>Official UAE Context</h3><p>Centennial 2071, AI Strategy 2031, PDPL, Masdar City, MBZUAI, and logistics diversification.</p></article><article class="panel"><h3>Research Extension</h3><p>UAE smart-city pilot-readiness dashboard and VC/government review workflow.</p></article><article class="panel"><h3>Required Before Deployment</h3><p>Formal UAE datasets, stakeholder calibration, PDPL/legal validation, and institutional sponsorship.</p></article></div>
+</section>
+<section aria-labelledby="accessTitle" class="page-section" id="accessibility">
+<div class="section-head"><div><div class="kicker" data-ar="الإتاحة واللغة">Accessibility &amp; Localization</div><h2 data-ar="دعم عربي RTL انتقائي بدون كسر الخرائط أو الأرقام." id="accessTitle">Selective Arabic RTL without breaking maps, charts, or numbers.</h2></div><p class="section-note" data-ar="يستخدم التصميم خط Cairo / Noto Arabic عند التبديل إلى العربية. تظل الإنجليزية الطبقة الافتراضية للأعمال في سوق إماراتي كوزموبوليتاني، بينما يفعّل العربية نظام انعكاس RTL انتقائي: تنعكس القراءة، لكن الخرائط والأرقام والأكواد واللوحات تبقى LTR عند الحاجة.">The design uses Cairo / Noto Arabic when Arabic is enabled. English remains the default business-language layer for a cosmopolitan UAE audience, while Arabic activates a selective RTL mirroring system: reading flow mirrors, but maps, numbers, code, and dashboards stay LTR where needed.</p></div>
+<div class="accessibility-grid"><article class="access-card"><h3>Business-English First</h3><p>English remains the universal interface for expatriate-heavy investor, VC, and public-private audiences in the UAE.</p></article><article class="access-card"><h3>Arabic Sovereignty Mode</h3><p>Modern Standard Arabic activates polished RTL menus, labels, and reading flow to signal respect for Emirati authority and culture.</p></article><article class="access-card"><h3>Selective RTL Mirroring</h3><p>Navigation, typography, and narrative content mirror; universal maps, metrics, and charts remain structurally intact.</p></article><article class="access-card"><h3>Cultural Subtlety</h3><p>Bedouin memory, falconry, camel-racing, and Nabati-poetry cues stay discreet—present enough to matter, never decorative noise.</p></article></div>
+</section>
+<section aria-labelledby="sourcesTitle" class="page-section" id="sources">
+<div class="section-head"><div><div class="kicker">Sources &amp; Evidence</div><h2 id="sourcesTitle">UAE Institutional Source Register.</h2></div><p class="section-note">Official source links used to anchor the UAE vocabulary and avoid unsupported claims.</p></div>
+<div class="source-grid"><article class="source"><b>UAE Centennial 2071</b><a href="https://uaecabinet.ae/en/prime-ministers-initiatives/uae-centennial-2071" rel="noopener" target="_blank">UAE Cabinet</a><p>Long-term national plan for future government, diversified revenue, advanced education, and soft power.</p></article><article class="source"><b>UAE AI Strategy 2031</b><a href="https://uaecabinet.ae/en/news/uae-cabinet-adopts-national-artificial-intelligence-strategy-2031" rel="noopener" target="_blank">UAE Cabinet</a><p>Official AI strategy framing AI across government, economy, and quality of life.</p></article><article class="source"><b>PDPL</b><a href="https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws" rel="noopener" target="_blank">UAE Government Portal</a><p>Federal Decree-Law No. 45 of 2021 on personal data protection.</p></article><article class="source"><b>MBZUAI</b><a href="https://mbzuai.ac.ae/about/" rel="noopener" target="_blank">MBZUAI</a><p>AI research and education institution in Abu Dhabi.</p></article><article class="source"><b>Masdar City</b><a href="https://masdarcity.ae/tech-and-innovation/sustainable-mobility" rel="noopener" target="_blank">Masdar City</a><p>Sustainable mobility, autonomous shuttles, Eco-Buses, and walkable green spaces.</p></article><article class="source"><b>Jebel Ali Port</b><a href="https://www.dpworld.com/en/ports-terminals/uae/jebel-ali-port" rel="noopener" target="_blank">DP World</a><p>Global maritime and logistics hub connecting more than 150 ports.</p></article><article class="source"><b>Abrahamic Family House</b><a href="https://www.abrahamicfamilyhouse.ae/about-us" rel="noopener" target="_blank">Abrahamic Family House</a><p>Peaceful coexistence and mutual understanding.</p></article><article class="source"><b>Founders of the Union</b><a href="https://u.ae/en/about-the-uae/founders-of-the-union" rel="noopener" target="_blank">UAE Government Portal</a><p>Historical foundation of the Union and leadership legacy.</p></article></div>
+</section>
+<section aria-labelledby="archTitle" class="page-section" id="architecture">
+<div class="section-head"><div><div class="kicker">System Architecture</div><h2 id="archTitle">Desert-to-Space Glassmorphism information architecture.</h2></div><p class="section-note">The interface now uses Pearl White, Gulf Turquoise, and Desert Gold to connect heritage, governance, AI, sustainability, and venture evidence.</p></div>
+<div class="system-pillars"><article class="pillar"><h3>🌊 Pillar 1: Heritage &amp; Inclusion</h3><ul><li>Barjeel passive cooling logic</li><li>Pearling and trade risk narrative</li><li>Cosmopolitan UAE usability</li></ul></article><article class="pillar"><h3>🛡️ Pillar 2: AI Governance</h3><ul><li>PDPL-aware data trust</li><li>Fairness, accountability, transparency</li><li>TRIPOD+AI-style reporting boundaries</li></ul></article><article class="pillar"><h3>🚀 Pillar 3: Venture Readiness</h3><ul><li>GIFT framework</li><li>Masdar-ready sustainability</li><li>VC/government evidence vault</li></ul></article></div>
+</section>
+</main>
+<footer class="footer"><div class="container footer-inner" style="padding:0"><p class="footer-review-note"><b>Review note.</b> This UAE version separates completed evidence, official UAE institutional framing, and proposed venture extensions. It does not claim deployment inside the UAE.</p><p class="review-footer-note"><b>Architecture:</b> <span>heritage first, governance second, AI engine third, venture evidence last.</span></p></div></footer>
+<div aria-labelledby="pitchTitle" aria-modal="true" class="modal" id="pitchModal" role="dialog"><div class="modal-card"><div class="modal-head"><div><div class="kicker">Executive Pitch · 2 minutes</div><h2 id="pitchTitle">GIFT Summary: Urban Data → Auditable AI → UAE Cognitive Hubs</h2></div><button class="close" id="closePitch" type="button">Close</button></div><div class="gift-grid"><article class="gift-card"><span class="gift-letter">G</span><h3>Gap</h3><p>Smart-city investment decisions need stronger links between data, privacy, carbon, and financial feasibility.</p></article><article class="gift-card"><span class="gift-letter">I</span><h3>Idea</h3><p>Build an auditable AI-MCDA engine that ranks infrastructure assets and gives Go / Revise / Stop recommendations.</p></article><article class="gift-card"><span class="gift-letter">F</span><h3>Feasibility</h3><p>The evidence base already exists: PFE, SUMO/GIS, ROI logic, XGBoost, AROMAN, and venture-readiness planning.</p></article><article class="gift-card"><span class="gift-letter">T</span><h3>Timeline</h3><p>16-month MVP path from UAE problem framing to dashboard, validation, and pilot-readiness report.</p></article></div><div class="small-note dark-note">Positioning: not a deployed UAE system; a venture-ready portfolio and decision-tool proposal for UAE smart-city stakeholders.</div></div></div>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
+<script>
+(function(){
+const EGS_ZONES = {
+ maarif: {
+ label:'Maârif', color:'#FF3355', center:[33.5866,-7.6325], zoom:14,
+ heatmapFile:'maarif_heatmap.json',
+ simulationFile:'maarif_simulation_geo.json',
+ analysis:'Maârif: central dense fabric. Heatmap highlights concentration; simulation displays vehicles from geo-corrected SUMO FCD outputs.'
+ },
+ hay_hassani: {
+ label:'Hay Hassani', color:'#FFB830', center:[33.5607,-7.6900], zoom:14,
+ heatmapFile:'hay_hassani_heatmap.json',
+ simulationFile:'hay_hassani_simulation_geo.json',
+ analysis:'Hay Hassani: peripheral flows and transition zones. Useful to detect localized slowdowns and vehicle accumulation.'
+ },
+ ben_msick: {
+ label:"Ben M'Sick", color:'#00E676', center:[33.5500,-7.5800], zoom:14,
+ heatmapFile:'ben_msick_heatmap.json',
+ simulationFile:'ben_msick_simulation_geo.json',
+ analysis:"Ben M'Sick: dense urban network. The dashboard supports reading conflict points, secondary-road intensity and speed variations."
+ },
+ sidi_maarouf: {
+ label:'Sidi Maârouf', color:'#BF5AF2', center:[33.5250,-7.6500], zoom:14,
+ heatmapFile:'sidi_maarouf_heatmap.json',
+ simulationFile:'sidi_maarouf_simulation_geo.json',
+ analysis:'Sidi Maârouf: strategic employment and arterial area. Simulation shows flows related to business poles and major roads.'
+ },
+ bd_mohammed_v: {
+ label:'Bd. Mohammed V', color:'#00B4D8', center:[33.5950,-7.6100], zoom:15,
+ heatmapFile:'bd_mohammed_v_heatmap.json',
+ simulationFile:'bd_mohammed_v_simulation_geo.json',
+ analysis:'Boulevard Mohammed V: major corridor. Heatmap and simulation identify concentration and slowdown segments.'
+ }
+};
+ let map=null, heatLayer=null, canvas=null, ctx=null;
+ let mode='heatmap', zoneKey='maarif', currentData=null, heatPoints=[], stepIndex=0;
+ let playing=true, raf=null, lastFrame=0;
+ const MAX_HEAT_POINTS=12000, MAX_VEHICLES_PER_FRAME=1600;
+
+ function $(id){ return document.getElementById(id); }
+ function setText(id,v){ const e=$(id); if(e) e.textContent=v; }
+ async function loadJson(file){ const r=await fetch(file+'?v='+Date.now()); if(!r.ok) throw new Error(file); return r.json(); }
+
+ function initMap(){
+ const z=EGS_ZONES[zoneKey];
+ map=L.map('egsSumoMap',{center:z.center,zoom:z.zoom,zoomControl:true,attributionControl:false,preferCanvas:true});
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
+ canvas=$('egsTrafficCanvas');
+ ctx=canvas.getContext('2d');
+ resizeCanvas();
+ map.on('move zoom resize',()=>{resizeCanvas(); if(mode==='simulation') drawStep();});
+ window.addEventListener('resize',()=>{resizeCanvas(); if(mode==='simulation') drawStep();});
+ }
+
+ function resizeCanvas(){
+ if(!canvas||!ctx) return;
+ const r=canvas.getBoundingClientRect(), d=window.devicePixelRatio||1;
+ canvas.width=r.width*d; canvas.height=r.height*d;
+ ctx.setTransform(d,0,0,d,0,0);
+ }
+
+ function clearCanvas(){
+ if(!ctx||!canvas) return;
+ const r=canvas.getBoundingClientRect();
+ ctx.clearRect(0,0,r.width,r.height);
+ }
+
+ function removeHeat(){
+ if(heatLayer){ map.removeLayer(heatLayer); heatLayer=null; }
+ }
+
+ function updateUI(){
+ const isHeat=mode==='heatmap', z=EGS_ZONES[zoneKey];
+ document.querySelectorAll('.egs-mode-btn').forEach(b=>b.classList.toggle('active',b.dataset.egsMode===mode));
+ document.querySelectorAll('.egs-zone-btn').forEach(b=>b.classList.toggle('active',b.dataset.egsZone===zoneKey));
+ $('egsHeatControls').classList.toggle('egs-hidden',!isHeat);
+ $('egsSimulationControls').classList.toggle('egs-hidden',isHeat);
+ $('egsHeatLegend').classList.toggle('egs-hidden',!isHeat);
+ $('egsSimulationLegend').classList.toggle('egs-hidden',isHeat);
+ setText('egsZoneTitle', z.label);
+ setText('egsAnalysisText', z.analysis);
+ setText('egsMainLabel', isHeat?'POINTS':'VISIBLE');
+ ['egsKpiMain','egsKpiVehicles','egsKpiSteps','egsKpiSpeed'].forEach(id=>setText(id,'—'));
+ }
+
+ async function loadCurrent(){
+ if(!map) return;
+ cancelAnimationFrame(raf);
+ raf=null; playing=false; stepIndex=0;
+ removeHeat(); clearCanvas(); updateUI();
+ const z=EGS_ZONES[zoneKey];
+ map.setView(z.center,z.zoom);
+ if(mode==='heatmap') await loadHeatmap(); else await loadSimulation();
+ }
+
+ async function loadHeatmap(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText','Loading SUMO heatmap...');
+ try{
+ currentData=await loadJson(z.heatmapFile);
+ if(!currentData.points) throw new Error('Invalid heatmap format');
+ setText('egsStatusText','Loaded: '+z.heatmapFile);
+ heatPoints=normalizeHeat(currentData.points);
+ drawHeatmap();
+ updateHeatKpis();
+ }catch(e){
+ console.error(e);
+ setText('egsStatusText','Missing SUMO heatmap JSON: '+z.heatmapFile);
+ }
+ }
+
+ function normalizeHeat(points){
+ const arr=[];
+ for(const p of points){
+ if(!Array.isArray(p)||p.length<2) continue;
+ const lat=+p[0], lng=+p[1], intensity=+(p[2]||0.4);
+ if(Number.isFinite(lat)&&Number.isFinite(lng)){
+ arr.push([lat,lng,Math.max(.05,Math.min(intensity,1))]);
+ }
+ }
+ if(arr.length<=MAX_HEAT_POINTS) return arr;
+ const int=Math.ceil(arr.length/MAX_HEAT_POINTS);
+ return arr.filter((_,i)=>i%int===0).slice(0,MAX_HEAT_POINTS);
+ }
+
+ function drawHeatmap(){
+ removeHeat();
+ if(!heatPoints.length||!L.heatLayer) return;
+ const radius=+$('egsRadiusRange').value, blur=+$('egsBlurRange').value, mult=+$('egsIntensityRange').value/12;
+ const pts=heatPoints.map(p=>[p[0],p[1],Math.min(.55,p[2]*mult)]);
+ heatLayer=L.heatLayer(pts,{
+ radius, blur, maxZoom:18, minOpacity:.08, max:1,
+ gradient:{0.15:'#00FF88',0.35:'#FFD700',0.60:'#FF8A00',1:'#FF3355'}
+ }).addTo(map);
+ fitPoints(pts);
+ }
+
+ function updateHeatKpis(){
+ setText('egsKpiMain',heatPoints.length.toLocaleString('fr-FR'));
+ const k=currentData.kpis||{};
+ setText('egsKpiVehicles',Number(k.vehicleRecords||0).toLocaleString('fr-FR'));
+ setText('egsKpiSteps',Number(k.steps||0).toLocaleString('fr-FR'));
+ setText('egsKpiSpeed',Number(k.averageSpeed||0).toFixed(2)+' m/s');
+ }
+
+ async function loadSimulation(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText','Loading SUMO geo simulation...');
+ try{
+ currentData=await loadJson(z.simulationFile);
+ if(!currentData.timesteps) throw new Error('Invalid simulation format');
+ setText('egsStatusText','Loaded: '+z.simulationFile);
+ setText('egsKpiSteps',currentData.timesteps.length.toLocaleString('fr-FR'));
+ if(currentData.kpis) setText('egsKpiSpeed',Number(currentData.kpis.averageSpeed||0).toFixed(2)+' m/s');
+ setTimeout(()=>{ resizeCanvas(); fitSimulation(); playing=true; startAnimation(); },250);
+ }catch(e){
+ console.error(e);
+ setText('egsStatusText','Missing SUMO simulation JSON: '+z.simulationFile);
+ }
+ }
+
+ function getLL(v){
+ const lat=+(v.lat), lng=+(v.lng);
+ return Number.isFinite(lat)&&Number.isFinite(lng)?[lat,lng]:null;
+ }
+
+ function fitSimulation(){
+ if(!currentData?.timesteps) return;
+ const pts=[];
+ for(const st of currentData.timesteps){
+ for(const v of (st.vehicles||[])){
+ const ll=getLL(v); if(ll) pts.push(ll);
+ }
+ if(pts.length>3000) break;
+ }
+ fitPoints(pts);
+ drawStep();
+ }
+
+ function drawStep(){
+ if(mode!=='simulation'||!currentData?.timesteps) return;
+ const st=currentData.timesteps[stepIndex];
+ if(!st) return;
+ clearCanvas();
+ const vs=sampleVehicles(st.vehicles||[],MAX_VEHICLES_PER_FRAME);
+ let n=0, sum=0;
+ for(const v of vs){
+ const ll=getLL(v); if(!ll) continue;
+ const pt=map.latLngToContainerPoint(ll);
+ const sp=+(v.speed||0), angle=+(v.angle||0);
+ if(!Number.isFinite(pt.x)||!Number.isFinite(pt.y)) continue;
+ drawVehicle(pt.x,pt.y,sp,angle);
+ n++; sum+=sp;
+ }
+ setText('egsKpiMain',n.toLocaleString('fr-FR'));
+ setText('egsKpiVehicles',n.toLocaleString('fr-FR'));
+ setText('egsKpiSpeed',(n?sum/n:0).toFixed(2)+' m/s');
+ }
+
+ function sampleVehicles(vs,max){
+ if(vs.length<=max) return vs;
+ const int=Math.ceil(vs.length/max);
+ return vs.filter((_,i)=>i%int===0);
+ }
+
+ function colorSpeed(s){ return s<3?'#FF3355':s<8?'#FFD700':'#00FF88'; }
+
+ function drawVehicle(x,y,speed,angle){
+ const size=+$('egsVehicleSizeRange').value||6;
+ const col=colorSpeed(speed);
+ const a=(+(angle||0)-90)*Math.PI/180;
+ ctx.save();
+ ctx.translate(x,y);
+ ctx.rotate(a);
+ ctx.fillStyle=col;
+ ctx.strokeStyle='rgba(255,255,255,.95)';
+ ctx.lineWidth=1.4;
+ ctx.shadowBlur=10;
+ ctx.shadowColor=col;
+ roundRect(-size,-size/2,size*2.4,size*1.15,Math.max(2,size/2));
+ ctx.fill();
+ ctx.stroke();
+ ctx.restore();
+ }
+
+ function roundRect(x,y,w,h,r){
+ ctx.beginPath();
+ ctx.moveTo(x+r,y);
+ ctx.lineTo(x+w-r,y);
+ ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+ ctx.lineTo(x+w,y+h-r);
+ ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+ ctx.lineTo(x+r,y+h);
+ ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+ ctx.lineTo(x,y+r);
+ ctx.quadraticCurveTo(x,y,x+r,y);
+ ctx.closePath();
+ }
+
+ function startAnimation(){
+ cancelAnimationFrame(raf);
+ lastFrame=0;
+ raf=requestAnimationFrame(loop);
+ }
+
+ function loop(t){
+ if(mode!=='simulation') return;
+ const delay=Math.max(20,280-(+$('egsSpeedRange').value||6)*20);
+ if(playing&&t-lastFrame>=delay){
+ drawStep();
+ stepIndex=(stepIndex+1)%currentData.timesteps.length;
+ lastFrame=t;
+ }
+ raf=requestAnimationFrame(loop);
+ }
+
+ function fitPoints(points){
+ if(!points||!points.length) return;
+ const b=L.latLngBounds(points.map(p=>[p[0],p[1]]));
+ if(b.isValid()) map.fitBounds(b,{padding:[30,30],maxZoom:EGS_ZONES[zoneKey].zoom});
+ }
+
+ function bindEvents(){
+ document.querySelectorAll('.egs-mode-btn').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.egsMode; loadCurrent();}));
+ document.querySelectorAll('.egs-zone-btn').forEach(b=>b.addEventListener('click',()=>{zoneKey=b.dataset.egsZone; loadCurrent();}));
+ ['egsRadiusRange','egsBlurRange','egsIntensityRange'].forEach(id=>$(id).addEventListener('input',()=>{ if(mode==='heatmap') drawHeatmap(); }));
+ $('egsResetHeatmapBtn').addEventListener('click',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ $('egsPlayBtn').addEventListener('click',()=>playing=true);
+ $('egsPauseBtn').addEventListener('click',()=>playing=false);
+ $('egsRestartBtn').addEventListener('click',()=>{stepIndex=0; drawStep();});
+ $('egsVehicleSizeRange').addEventListener('input',drawStep);
+ $('egsResetSimulationBtn').addEventListener('click',fitSimulation);
+ }
+
+ document.addEventListener('DOMContentLoaded',()=>{
+ const panel=$('sumo-dashboard');
+ if(!panel) return;
+ bindEvents();
+ const obs=new IntersectionObserver(entries=>{
+ if(entries[0].isIntersecting){
+ if(!map) initMap();
+ loadCurrent();
+ obs.disconnect();
+ }
+ },{threshold:.10});
+ obs.observe(panel);
+ });
+})();
+
+</script>
+<script>
+const $=(s,root=document)=>root.querySelector(s);const $$=(s,root=document)=>Array.from(root.querySelectorAll(s));
+function showToast(msg){const t=$('#toast');if(!t)return;t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4200)}
+function translatePage(toArabic){document.body.classList.toggle('rtl',toArabic);document.documentElement.dir=toArabic?'rtl':'ltr';document.documentElement.lang=toArabic?'ar':'en';$$('[data-ar]').forEach(el=>{if(!el.dataset.en)el.dataset.en=el.textContent;el.textContent=toArabic?el.dataset.ar:el.dataset.en;});const lang=$('#langBtn');if(lang){lang.textContent=toArabic?'EN':'AR';lang.classList.toggle('active',toArabic);lang.setAttribute('aria-pressed',String(toArabic));}const brandHome=$('.brand-card');if(brandHome){brandHome.setAttribute('aria-label',toArabic?'الصفحة الرئيسية لمحفظة الساني الغالي الإماراتية':'El Ghali Sany UAE portfolio home');}document.title=toArabic?'الساني الغالي | محفظة الإمارات للذكاء الحضري':'El Ghali Sany | UAE Desert-to-Space AI Portfolio';$$('.ltr,#sumo-dashboard,.smart-map,.egs-sumo-shell').forEach(el=>{el.setAttribute('dir','ltr');el.style.unicodeBidi='isolate';});updateMasdarTexts();renderLab();}
+const pitch=$('#pitchModal');function openPitch(){if(!pitch)return;pitch.classList.add('open');$('#closePitch')?.focus()}function closePitch(){pitch?.classList.remove('open')}$('#pitchBtn')?.addEventListener('click',openPitch);$('#pitchBtn2')?.addEventListener('click',openPitch);$('#closePitch')?.addEventListener('click',closePitch);$('#modalVault')?.addEventListener('click',openPitch);pitch?.addEventListener('click',e=>{if(e.target===pitch)closePitch()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closePitch()});
+$('#langBtn')?.addEventListener('click',()=>{translatePage(!document.body.classList.contains('rtl'));showToast(document.body.classList.contains('rtl')?'تم تفعيل العربية مع عكس انتقائي للواجهة وحفظ الخرائط والأرقام باتجاه LTR.':'English restored.');});
+const modeTexts={ooh:{en:{label:'Traditional Asset Mode · Lower CAPEX, static exposure, accelerated break-even.',text:'Traditional assets emphasize low CAPEX and limited technical complexity. In the UAE context, this becomes the baseline against future-ready digital assets with higher yield and stronger governance requirements.'},ar:{label:'وضع الأصول التقليدية · CAPEX منخفض وتعرض ثابت ونقطة تعادل أسرع.',text:'الأصول التقليدية تركز على CAPEX منخفض وتعقيد تقني محدود. في السياق الإماراتي، تصبح خط الأساس للمقارنة مع أصول رقمية أعلى عائداً وأكثر طلباً للحوكمة.'}},dooh:{en:{label:'Future-Ready Asset Mode · Higher CAPEX, dynamic monetization, stronger governance.',text:'Future-ready infrastructure requires higher initial investment but can support dynamic pricing, real-time reporting, carbon-aware operations, and premium urban services.'},ar:{label:'وضع الأصول المستقبلية · CAPEX أعلى وتحقيق قيمة ديناميكي وحوكمة أقوى.',text:'البنية المستقبلية تتطلب استثماراً أولياً أعلى، لكنها تدعم التسعير الديناميكي، التقارير اللحظية، التشغيل الواعي بالكربون، والخدمات الحضرية عالية القيمة.'}},hybrid:{en:{label:'Hybrid Mode · Risk-adjusted portfolio optimization.',text:'Hybrid allocation combines low-risk baseline assets with high-upside smart infrastructure, matching UAE-style portfolio logic: diversification, resilience, and long-term optionality.'},ar:{label:'الوضع الهجين · تحسين محفظة معدل بالمخاطر.',text:'التخصيص الهجين يجمع الأصول منخفضة المخاطر مع البنية الذكية عالية العائد، بما ينسجم مع منطق المحافظ الإماراتية: التنويع والمرونة والاختيارية طويلة الأجل.'}}};
+$$('.switch-row button[data-mode]').forEach(btn=>btn.addEventListener('click',()=>{const m=btn.dataset.mode;$$('.switch-row button[data-mode]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const map=$('#smartMap');if(map)map.className='smart-map mode-'+m;const lang=document.body.classList.contains('rtl')?'ar':'en';if($('#mapLabel'))$('#mapLabel').textContent=modeTexts[m][lang].label;if($('#modeText'))$('#modeText').textContent=modeTexts[m][lang].text;}));
+$$('.skill').forEach(card=>{card.addEventListener('mouseenter',()=>{$$('.tl-item').forEach(i=>i.classList.toggle('active-map',i.dataset.step===card.dataset.highlight));});card.addEventListener('mouseleave',()=>$$('.tl-item').forEach(i=>i.classList.remove('active-map')));});
+const MASDAR_COPY={en:{badge:'🌿 Masdar Lens active: net-zero, renewable-energy, and low-carbon mobility assets are foregrounded.',whyTitle:'Why this mode exists',whyText:'Masdar Lens transforms the portfolio from a baseline investment view into a UAE net-zero and renewable-energy reading mode. It foregrounds carbon exposure, solar-readiness, district cooling, autonomous mobility, and energy-efficient urban assets.',points:[['Carbon indicators','Higher carbon-price pathways become more visible and ranking stress becomes easier to read.'],['Renewable systems','Solar, district cooling, EV, and clean mobility assets receive stronger analytical emphasis.'],['Net Zero 2050 lens','The interface explicitly signals when the portfolio is read through UAE decarbonization priorities.'],['Why it matters','The policy lens changes the ranking logic without hiding the original baseline evidence.']],note:'Masdar note: this mode does not replace financial discipline; it adds carbon resilience, renewable-energy readiness, and mitigation value.',stressDesc:'Under Masdar Lens, the stress-test defaults to a stronger carbon pathway so net-zero and renewable-energy effects become visible.',metric1Value:'€150/tCO₂',metric1Text:'Carbon stress lens used to expose carbon-cost sensitivity in the AI-MCDA model.',metric1Note:'Net-zero stress lens',metric2Value:'45.8%',metric2Text:'Predictive discipline remains constant: XGBoost stays the demand engine while Masdar Lens changes the policy-weighting layer.',metric2Note:'Model core unchanged',metric3Value:'12/25',metric3Text:'Projects visibly re-ranked under the strongest net-zero stress scenario, making the sustainability effect auditable.',metric3Note:'Stress impact',metric4Value:'16-Month',metric4Text:'The venture-readiness roadmap remains intact, now read through a UAE net-zero and PDPL-aware policy lens.',metric4Note:'Policy overlay active',rankLead:'Masdar priority',rankSecond:'Sustainability contender',rankThird:'Transition candidate',tag:'Masdar priority',insightBase:'Masdar Lens active: renewable and low-carbon infrastructure receives more visible weighting before full net-zero stress.',insight85:'At €85/tCO₂, carbon-aware ranking begins to favor lower-exposure and resilience-oriented assets.',insight150:'Net-zero stress-test: at €150/tCO₂, 48% of the portfolio is re-ranked. Carbon-aware weighting becomes strategically decisive.',toastOn:'Masdar Lens activated: net-zero, renewable-energy, and low-carbon mobility priorities are visible.',toastOff:'Masdar Lens disabled: baseline investment view restored.'},ar:{badge:'🌿 تم تفعيل عدسة مصدر: أصبحت أصول الحياد الكربوني والطاقة المتجددة والتنقل منخفض الكربون أكثر بروزاً.',whyTitle:'لماذا توجد هذه العدسة؟',whyText:'تحوّل عدسة مصدر المحفظة من منظور استثماري أساسي إلى قراءة إماراتية للحياد الكربوني والطاقة المتجددة. وهي تُبرز التعرض للكربون، الجاهزية الشمسية، تبريد المناطق، التنقل الذاتي، وكفاءة الطاقة الحضرية.',points:[['مؤشرات الكربون','تصبح مسارات سعر الكربون الأعلى أكثر وضوحاً ويصبح ضغط الترتيب أسهل قراءة.'],['الأنظمة المتجددة','تحصل أصول الطاقة الشمسية وتبريد المناطق والمركبات الكهربائية والتنقل النظيف على وزن تحليلي أقوى.'],['عدسة الحياد 2050','توضح الواجهة أن القراءة تتم عبر أولويات إزالة الكربون في الإمارات.'],['لماذا يهم؟','تغير العدسة منطق الترتيب دون إخفاء الأدلة الأصلية.']],note:'ملاحظة مصدر: لا تستبدل هذه العدسة الانضباط المالي؛ بل تضيف المرونة الكربونية وجاهزية الطاقة المتجددة وقيمة التخفيف.',stressDesc:'عند تفعيل عدسة مصدر، ينتقل اختبار الضغط إلى مسار كربوني أقوى حتى تظهر آثار الحياد الكربوني والطاقة المتجددة.',metric1Value:'€150/tCO₂',metric1Text:'عدسة ضغط كربوني لإظهار حساسية تكاليف الكربون داخل نموذج AI-MCDA.',metric1Note:'عدسة الحياد الكربوني',metric2Value:'45.8%',metric2Text:'يبقى الانضباط التنبئي ثابتاً: يظل XGBoost محرك الطلب بينما تغيّر عدسة مصدر طبقة الأوزان السياساتية.',metric2Note:'جوهر النموذج ثابت',metric3Value:'12/25',metric3Text:'مشروعات يعاد ترتيبها بوضوح في أقوى سيناريو ضغط للحياد الكربوني، بما يجعل أثر الاستدامة قابلاً للتدقيق.',metric3Note:'أثر اختبار الضغط',metric4Value:'16 شهراً',metric4Text:'تبقى خارطة الجاهزية الريادية قائمة، لكنها تُقرأ عبر عدسة إماراتية واعية بالحياد الكربوني وPDPL.',metric4Note:'عدسة سياساتية مفعلة',rankLead:'أولوية مصدر',rankSecond:'خيار استدامة قوي',rankThird:'مرشح انتقالي',tag:'أولوية مصدر',insightBase:'عدسة مصدر مفعلة: تحصل البنية المتجددة ومنخفضة الكربون على وزن أوضح قبل الوصول إلى أقصى ضغط للحياد الكربوني.',insight85:'عند €85/tCO₂ يبدأ الترتيب الواعي بالكربون في تفضيل الأصول الأقل تعرضاً والأكثر مرونة.',insight150:'اختبار الحياد الكربوني: عند €150/tCO₂ يُعاد ترتيب 48% من المحفظة. وتصبح أوزان الكربون حاسمة استراتيجياً.',toastOn:'تم تفعيل عدسة مصدر: أصبحت أولويات الحياد الكربوني والطاقة المتجددة والتنقل النظيف مرئية.',toastOff:'تم إيقاف عدسة مصدر: عادت الواجهة إلى منظور الاستثمار الأساسي.'}};
+const BASE_METRICS={metric1:{value:'1.87M MAD',text:'Projected NPV in the Casablanca DOOH scenario; proof that urban data can be converted into financial decision logic.'},metric2:{value:'45.8%',text:'MAE reduction of XGBoost versus Ridge; predictive discipline before any UAE market transfer.'},metric3:{value:'25',text:'Smart-city projects ranked through MCDA/AROMAN across return, carbon, risk, and institutional readiness.'},metric4:{value:'16-Month',text:'MVP path for UAE government or VC review: discovery, validation, dashboard, then pilot-readiness report.'}};
+const carbonSteps=[{v:0,en:'€0 · Baseline',ar:'€0 · خط أساس'},{v:30,en:'€30 · Moderate',ar:'€30 · متوسط'},{v:85,en:'€85 · Below 2°C',ar:'€85 · أقل من 2°C'},{v:150,en:'€150 · Net Zero',ar:'€150 · حياد كربوني'}];
+const PROJECT_AR={'Smart Grid Coastal':'الشبكة الذكية الساحلية','Water Management':'إدارة المياه','EV Corridors':'ممرات المركبات الكهربائية','District Cooling / Data Center Efficiency':'تبريد المناطق / كفاءة مراكز البيانات','Solar Mobility Hub':'مركز تنقل شمسي'};function projectLabel(name){return document.body.classList.contains('rtl')?(PROJECT_AR[name]||name):name;}
+const rankSets={base:[{name:'Smart Grid Coastal'},{name:'Water Management'},{name:'EV Corridors'}],cost:[{name:'Water Management'},{name:'Smart Grid Coastal'},{name:'EV Corridors'}],benefit:[{name:'Smart Grid Coastal'},{name:'EV Corridors'},{name:'Solar Mobility Hub'}],carbon85:[{name:'Smart Grid Coastal'},{name:'EV Corridors'},{name:'Water Management'}],carbon150:[{name:'District Cooling / Data Center Efficiency'},{name:'Solar Mobility Hub'},{name:'Smart Grid Coastal'}],masdarBase:[{name:'Solar Mobility Hub',green:true},{name:'District Cooling / Data Center Efficiency',green:true},{name:'Water Management',green:true}],masdarCost:[{name:'District Cooling / Data Center Efficiency',green:true},{name:'Water Management',green:true},{name:'Smart Grid Coastal',green:true}],masdarBenefit:[{name:'Solar Mobility Hub',green:true},{name:'EV Corridors',green:true},{name:'Smart Grid Coastal',green:true}],masdar85:[{name:'Solar Mobility Hub',green:true},{name:'District Cooling / Data Center Efficiency',green:true},{name:'EV Corridors',green:true}],masdar150:[{name:'District Cooling / Data Center Efficiency',green:true},{name:'Solar Mobility Hub',green:true},{name:'Water Management',green:true}]};
+function setMetric(id,data,active=false){const card=$('#'+id);if(!card)return;$('#'+id+'Value')&&($('#'+id+'Value').textContent=data.value);$('#'+id+'Text')&&($('#'+id+'Text').textContent=data.text);const n=$('#'+id+'Note');if(n){if(data.note){n.hidden=false;n.textContent=data.note}else{n.hidden=true;n.textContent='';}}card.setAttribute('data-masdar-focus',active?'true':'false');}
+function updateMasdarTexts(){const active=document.body.classList.contains('masdar');const lang=document.body.classList.contains('rtl')?'ar':'en';const copy=MASDAR_COPY[lang];const badge=$('#masdarLensBadge');if(badge){badge.hidden=!active;badge.textContent=copy.badge;}const why=$('#masdarWhyBox');if(why)why.hidden=!active;['Title','Text'].forEach(s=>{});if($('#masdarWhyTitle'))$('#masdarWhyTitle').textContent=copy.whyTitle;if($('#masdarWhyText'))$('#masdarWhyText').textContent=copy.whyText;copy.points.forEach((item,i)=>{if($('#masdarPoint'+(i+1)+'Title'))$('#masdarPoint'+(i+1)+'Title').textContent=item[0];if($('#masdarPoint'+(i+1)+'Text'))$('#masdarPoint'+(i+1)+'Text').textContent=item[1];});if($('#masdarCceNote'))$('#masdarCceNote').textContent=copy.note;if($('#stressLabDesc'))$('#stressLabDesc').textContent=active?copy.stressDesc:(lang==='ar'?'هذه اللوحة المصغرة تثبت شفافية النموذج: يتغير الترتيب عندما تتغير المفاضلات أو سيناريو سعر الكربون.':'This mini-dashboard demonstrates model transparency: rankings shift when normative trade-offs or carbon-price scenarios change.');if(active){setMetric('metric1',{value:copy.metric1Value,text:copy.metric1Text,note:copy.metric1Note},true);setMetric('metric2',{value:copy.metric2Value,text:copy.metric2Text,note:copy.metric2Note},false);setMetric('metric3',{value:copy.metric3Value,text:copy.metric3Text,note:copy.metric3Note},true);setMetric('metric4',{value:copy.metric4Value,text:copy.metric4Text,note:copy.metric4Note},false);}else{Object.entries(BASE_METRICS).forEach(([id,d])=>setMetric(id,{value:(document.body.classList.contains('rtl')&&d.value==='16-Month')?'16 شهراً':d.value,text:d.text},false));}}
+function renderLab(){if(!$('#lambdaRange')||!$('#carbonRange'))return;const lambda=parseFloat($('#lambdaRange').value);const c=carbonSteps[parseInt($('#carbonRange').value,10)];const active=document.body.classList.contains('masdar');const lang=document.body.classList.contains('rtl')?'ar':'en';const copy=MASDAR_COPY[lang];$('#lambdaOut').textContent=lambda.toFixed(1)+' · '+(lang==='ar'?(lambda<0.5?'تقليل التكلفة':lambda>0.5?'تعظيم المنفعة':'متوازن'):(lambda<0.5?'Cost-minimization':lambda>0.5?'Benefit-maximization':'Balanced'));$('#carbonOut').textContent=lang==='ar'?c.ar:c.en;let list=lambda<0.5?rankSets.cost:lambda>0.5?rankSets.benefit:rankSets.base;let insight=lang==='ar'?'تنبيه شفافية: الترتيب معياري ويحتاج معايرة أصحاب المصلحة.':'Transparency alert: rankings are normative and require stakeholder calibration.';if(c.v===85){list=rankSets.carbon85;insight=lang==='ar'?'عند €85/tCO₂ يبدأ أثر الكربون في تغيير ترتيب الأصول.':'At €85/tCO₂, carbon-cost exposure begins to reorder assets.'}if(c.v===150){list=rankSets.carbon150;insight=lang==='ar'?'عند €150/tCO₂ يصبح اختبار الحياد الكربوني حاسماً في الترتيب.':'At €150/tCO₂, the net-zero stress test becomes decisive.'}if(active){list=lambda<0.5?rankSets.masdarCost:lambda>0.5?rankSets.masdarBenefit:rankSets.masdarBase;insight=copy.insightBase;if(c.v===85){list=rankSets.masdar85;insight=copy.insight85}if(c.v===150){list=rankSets.masdar150;insight=copy.insight150}}$('#stressLab')?.classList.toggle('netzero',c.v===150||active);const roles=active?[copy.rankLead,copy.rankSecond,copy.rankThird]:(lang==='ar'?['المرشح الأول','منافس قوي','حساس للفرضيات']:['Lead candidate','Robust contender','Sensitive to assumptions']);if($('#rankList'))$('#rankList').innerHTML=list.map((item,i)=>{const middle=active?'<div class="rank-main"><strong>'+projectLabel(item.name)+'</strong>'+(item.green?'<small class="project-tag">'+copy.tag+'</small>':'')+'</div>':'<span>'+projectLabel(item.name)+'</span>';return '<div class="rank-row'+(active&&item.green?' sustainable-project':'')+'"><b>#'+(i+1)+'</b>'+middle+'<em>'+roles[i]+'</em></div>';}).join('');const ins=$('#labInsight');if(ins){ins.textContent=insight;ins.classList.remove('flash');void ins.offsetWidth;ins.classList.add('flash');}}
+function applyMasdarMode({resetRanges=false}={}){updateMasdarTexts();if(resetRanges){$('#carbonRange').value=document.body.classList.contains('masdar')?'3':'1';$('#lambdaRange').value=document.body.classList.contains('masdar')?'0.6':'0.5';}renderLab();}
+$('#masdarBtn')?.addEventListener('click',()=>{const active=!document.body.classList.contains('masdar');document.body.classList.toggle('masdar',active);$('#masdarBtn').classList.toggle('active',active);$('#masdarBtn').setAttribute('aria-pressed',String(active));applyMasdarMode({resetRanges:true});const lang=document.body.classList.contains('rtl')?'ar':'en';showToast(active?MASDAR_COPY[lang].toastOn:MASDAR_COPY[lang].toastOff);});
+$('#lambdaRange')?.addEventListener('input',renderLab);$('#carbonRange')?.addEventListener('input',renderLab);$('#copyCitation')?.addEventListener('click',async()=>{const cite='Sany, E. G. (2026). AI-enabled investment scorecards for smart-city infrastructure: UAE venture-readiness portfolio [Unpublished portfolio].';try{await navigator.clipboard.writeText(cite);showToast(document.body.classList.contains('rtl')?'تم نسخ صيغة APA.':'APA draft citation copied.')}catch(e){showToast(cite)}});applyMasdarMode();
+</script>
+<script>
+(function(){
+  const line=document.querySelector('.fixed-line');
+  if(line){
+    const update=()=>{const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);const p=Math.min(1,window.scrollY/max);document.documentElement.style.setProperty('--scroll-scale',String(Math.max(.12,p)));};
+    update(); window.addEventListener('scroll',update,{passive:true});
+  }
+  const stops=[...document.querySelectorAll('.daour-stop')];
+  const spokes=document.getElementById('daourSpokeGroup');
+  const dots=document.getElementById('daourDots');
+  if(spokes&&dots){
+    const cx=110,cy=110,r=94;
+    const colors=['#00A6B4','#C9A227','#7C3AED','#32D3C8','#102A43','#00A6B4','#C9A227'];
+    stops.forEach((stop,i)=>{
+      const angle=(-90+i*(360/stops.length))*Math.PI/180;
+      const x=cx+r*Math.cos(angle), y=cy+r*Math.sin(angle);
+      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1',cx);line.setAttribute('y1',cy);line.setAttribute('x2',x);line.setAttribute('y2',y);line.setAttribute('stroke',colors[i]);line.setAttribute('stroke-width','1.6');line.setAttribute('opacity','.35');
+      spokes.appendChild(line);
+      const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r',i===0?'6':'4.8');circle.setAttribute('fill',colors[i]);circle.setAttribute('opacity',i===0?'1':'.72');circle.dataset.dot=String(i);
+      dots.appendChild(circle);
+      stop.addEventListener('mouseenter',()=>activate(i));
+      stop.addEventListener('focus',()=>activate(i));
+    });
+    function activate(i){
+      stops.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+      dots.querySelectorAll('circle').forEach((c,idx)=>{c.setAttribute('r',idx===i?'6':'4.8');c.setAttribute('opacity',idx===i?'1':'.72');});
+    }
+  }
+})();
+</script>
+</body>
+</html>
