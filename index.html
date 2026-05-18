@@ -12,13 +12,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Kufi+Arabic:wght@400;600;700;900&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root{
-  color-scheme:light;
-  --gulf-turquoise:#0C7B77;--gulf-turquoise-light:#22AAA3;--deep:#0E1B29;--desert-gold:#CFA24C;--pearl-mist:#F7F0E0;--paper:#FCFCFA;
-  --gulf-turquoise-deep:#118C86;--aqua-glow:#52C6C0;--bronze-gold:#8E6C2F;--space-violet:#5F668C;--ink:#13202B;--muted:#586573;
-  --white:#fff;--line:rgba(207,162,76,.17);--glass:rgba(255,255,255,.74);
-  --shadow:0 26px 72px rgba(14,27,41,.12);--shadow-soft:0 16px 38px rgba(14,27,41,.08);--radius:28px;
-  --font-en:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  --font-ar:'Noto Naskh Arabic','Cairo','Noto Kufi Arabic',Tahoma,sans-serif;
+ color-scheme:light;
+ --gulf-turquoise:#0C7B77;--gulf-turquoise-light:#22AAA3;--deep:#0E1B29;--desert-gold:#CFA24C;--pearl-mist:#F7F0E0;--paper:#FCFCFA;
+ --gulf-turquoise-deep:#118C86;--aqua-glow:#52C6C0;--bronze-gold:#8E6C2F;--space-violet:#5F668C;--ink:#13202B;--muted:#586573;
+ --white:#fff;--line:rgba(207,162,76,.17);--glass:rgba(255,255,255,.74);
+ --shadow:0 26px 72px rgba(14,27,41,.12);--shadow-soft:0 16px 38px rgba(14,27,41,.08);--radius:28px;
+ --font-en:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+ --font-ar:'Noto Naskh Arabic','Cairo','Noto Kufi Arabic',Tahoma,sans-serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:96px}
@@ -183,26 +183,26 @@ h1{font-size:clamp(2.45rem,5vw,5.55rem);line-height:.96;letter-spacing:-.075em;m
 }
 
 #sumo-dashboard{
-  margin-top:18px;
-  overflow:hidden;
+ margin-top:18px;
+ overflow:hidden;
 }
 #sumo-dashboard .ph{
-  padding:10px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  border-radius:20px 20px 0 0;
-  min-height:48px;
+ padding:10px 14px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ border-radius:20px 20px 0 0;
+ min-height:48px;
 }
 #sumo-dashboard .ph-en{
-  font-size:.72rem;
-  font-weight:700;
-  white-space:normal;
+ font-size:.72rem;
+ font-weight:700;
+ white-space:normal;
 }
 #sumo-dashboard .pb{
-  border-radius:0 0 20px 20px;
-  overflow:hidden;
+ border-radius:0 0 20px 20px;
+ overflow:hidden;
 }
 body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
 
@@ -218,122 +218,122 @@ body.rtl .lead, body.rtl .section-note, body.rtl p, body.rtl li, body.rtl span{l
 body.rtl .modal-card{text-align:right}
 
 .file-ref{
-  text-decoration:none!important;
-  cursor:pointer;
-  word-break:break-word;
+ text-decoration:none!important;
+ cursor:pointer;
+ word-break:break-word;
 }
 .doc-actions .file-ref{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  border:1px solid var(--line);
-  background:#fff;
-  border-radius:14px;
-  padding:10px 12px;
-  font-weight:900;
-  color:var(--ink);
-  font-size:.86rem;
-  max-width:100%;
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:8px;
+ border:1px solid var(--line);
+ background:#fff;
+ border-radius:14px;
+ padding:10px 12px;
+ font-weight:900;
+ color:var(--ink);
+ font-size:.86rem;
+ max-width:100%;
 }
 .doc-actions a.primary.file-ref,
 .doc-actions button.primary.file-ref{
-  background:var(--gulf-turquoise);
-  color:#fff;
-  border-color:var(--gulf-turquoise);
+ background:var(--gulf-turquoise);
+ color:#fff;
+ border-color:var(--gulf-turquoise);
 }
 .cta.file-ref{min-height:48px;border-radius:16px}
 .source .file-ref{
-  display:inline;
-  padding:0;
-  border:0;
-  background:transparent;
-  border-radius:0;
-  color:#005b64;
-  font-weight:850;
-  font-size:inherit;
-  line-height:inherit;
+ display:inline;
+ padding:0;
+ border:0;
+ background:transparent;
+ border-radius:0;
+ color:#005b64;
+ font-weight:850;
+ font-size:inherit;
+ line-height:inherit;
 }
 .file-ref::before{content:none!important;display:none!important;}
 body.rtl .file-ref::before{content:none!important;display:none!important;}
 
 .site-nav{
-  position:sticky;
-  top:0;
-  z-index:120;
-  isolation:isolate;
-  background:
-    linear-gradient(180deg,rgba(255,252,246,.97),rgba(255,249,239,.91)),
-    radial-gradient(circle at 96% 50%,rgba(0,124,137,.09),transparent 32%);
-  border-bottom:1px solid rgba(122,78,54,.13);
-  box-shadow:0 14px 38px rgba(16,36,29,.08);
-  backdrop-filter:blur(18px);
+ position:sticky;
+ top:0;
+ z-index:120;
+ isolation:isolate;
+ background:
+ linear-gradient(180deg,rgba(255,252,246,.97),rgba(255,249,239,.91)),
+ radial-gradient(circle at 96% 50%,rgba(0,124,137,.09),transparent 32%);
+ border-bottom:1px solid rgba(122,78,54,.13);
+ box-shadow:0 14px 38px rgba(16,36,29,.08);
+ backdrop-filter:blur(18px);
 }
 .site-nav::before{
-  content:"";
-  position:absolute;
-  inset:0 0 auto 0;
-  height:2px;
-  background:linear-gradient(90deg,transparent,rgba(215,183,119,.86),transparent);
-  pointer-events:none;
+ content:"";
+ position:absolute;
+ inset:0 0 auto 0;
+ height:2px;
+ background:linear-gradient(90deg,transparent,rgba(215,183,119,.86),transparent);
+ pointer-events:none;
 }
 .site-nav::after{
-  content:"";
-  position:absolute;
-  inset:0 0 0 auto;
-  width:min(420px,30vw);
-  opacity:.08;
-  background-image:
-    linear-gradient(45deg,transparent 46%,var(--bronze-gold) 47%,var(--bronze-gold) 49%,transparent 50%),
-    linear-gradient(-45deg,transparent 46%,var(--gulf-turquoise-deep) 47%,var(--gulf-turquoise-deep) 49%,transparent 50%);
-  background-size:44px 44px;
-  pointer-events:none;
-  z-index:-1;
+ content:"";
+ position:absolute;
+ inset:0 0 0 auto;
+ width:min(420px,30vw);
+ opacity:.08;
+ background-image:
+ linear-gradient(45deg,transparent 46%,var(--bronze-gold) 47%,var(--bronze-gold) 49%,transparent 50%),
+ linear-gradient(-45deg,transparent 46%,var(--gulf-turquoise-deep) 47%,var(--gulf-turquoise-deep) 49%,transparent 50%);
+ background-size:44px 44px;
+ pointer-events:none;
+ z-index:-1;
 }
 body.rtl .site-nav::after{inset:0 auto 0 0;}
 .site-nav-inner{
-  max-width:1480px;
-  margin:auto;
-  padding:18px clamp(16px,2.6vw,42px);
-  display:grid;
-  grid-template-columns:minmax(286px,.55fr) minmax(0,1.45fr);
-  align-items:center;
-  gap:28px;
+ max-width:1480px;
+ margin:auto;
+ padding:18px clamp(16px,2.6vw,42px);
+ display:grid;
+ grid-template-columns:minmax(286px,.55fr) minmax(0,1.45fr);
+ align-items:center;
+ gap:28px;
 }
 body.rtl .site-nav-inner{grid-template-columns:minmax(0,1.45fr) minmax(286px,.55fr);}
 .brand-card{
-  min-width:0;
-  width:100%;
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:14px 18px;
-  border-radius:999px;
-  background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,249,239,.72));
-  border:1px solid rgba(122,78,54,.18);
-  box-shadow:0 14px 36px rgba(16,36,29,.08), inset 0 1px 0 rgba(255,255,255,.75);
-  text-decoration:none!important;
-  position:relative;
-  overflow:hidden;
+ min-width:0;
+ width:100%;
+ display:flex;
+ align-items:center;
+ gap:14px;
+ padding:14px 18px;
+ border-radius:999px;
+ background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,249,239,.72));
+ border:1px solid rgba(122,78,54,.18);
+ box-shadow:0 14px 36px rgba(16,36,29,.08), inset 0 1px 0 rgba(255,255,255,.75);
+ text-decoration:none!important;
+ position:relative;
+ overflow:hidden;
 }
 body.rtl .brand-card{grid-column:2;flex-direction:row;}
 body.rtl .nav-workspace{grid-column:1;grid-row:1;}
 .brand-card::after{
-  content:"";
-  position:absolute;
-  inset:12px auto 12px -1px;
-  width:1px;
-  background:linear-gradient(180deg,transparent,rgba(215,183,119,.85),transparent);
+ content:"";
+ position:absolute;
+ inset:12px auto 12px -1px;
+ width:1px;
+ background:linear-gradient(180deg,transparent,rgba(215,183,119,.85),transparent);
 }
 body.rtl .brand-card::after{inset:12px -1px 12px auto;}
 .brand-mark{
-  width:62px;
-  height:62px;
-  border-radius:22px;
-  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(255,249,239,.82));
-  border:1px solid rgba(0,108,53,.20);
-  box-shadow:0 16px 34px rgba(0,108,53,.15), inset 0 1px 0 rgba(255,255,255,.92);
-  color:var(--gulf-turquoise);
+ width:62px;
+ height:62px;
+ border-radius:22px;
+ background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(255,249,239,.82));
+ border:1px solid rgba(0,108,53,.20);
+ box-shadow:0 16px 34px rgba(0,108,53,.15), inset 0 1px 0 rgba(255,255,255,.92);
+ color:var(--gulf-turquoise);
 }
 .brand-mark svg{width:42px;height:42px;filter:none;}
 .brand-mark .zaouia-node{display:block;}
@@ -342,115 +342,115 @@ body.rtl .brand-card::after{inset:12px -1px 12px auto;}
 .brand-mark .zaouia-node .node-link{opacity:.82;}
 .brand-copy{display:grid;gap:4px;min-width:0;line-height:1.18;}
 .brand-copy strong{
-  font-size:1.13rem;
-  color:var(--deep);
-  font-weight:900;
-  letter-spacing:-.025em;
-  white-space:nowrap;
+ font-size:1.13rem;
+ color:var(--deep);
+ font-weight:900;
+ letter-spacing:-.025em;
+ white-space:nowrap;
 }
 body.rtl .brand-copy strong{font-size:1.22rem;letter-spacing:0;}
 .brand-copy span{
-  font-size:.86rem;
-  color:var(--muted);
-  font-weight:750;
-  white-space:normal;
+ font-size:.86rem;
+ color:var(--muted);
+ font-weight:750;
+ white-space:normal;
 }
 .brand-copy span .ltr, .brand-copy .ltr{font-weight:900;color:var(--gulf-turquoise);}
 .nav-workspace{display:grid;gap:14px;min-width:0;}
 .site-links{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:10px;
-  flex-wrap:wrap;
-  padding:0 0 14px;
-  border-bottom:1px solid rgba(122,78,54,.13);
-  overflow:visible;
+ display:flex;
+ align-items:center;
+ justify-content:flex-end;
+ gap:10px;
+ flex-wrap:wrap;
+ padding:0 0 14px;
+ border-bottom:1px solid rgba(122,78,54,.13);
+ overflow:visible;
 }
 body.rtl .site-links{justify-content:flex-start;}
 .site-links .nav-link-bi{
-  min-height:44px;
-  display:inline-flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  padding:10px 16px;
-  border-radius:999px;
-  background:linear-gradient(180deg,rgba(255,255,255,.83),rgba(255,249,239,.68));
-  border:1px solid rgba(122,78,54,.16);
-  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 1px 0 rgba(255,255,255,.8);
-  color:var(--ink);
-  font-weight:850;
-  font-size:.86rem;
-  line-height:1;
-  white-space:nowrap;
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+ min-height:44px;
+ display:inline-flex;
+ flex-direction:row;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ padding:10px 16px;
+ border-radius:999px;
+ background:linear-gradient(180deg,rgba(255,255,255,.83),rgba(255,249,239,.68));
+ border:1px solid rgba(122,78,54,.16);
+ box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 1px 0 rgba(255,255,255,.8);
+ color:var(--ink);
+ font-weight:850;
+ font-size:.86rem;
+ line-height:1;
+ white-space:nowrap;
+ transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
 }
 body.rtl .site-links .nav-link-bi{flex-direction:row-reverse;font-family:var(--font-ar);font-size:.95rem;}
 .site-links .nav-link-bi:hover{
-  transform:translateY(-1px);
-  border-color:rgba(0,124,137,.28);
-  box-shadow:0 13px 28px rgba(0,124,137,.10), inset 0 1px 0 rgba(255,255,255,.86);
-  text-decoration:none;
+ transform:translateY(-1px);
+ border-color:rgba(0,124,137,.28);
+ box-shadow:0 13px 28px rgba(0,124,137,.10), inset 0 1px 0 rgba(255,255,255,.86);
+ text-decoration:none;
 }
 .site-links .nav-link-bi[href="#context"]{
-  box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 0 0 1.5px rgba(0,108,53,.18), inset 0 1px 0 rgba(255,255,255,.84);
+ box-shadow:0 8px 20px rgba(16,36,29,.055), inset 0 0 0 1.5px rgba(0,108,53,.18), inset 0 1px 0 rgba(255,255,255,.84);
 }
 .site-links .nav-num{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-width:24px;
-  color:var(--bronze-gold);
-  font-weight:950;
-  opacity:.78;
-  font-variant-numeric:tabular-nums;
-  direction:ltr;
-  unicode-bidi:isolate;
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ min-width:24px;
+ color:var(--bronze-gold);
+ font-weight:950;
+ opacity:.78;
+ font-variant-numeric:tabular-nums;
+ direction:ltr;
+ unicode-bidi:isolate;
 }
 .site-links .nav-title{display:inline-block;}
 .site-links .ar-hover{display:none!important;}
 .nav-controls{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
-  gap:12px;
-  flex-wrap:wrap;
+ display:flex;
+ align-items:center;
+ justify-content:flex-end;
+ gap:12px;
+ flex-wrap:wrap;
 }
 body.rtl .nav-controls{justify-content:flex-start;}
 .nav-action{
-  min-height:48px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  border-radius:999px;
-  border:1px solid rgba(122,78,54,.16);
-  background:linear-gradient(180deg,rgba(255,255,255,.87),rgba(255,249,239,.70));
-  color:var(--ink);
-  padding:10px 16px;
-  font-weight:900;
-  box-shadow:0 10px 24px rgba(16,36,29,.07), inset 0 1px 0 rgba(255,255,255,.84);
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+ min-height:48px;
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ gap:10px;
+ border-radius:999px;
+ border:1px solid rgba(122,78,54,.16);
+ background:linear-gradient(180deg,rgba(255,255,255,.87),rgba(255,249,239,.70));
+ color:var(--ink);
+ padding:10px 16px;
+ font-weight:900;
+ box-shadow:0 10px 24px rgba(16,36,29,.07), inset 0 1px 0 rgba(255,255,255,.84);
+ transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
 }
 .nav-action:hover{transform:translateY(-1px);text-decoration:none;box-shadow:0 15px 30px rgba(16,36,29,.11), inset 0 1px 0 rgba(255,255,255,.84);}
 .summary-action{
-  background:linear-gradient(135deg,var(--gulf-turquoise),#07543a);
-  color:#fff;
-  border-color:transparent;
-  box-shadow:0 14px 30px rgba(0,108,53,.23), inset 0 1px 0 rgba(255,255,255,.18);
-  padding-inline:18px;
+ background:linear-gradient(135deg,var(--gulf-turquoise),#07543a);
+ color:#fff;
+ border-color:transparent;
+ box-shadow:0 14px 30px rgba(0,108,53,.23), inset 0 1px 0 rgba(255,255,255,.18);
+ padding-inline:18px;
 }
 .summary-action .action-icon{width:24px;height:24px;display:grid;place-items:center;}
 .summary-action svg{width:24px;height:24px;}
 .lang-action{
-  width:54px;
-  padding-inline:0;
-  color:var(--gulf-turquoise);
-  font-family:var(--font-en);
-  font-weight:950;
-  letter-spacing:.02em;
+ width:54px;
+ padding-inline:0;
+ color:var(--gulf-turquoise);
+ font-family:var(--font-en);
+ font-weight:950;
+ letter-spacing:.02em;
 }
 .lang-action.active{background:var(--deep);color:#fff;border-color:var(--deep);}
 .policy-action{padding-inline:14px 12px;}
@@ -458,23 +458,23 @@ body.rtl .policy-action{padding-inline:12px 14px;}
 .policy-icon{width:24px;height:24px;display:grid;place-items:center;color:var(--gulf-turquoise);}
 .policy-icon svg{width:25px;height:25px;}
 .policy-switch{
-  width:46px;
-  height:26px;
-  border-radius:999px;
-  padding:3px;
-  background:rgba(122,78,54,.14);
-  border:1px solid rgba(122,78,54,.10);
-  display:inline-flex;
-  justify-content:flex-start;
-  transition:background .2s ease;
+ width:46px;
+ height:26px;
+ border-radius:999px;
+ padding:3px;
+ background:rgba(122,78,54,.14);
+ border:1px solid rgba(122,78,54,.10);
+ display:inline-flex;
+ justify-content:flex-start;
+ transition:background .2s ease;
 }
 .policy-switch span{
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#fff;
-  box-shadow:0 3px 8px rgba(16,36,29,.22);
-  transition:transform .2s ease;
+ width:18px;
+ height:18px;
+ border-radius:50%;
+ background:#fff;
+ box-shadow:0 3px 8px rgba(16,36,29,.22);
+ transition:transform .2s ease;
 }
 .policy-action.active .policy-switch{background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-light));}
 .policy-action.active .policy-switch span{transform:translateX(20px);}
@@ -482,29 +482,29 @@ body.rtl .policy-action.active .policy-switch span{transform:translateX(-20px);}
 .policy-action.active{border-color:rgba(0,108,53,.24);box-shadow:0 12px 28px rgba(0,108,53,.13), inset 0 1px 0 rgba(255,255,255,.86);}
 body.rtl .nav-action{font-family:var(--font-ar);font-size:.96rem;}
 @media(max-width:1180px){
-  .site-nav-inner{grid-template-columns:1fr;gap:16px;}
-  body.rtl .site-nav-inner{grid-template-columns:1fr;}
-  body.rtl .brand-card,body.rtl .nav-workspace{grid-column:1;grid-row:auto;}
-  .brand-card{max-width:620px;justify-self:stretch;}
-  .site-links,.nav-controls,body.rtl .site-links,body.rtl .nav-controls{justify-content:flex-start;}
+ .site-nav-inner{grid-template-columns:1fr;gap:16px;}
+ body.rtl .site-nav-inner{grid-template-columns:1fr;}
+ body.rtl .brand-card,body.rtl .nav-workspace{grid-column:1;grid-row:auto;}
+ .brand-card{max-width:620px;justify-self:stretch;}
+ .site-links,.nav-controls,body.rtl .site-links,body.rtl .nav-controls{justify-content:flex-start;}
 }
 @media(max-width:760px){
-  .site-nav-inner{padding:14px;gap:12px;}
-  .brand-card{border-radius:24px;padding:12px 14px;}
-  .brand-mark{width:50px;height:50px;border-radius:18px;}
-  .brand-copy strong{font-size:1rem;}
-  .brand-copy span{font-size:.78rem;}
-  .site-links{
-    flex-wrap:nowrap;
-    overflow-x:auto;
-    scrollbar-width:none;
-    padding-bottom:10px;
-  }
-  .site-links::-webkit-scrollbar{display:none;}
-  .site-links .nav-link-bi{min-width:max-content;padding:10px 14px;}
-  .nav-controls{display:grid;grid-template-columns:1fr auto;align-items:center;}
-  .summary-action{grid-column:1/-1;width:100%;}
-  .policy-action{min-width:0;}
+ .site-nav-inner{padding:14px;gap:12px;}
+ .brand-card{border-radius:24px;padding:12px 14px;}
+ .brand-mark{width:50px;height:50px;border-radius:18px;}
+ .brand-copy strong{font-size:1rem;}
+ .brand-copy span{font-size:.78rem;}
+ .site-links{
+ flex-wrap:nowrap;
+ overflow-x:auto;
+ scrollbar-width:none;
+ padding-bottom:10px;
+ }
+ .site-links::-webkit-scrollbar{display:none;}
+ .site-links .nav-link-bi{min-width:max-content;padding:10px 14px;}
+ .nav-controls{display:grid;grid-template-columns:1fr auto;align-items:center;}
+ .summary-action{grid-column:1/-1;width:100%;}
+ .policy-action{min-width:0;}
 }
 
 html{scroll-padding-top:96px!important;}
@@ -512,198 +512,198 @@ body.has-fixed-header{padding-top:0!important;}
 .nav.site-nav,.site-nav,.nav{position:relative!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;}
 
 .nav .policy-action{
-  min-height:48px;
-  gap:12px;
-  padding:9px 14px;
-  background:linear-gradient(180deg,rgba(255,255,255,.90),rgba(255,249,239,.74)) !important;
-  color:var(--deep) !important;
-  border:1px solid rgba(122,78,54,.16) !important;
-  box-shadow:0 10px 24px rgba(16,36,29,.065), inset 0 1px 0 rgba(255,255,255,.86) !important;
+ min-height:48px;
+ gap:12px;
+ padding:9px 14px;
+ background:linear-gradient(180deg,rgba(255,255,255,.90),rgba(255,249,239,.74)) !important;
+ color:var(--deep) !important;
+ border:1px solid rgba(122,78,54,.16) !important;
+ box-shadow:0 10px 24px rgba(16,36,29,.065), inset 0 1px 0 rgba(255,255,255,.86) !important;
 }
 .nav .policy-action:hover{
-  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.78)) !important;
-  border-color:rgba(0,108,53,.26) !important;
-  box-shadow:0 14px 30px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.90) !important;
+ background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.78)) !important;
+ border-color:rgba(0,108,53,.26) !important;
+ box-shadow:0 14px 30px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.90) !important;
 }
 .nav .policy-action.active{
-  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.82)) !important;
-  color:var(--deep) !important;
-  border-color:rgba(0,108,53,.30) !important;
-  box-shadow:0 14px 32px rgba(0,108,53,.11), inset 0 0 0 1px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.92) !important;
+ background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(246,255,243,.82)) !important;
+ color:var(--deep) !important;
+ border-color:rgba(0,108,53,.30) !important;
+ box-shadow:0 14px 32px rgba(0,108,53,.11), inset 0 0 0 1px rgba(0,108,53,.10), inset 0 1px 0 rgba(255,255,255,.92) !important;
 }
 .nav .policy-action .policy-icon{
-  width:40px;
-  height:40px;
-  flex:0 0 40px;
-  border-radius:999px;
-  background:rgba(0,108,53,.085);
-  color:var(--gulf-turquoise);
-  box-shadow:inset 0 0 0 1px rgba(0,108,53,.10);
+ width:40px;
+ height:40px;
+ flex:0 0 40px;
+ border-radius:999px;
+ background:rgba(0,108,53,.085);
+ color:var(--gulf-turquoise);
+ box-shadow:inset 0 0 0 1px rgba(0,108,53,.10);
 }
 .nav .policy-action .policy-icon svg{
-  width:34px;
-  height:34px;
-  display:block;
+ width:34px;
+ height:34px;
+ display:block;
 }
 
 .nav .policy-action .policy-icon img.uae-emblem-img{
-  width:34px;
-  height:34px;
-  display:block;
-  object-fit:contain;
-  border-radius:0;
-  background:#fff;
+ width:34px;
+ height:34px;
+ display:block;
+ object-fit:contain;
+ border-radius:0;
+ background:#fff;
 }
 .nav .policy-action.active .policy-icon{
-  background:linear-gradient(135deg,rgba(0,108,53,.14),rgba(52,190,149,.12));
-  color:var(--gulf-turquoise);
+ background:linear-gradient(135deg,rgba(0,108,53,.14),rgba(52,190,149,.12));
+ color:var(--gulf-turquoise);
 }
 .nav .policy-action .control-label{
-  color:var(--deep) !important;
-  font-weight:900;
-  line-height:1;
-  white-space:nowrap;
+ color:var(--deep) !important;
+ font-weight:900;
+ line-height:1;
+ white-space:nowrap;
 }
 .nav .policy-action.active .control-label{
-  color:var(--gulf-turquoise) !important;
+ color:var(--gulf-turquoise) !important;
 }
 .nav .policy-action .policy-switch{
-  width:48px;
-  height:28px;
-  flex:0 0 48px;
-  padding:3px;
-  border-radius:999px;
-  background:rgba(122,78,54,.13) !important;
-  border:1px solid rgba(122,78,54,.12) !important;
-  box-shadow:inset 0 1px 3px rgba(16,36,29,.12);
+ width:48px;
+ height:28px;
+ flex:0 0 48px;
+ padding:3px;
+ border-radius:999px;
+ background:rgba(122,78,54,.13) !important;
+ border:1px solid rgba(122,78,54,.12) !important;
+ box-shadow:inset 0 1px 3px rgba(16,36,29,.12);
 }
 .nav .policy-action .policy-switch span{
-  width:20px;
-  height:20px;
-  background:#fff;
-  box-shadow:0 3px 9px rgba(16,36,29,.24);
+ width:20px;
+ height:20px;
+ background:#fff;
+ box-shadow:0 3px 9px rgba(16,36,29,.24);
 }
 .nav .policy-action.active .policy-switch{
-  background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-light)) !important;
-  border-color:rgba(0,108,53,.18) !important;
+ background:linear-gradient(135deg,var(--gulf-turquoise),var(--gulf-turquoise-light)) !important;
+ border-color:rgba(0,108,53,.18) !important;
 }
 .nav .policy-action.active .policy-switch span{transform:translateX(20px);}
 body.rtl .nav .policy-action.active .policy-switch span{transform:translateX(-20px);}
 body.rtl .nav .policy-action{direction:rtl;}
 body.rtl .nav .policy-action .control-label{font-family:var(--font-ar);font-size:.98rem;}
 @media(max-width:760px){
-  .nav .policy-action{justify-content:space-between;min-width:min(100%,320px);}
+ .nav .policy-action{justify-content:space-between;min-width:min(100%,320px);}
 }
 
 .footer .footer-inner{
-  max-width:980px;
-  margin-inline:auto;
-  text-align:center;
+ max-width:980px;
+ margin-inline:auto;
+ text-align:center;
 }
 .footer .footer-review-note,
 .footer .review-footer-note{
-  max-width:920px;
-  margin-left:auto;
-  margin-right:auto;
-  text-align:center;
-  direction:ltr;
-  unicode-bidi:isolate;
+ max-width:920px;
+ margin-left:auto;
+ margin-right:auto;
+ text-align:center;
+ direction:ltr;
+ unicode-bidi:isolate;
 }
 .footer .review-footer-note{
-  margin-top:12px;
+ margin-top:12px;
 }
 body.rtl .footer .footer-review-note,
 body.rtl .footer .review-footer-note{
-  direction:rtl;
-  text-align:center;
+ direction:rtl;
+ text-align:center;
 }
 body.rtl .footer .review-footer-note span{
-  display:inline-block;
-  direction:rtl;
-  unicode-bidi:isolate;
+ display:inline-block;
+ direction:rtl;
+ unicode-bidi:isolate;
 }
 body.rtl .source-grid,
 body.rtl .docs-grid{
-  direction:rtl;
+ direction:rtl;
 }
 body.rtl .source,
 body.rtl .doc-card{
-  text-align:right;
+ text-align:right;
 }
 body.rtl .source a,
 body.rtl .doc-actions{
-  justify-content:center;
+ justify-content:center;
 }
 
 body.rtl .section-head{
-  display:block;
-  text-align:center;
-  margin-inline:auto;
+ display:block;
+ text-align:center;
+ margin-inline:auto;
 }
 body.rtl .section-head > div,
 body.rtl .section-head .kicker,
 body.rtl .section-head h2,
 body.rtl .section-note{
-  margin-inline:auto;
-  text-align:center;
+ margin-inline:auto;
+ text-align:center;
 }
 body.rtl .section-head h2{
-  max-width:920px;
-  text-wrap:balance;
+ max-width:920px;
+ text-wrap:balance;
 }
 body.rtl .section-note{
-  max-width:820px;
-  margin-top:12px;
-  direction:rtl;
+ max-width:820px;
+ margin-top:12px;
+ direction:rtl;
 }
 body.rtl .doc-card{
-  direction:rtl;
-  text-align:right;
-  align-items:stretch;
+ direction:rtl;
+ text-align:right;
+ align-items:stretch;
 }
 body.rtl .doc-card h3,
 body.rtl .doc-card .meta{
-  text-align:right;
-  direction:rtl;
+ text-align:right;
+ direction:rtl;
 }
 body.rtl .doc-card .badge{
-  align-self:flex-start;
+ align-self:flex-start;
 }
 body.rtl .doc-actions{
-  justify-content:center;
-  direction:rtl;
+ justify-content:center;
+ direction:rtl;
 }
 body.rtl .doc-actions a,
 body.rtl .doc-actions button{
-  direction:rtl;
-  unicode-bidi:plaintext;
-  text-align:center;
-  white-space:normal;
+ direction:rtl;
+ unicode-bidi:plaintext;
+ text-align:center;
+ white-space:normal;
 }
 body.rtl .control label{
-  direction:rtl;
-  align-items:flex-start;
+ direction:rtl;
+ align-items:flex-start;
 }
 body.rtl .control output,
 body.rtl .metric b,
 body.rtl .metric .ltr,
 body.rtl .rank-row b{
-  direction:ltr;
-  unicode-bidi:isolate;
+ direction:ltr;
+ unicode-bidi:isolate;
 }
 body.rtl .control small{
-  display:block;
-  direction:rtl;
-  text-align:right;
-  line-height:1.65;
+ display:block;
+ direction:rtl;
+ text-align:right;
+ line-height:1.65;
 }
 body.rtl .rank-list{
-  direction:rtl;
+ direction:rtl;
 }
 body.rtl .rank-row{
-  grid-template-columns:auto 1fr auto;
-  direction:rtl;
-  text-align:right;
+ grid-template-columns:auto 1fr auto;
+ direction:rtl;
+ text-align:right;
 }
 body.rtl .rank-row b{grid-column:1;grid-row:1;text-align:right;}
 body.rtl .rank-row .rank-main,
@@ -712,9 +712,9 @@ body.rtl .rank-row em{grid-column:3;grid-row:1;text-align:left;white-space:nowra
 body.rtl .rank-main strong{direction:rtl;text-align:right;}
 body.rtl .project-tag{direction:rtl;white-space:nowrap;}
 body.rtl .badge{
-  direction:rtl;
-  unicode-bidi:plaintext;
-  text-align:center;
+ direction:rtl;
+ unicode-bidi:plaintext;
+ text-align:center;
 }
 .footer .footer-inner,
 .footer .footer-review-note,
@@ -722,44 +722,44 @@ body.rtl .badge{
 body.rtl .footer .footer-inner,
 body.rtl .footer .footer-review-note,
 body.rtl .footer .review-footer-note{
-  text-align:center!important;
-  margin-inline:auto!important;
-  justify-content:center!important;
+ text-align:center!important;
+ margin-inline:auto!important;
+ justify-content:center!important;
 }
 body.rtl .footer .review-footer-note span{display:inline;}
 body.rtl .source,
 body.rtl .source p,
 body.rtl .source a{
-  text-align:right;
-  direction:rtl;
+ text-align:right;
+ direction:rtl;
 }
 body.rtl .source b{display:block;text-align:right;}
 body.rtl .file-ref::after{
-  content:"";
+ content:"";
 }
 @media(max-width:760px){
-  body.rtl .rank-row{grid-template-columns:1fr;}
-  body.rtl .rank-row b,
-  body.rtl .rank-row .rank-main,
-  body.rtl .rank-row > span,
-  body.rtl .rank-row em{grid-column:1;text-align:right;}
+ body.rtl .rank-row{grid-template-columns:1fr;}
+ body.rtl .rank-row b,
+ body.rtl .rank-row .rank-main,
+ body.rtl .rank-row > span,
+ body.rtl .rank-row em{grid-column:1;text-align:right;}
 }
 
 :root{
-  --gulf-turquoise:#00A6B4;
-  --gulf-turquoise-light:#32D3C8;
-  --deep:#102A43;
-  --desert-gold:#C9A227;
-  --pearl-mist:#FFF3D2;
-  --paper:#FFFDF7;
-  --gulf-turquoise-deep:#007C92;
-  --aqua-glow:#3ED9D0;
-  --bronze-gold:#B8860B;
-  --space-violet:#7C3AED;
-  --ink:#12212F;
-  --muted:#526476;
-  --line:rgba(184,134,11,.18);
-  --glass:rgba(255,255,255,.78);
+ --gulf-turquoise:#00A6B4;
+ --gulf-turquoise-light:#32D3C8;
+ --deep:#102A43;
+ --desert-gold:#C9A227;
+ --pearl-mist:#FFF3D2;
+ --paper:#FFFDF7;
+ --gulf-turquoise-deep:#007C92;
+ --aqua-glow:#3ED9D0;
+ --bronze-gold:#B8860B;
+ --space-violet:#7C3AED;
+ --ink:#12212F;
+ --muted:#526476;
+ --line:rgba(184,134,11,.18);
+ --glass:rgba(255,255,255,.78);
 }
 body{background:radial-gradient(circle at 8% 8%,rgba(0,166,180,.20),transparent 28%),radial-gradient(circle at 92% 6%,rgba(124,58,237,.16),transparent 30%),radial-gradient(circle at 55% 90%,rgba(201,162,39,.20),transparent 36%),linear-gradient(135deg,#fffdf7 0%,#fff3d2 42%,#eafcff 100%)}
 body::before{opacity:.05;background-image:linear-gradient(45deg,transparent 45%,var(--desert-gold) 46%,var(--desert-gold) 48%,transparent 49%),linear-gradient(-45deg,transparent 45%,var(--gulf-turquoise) 46%,var(--gulf-turquoise) 48%,transparent 49%)}
@@ -767,8 +767,8 @@ body::before{opacity:.05;background-image:linear-gradient(45deg,transparent 45%,
 body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
 
 .aus-proposal-card{
-  border-color:rgba(0,166,180,.26);
-  background:linear-gradient(135deg,rgba(255,255,255,.90),rgba(244,251,251,.88));
+ border-color:rgba(0,166,180,.26);
+ background:linear-gradient(135deg,rgba(255,255,255,.90),rgba(244,251,251,.88));
 }
 .aus-proposal-card h3{color:var(--gulf-turquoise-deep);}
 .aus-proposal-card .doc-actions a.primary{background:linear-gradient(135deg,var(--gulf-turquoise),var(--space-violet));}
@@ -847,10 +847,10 @@ body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
 <p class="lead" data-ar="تعرض هذه المحفظة ملاءمتي الأكاديمية لبرنامج AUS MSEP: التنقل الحضري، التحليل المكاني، نمذجة CAPEX/OPEX، التنبؤ، MCDA، ومقترح اقتصادي حول استثمارات المرور الذكي في دبي. الهدف هو توثيق الأدلة والانضباط المنهجي وملاءمة تقييم السياسات، وليس تقديم عرض تجاري أو ادعاء تشغيلي." data-en="This portfolio presents my academic fit for AUS MSEP: urban mobility, spatial analysis, CAPEX/OPEX modelling, forecasting, MCDA, and an economics research proposal on Dubai smart-traffic investments. The purpose is to document evidence, methodological discipline, and policy-appraisal fit — not to present a non-academic implementation claim or operational claim.">This portfolio presents my academic fit for AUS MSEP: urban mobility, spatial analysis, CAPEX/OPEX modelling, forecasting, MCDA, and an economics research proposal on Dubai smart-traffic investments. The purpose is to document evidence, methodological discipline, and policy-appraisal fit — not to present a non-academic implementation claim or operational claim.</p>
 <div class="small-note" data-ar="تحافظ الواجهة على لغة بصرية إماراتية هادئة، لكن المحتوى منظم الآن لمراجعة القبول الأكاديمي: أدلة بحثية، ملاءمة منهجية، ومقترح AUS MSEP." data-en="The file is organized as an academic evidence repository: completed work, methodological capability, source documentation, and a proposed AUS MSEP research design requiring supervision and data access.">The file is organized as an academic evidence repository: completed work, methodological capability, source documentation, and a proposed AUS MSEP research design requiring supervision and data access.</div>
 <div class="badge-row">
-<span class="badge supported" data-ar="🛡️ قائمة حوكمة متوافقة مع PDPL" data-en="🛡️ PDPL governance checklist">🛡️ PDPL governance checklist</span>
+<span class="badge supported" data-ar=" قائمة حوكمة متوافقة مع PDPL" data-en=" PDPL governance checklist"> PDPL governance checklist</span>
 <span class="badge supported" data-ar="ضوابط حوكمة النماذج والشفافية" data-en=" AI ethics &amp; transparency controls"> AI ethics &amp; transparency controls</span>
-<span class="badge supported" data-ar="🎓 تركيز على قبول AUS MSEP" data-en="🎓 AUS MSEP admissions focus">🎓 AUS MSEP admissions focus</span>
-<span class="badge supported" data-ar="📊 منطق DiD / Event Study / CBA" data-en="📊 DiD / Event Study / CBA logic">📊 DiD / Event Study / CBA logic</span>
+<span class="badge supported" data-ar=" تركيز على قبول AUS MSEP" data-en=" AUS MSEP admissions focus"> AUS MSEP admissions focus</span>
+<span class="badge supported" data-ar=" منطق DiD / Event Study / CBA" data-en=" DiD / Event Study / CBA logic"> DiD / Event Study / CBA logic</span>
 </div>
 <div class="cta-row">
 <button class="cta primary" data-ar="فتح الملخص الأكاديمي" data-en="Open Academic Summary" id="summaryBtn2" type="button">Open Academic Summary</button>
@@ -941,498 +941,498 @@ body.rtl #sumo-dashboard{direction:ltr;font-family:var(--font-en);}
 <div class="section-head"><div><div class="kicker" data-ar="المصادر والأدلة" data-en="Sources &amp; Evidence">Sources &amp; Evidence</div><h2 data-ar="سجل مصادر رسمي لسياق AUS والسياسات العامة في الإمارات." data-en="Official source register for AUS and UAE policy context." id="sourcesTitle">Official source register for AUS and UAE policy context.</h2></div><p class="section-note" data-ar="روابط رسمية تُستخدم لتثبيت ملاءمة البرنامج، وسياق تدخلات النقل في دبي، وبيانات العقار البديلة، وPDPL، وإطار حوكمة النماذج." data-en="Official links used to anchor the program fit, Dubai transport intervention context, real-estate fallback data, PDPL, and model-governance framing.">Official links used to anchor the program fit, Dubai transport intervention context, real-estate fallback data, PDPL, and model-governance framing.</p></div>
 <div class="source-grid"><article class="source"><b data-ar="برنامج AUS MSEP" data-en="AUS MSEP">AUS MSEP</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://www.aus.edu/sba/department-of-economics/master-of-science-in-economics-and-policy-msep" rel="noopener" target="_blank">Official source</a><p data-ar="صفحة برنامج AUS الخاصة بالاقتصاد، وتقييم السياسات، وملاءمة تحليل البيانات." data-en="AUS program page for economics, policy evaluation, and data-analysis fit.">AUS program page for economics, policy evaluation, and data-analysis fit.</p></article><article class="source"><b data-ar="مركز دبي لأنظمة المرور الذكية" data-en="Dubai Intelligent Traffic Systems Centre">Dubai Intelligent Traffic Systems Centre</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://mediaoffice.ae/en/news/2020/november/10-11/mohammed-bin-rashid-inaugurates-aed590-million-dubai-intelligent-traffic-systems-centre-at-al-barsha" rel="noopener" target="_blank">Official source</a><p data-ar="مصدر المكتب الإعلامي لحكومة دبي حول حجم DITSC، وتكلفة 590 مليون درهم، وتوسيع تغطية أنظمة النقل الذكية." data-en="Dubai Media Office source for DITSC scale, AED 590m cost, and ITS coverage expansion.">Dubai Media Office source for DITSC scale, AED 590m cost, and ITS coverage expansion.</p></article><article class="source"><b data-ar="ترقية UTC-UX Fusion" data-en="UTC-UX Fusion Upgrade">UTC-UX Fusion Upgrade</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://www.mediaoffice.ae/en/news/2025/september/04-09/rta-traffic-signal-system-upgrade" rel="noopener" target="_blank">Official source</a><p data-ar="مصدر المكتب الإعلامي لحكومة دبي حول مكاسب تدفق المرور المعلنة في المرحلة الأولى بنسبة 16%–37%." data-en="Dubai Media Office source for reported 16%–37% Phase 1 traffic-flow gains.">Dubai Media Office source for reported 16%–37% Phase 1 traffic-flow gains.</p></article><article class="source"><b data-ar="البيانات المفتوحة لدائرة الأراضي والأملاك في دبي" data-en="Dubai Land Department Open Data">Dubai Land Department Open Data</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://dubailand.gov.ae/en/open-data/real-estate-data/" rel="noopener" target="_blank">Official source</a><p data-ar="مصدر رسمي لبيانات العقار المستخدمة في مسار Hedonic البديل." data-en="Official real-estate data source for the hedonic fallback route.">Official real-estate data source for the hedonic fallback route.</p></article><article class="source"><b data-ar="قانون حماية البيانات الشخصية في دولة الإمارات" data-en="UAE Personal Data Protection Law">UAE Personal Data Protection Law</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://uaelegislation.gov.ae/en/legislations/1972/download" rel="noopener" target="_blank">Official source</a><p data-ar="صفحة البوابة الرسمية لحكومة الإمارات حول المرسوم بقانون اتحادي رقم 45 لسنة 2021." data-en="Official UAE Government Portal page for Federal Decree-Law No. 45 of 2021.">Official UAE Government Portal page for Federal Decree-Law No. 45 of 2021.</p></article><article class="source"><b data-ar="استراتيجية الإمارات للذكاء الاصطناعي 2031" data-en="UAE AI Strategy 2031">UAE AI Strategy 2031</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://uaecabinet.ae/en/news/uae-cabinet-adopts-national-artificial-intelligence-strategy-2031" rel="noopener" target="_blank">Official source</a><p data-ar="صفحة مجلس الوزراء الإماراتي الخاصة بسياق الاستراتيجية الوطنية للذكاء الاصطناعي." data-en="Official UAE Cabinet page for national AI strategy context.">Official UAE Cabinet page for national AI strategy context.</p></article><article class="source"><b data-ar="إرشادات أخلاقيات الذكاء الاصطناعي في دبي" data-en="Digital Dubai AI Ethics Guidelines">Digital Dubai AI Ethics Guidelines</b><a data-ar="مصدر رسمي" data-en="Official source" href="https://www.digitaldubai.ae/docs/default-source/ai-principles-resources/ai-ethics.pdf" rel="noopener" target="_blank">Official source</a><p data-ar="إطار دبي للأخلاقيات الرقمية المستخدم لتأطير الشفافية، والمساءلة، وقابلية الفهم، والمراجعة البشرية." data-en="Digital Dubai ethics framework used to frame transparency, accountability, understandability, and human review.">Digital Dubai ethics framework used to frame transparency, accountability, understandability, and human review.</p></article></div>
 </section>
-<section aria-labelledby="archTitle" class="page-section" id="architecture">
-<div class="section-head"><div><div class="kicker" data-ar="هندسة المعلومات" data-en="Information Architecture">Information Architecture</div><h2 data-ar="هندسة معلومات أكاديمية لمراجعة القبول." data-en="Academic information architecture for admissions review." id="archTitle">Academic information architecture for admissions review.</h2></div><p class="section-note" data-ar="تنظم الواجهة سياق البحث، وحوكمة البيانات، والمناهج، وأدلة القبول في مسار مراجعة أكاديمي واحد يميّز بين العمل المنجز، والافتراضات البحثية، والمتطلبات التي تحتاج إلى إشراف وبيانات." data-en="The interface organizes research context, data governance, methods, and admissions evidence into one academic review path that separates completed work, research assumptions, and requirements that depend on supervision and data access.">The interface organizes research context, data governance, methods, and admissions evidence into one academic review path that separates completed work, research assumptions, and requirements that depend on supervision and data access.</p></div>
-<div class="system-pillars"><article class="pillar"><h3 data-ar="🌐 الركيزة 1: السياق وقابلية الاستخدام" data-en="🌐 Pillar 1: Context &amp; Usability">🌐 Pillar 1: Context &amp; Usability</h3><ul><li data-ar="سياق السياسات العامة في الإمارات" data-en="UAE policy context">UAE policy context</li><li data-ar="عربية RTL انتقائية" data-en="Selective Arabic RTL">Selective Arabic RTL</li><li data-ar="ملاحة ميسّرة للمراجع" data-en="Accessible reviewer navigation">Accessible reviewer navigation</li></ul></article><article class="pillar"><h3 data-ar="🛡️ الركيزة 2: حوكمة البيانات" data-en="🛡️ Pillar 2: Data Governance">🛡️ Pillar 2: Data Governance</h3><ul><li data-ar="تقليل البيانات وفق PDPL" data-en="PDPL-aware data minimization">PDPL-aware data minimization</li><li data-ar="ضوابط حوكمة النماذج والشفافية" data-en="Model-governance and transparency controls">Model-governance and transparency controls</li><li data-ar="بطاقات نموذج وسجلات افتراضات" data-en="Model-card and assumption logs">Model-card and assumption logs</li></ul></article><article class="pillar"><h3 data-ar="🎓 الركيزة 3: ملاءمة البحث لبرنامج AUS" data-en="🎓 Pillar 3: AUS Research Fit">🎓 Pillar 3: AUS Research Fit</h3><ul><li data-ar="توجّه نحو الاقتصاد القياسي التطبيقي" data-en="Applied econometrics orientation">Applied econometrics orientation</li><li data-ar="تقييم سياسات النقل في دبي" data-en="Dubai transport-policy evaluation">Dubai transport-policy evaluation</li><li data-ar="مستودع أدلة القبول" data-en="Admissions evidence repository">Admissions evidence repository</li></ul></article></div>
+<section aria-labelledby="readTitle" class="page-section" id="review-route">
+<div class="section-head"><div><div class="kicker" data-ar="مسار القراءة" data-en="Review Route">Review Route</div><h2 data-ar="كيف يقرأ مراجع القبول هذا الملف." data-en="How an admissions reviewer should read this file." id="readTitle">How an admissions reviewer should read this file.</h2></div><p class="section-note" data-ar="يُقرأ هذا الملف في أربع خطوات: سياق السياسات العامة في الإمارات، حدود البيانات والحوكمة، منهجية التعريف والتقييم، ثم الأدلة الداعمة. ويفصل بوضوح بين الأعمال المنجزة، والمقترح البحثي، والجوانب التي تتطلب إشرافاً أكاديمياً أو بيانات مقيدة." data-en="Read this file in four steps: UAE policy context, data limits and governance, identification and appraisal methods, then supporting evidence. It separates completed work from the proposed research design and from elements that require faculty supervision or restricted data access.">Read this file in four steps: UAE policy context, data limits and governance, identification and appraisal methods, then supporting evidence. It separates completed work from the proposed research design and from elements that require faculty supervision or restricted data access.</p></div>
+<div class="system-pillars"><article class="pillar"><h3 data-ar="1. سياق السياسات العامة" data-en="1. Policy context">1. Policy context</h3><ul><li data-ar="مشكلة حضرية قابلة للقياس في دبي والإمارات" data-en="A measurable urban-policy problem in Dubai and the UAE">A measurable urban-policy problem in Dubai and the UAE</li><li data-ar="قيود المناخ، التنقل، والموارد قبل الحلول التقنية" data-en="Climate, mobility, and resource constraints before technical claims">Climate, mobility, and resource constraints before technical claims</li><li data-ar="مسار قراءة واضح بالإنجليزية والعربية" data-en="Clear review path in English and Arabic">Clear review path in English and Arabic</li></ul></article><article class="pillar"><h3 data-ar="2. حدود البيانات" data-en="2. Data limits">2. Data limits</h3><ul><li data-ar="تفضيل البيانات المجمعة أو المجهولة متى أمكن" data-en="Aggregated or anonymized data where possible">Aggregated or anonymized data where possible</li><li data-ar="تقليل البيانات، حدود الاحتفاظ، وضوابط الوصول وفق PDPL" data-en="PDPL-based minimization, retention limits, and access controls">PDPL-based minimization, retention limits, and access controls</li><li data-ar="سجل للمصادر، النماذج، والافتراضات" data-en="Source, model, and assumption records">Source, model, and assumption records</li></ul></article><article class="pillar"><h3 data-ar="3. الملاءمة البحثية" data-en="3. Research fit">3. Research fit</h3><ul><li data-ar="اقتصاد قياسي تطبيقي وتقييم سياسات عامة" data-en="Applied econometrics and policy evaluation">Applied econometrics and policy evaluation</li><li data-ar="تقييم اقتصادي لاستثمارات النقل الذكي في دبي" data-en="Economic appraisal of Dubai smart-traffic investment">Economic appraisal of Dubai smart-traffic investment</li><li data-ar="السيرة، بيان الغرض، والمقترح كأدلة داعمة" data-en="CV, SOP, and proposal as supporting evidence">CV, SOP, and proposal as supporting evidence</li></ul></article></div>
 </section>
 </main>
-<footer class="footer"><div class="container footer-inner" style="padding:0"><p class="footer-review-note"><b data-ar="ملاحظة للمراجعة." data-en="Review note.">Review note.</b> This portfolio separates completed academic evidence, UAE public-policy context, and the proposed AUS MSEP research design. It does not claim institutional partnership, data access, deployment, or implementation in the UAE.</p><p class="review-footer-note"><b data-ar="الهندسة:" data-en="Architecture:">Architecture:</b> <span data-ar="قيود السياسات الإماراتية أولاً، ثم ضوابط الحوكمة، ثم مناهج التعريف والتقييم، ثم الأدلة الأكاديمية." data-en="UAE policy constraints first, governance controls second, identification methods third, academic evidence last.">UAE policy constraints first, governance controls second, identification methods third, academic evidence last.</span></p></div></footer>
+<footer class="footer"><div class="container footer-inner" style="padding:0"><p class="footer-review-note"><b data-ar="ملاحظة للمراجعة." data-en="Review note.">Review note.</b> <span data-ar="هذا الملف ملحق أكاديمي لمراجعة القبول. يميز بين العمل المنجز، والتصميم البحثي المقترح، والجوانب التي تحتاج إلى إشراف أو بيانات مقيدة." data-en="This file is an academic supplement for admissions review. It distinguishes completed work from the proposed research design and from elements that require supervision or restricted data.">This file is an academic supplement for admissions review. It distinguishes completed work from the proposed research design and from elements that require supervision or restricted data.</span></p><p class="review-footer-note"><b data-ar="ترتيب القراءة:" data-en="Reading order:">Reading order:</b> <span data-ar="السياق السياساتي، حدود البيانات، منهجية التعريف والتقييم، ثم الأدلة الداعمة." data-en="policy context, data limits, identification and appraisal methods, then supporting evidence.">policy context, data limits, identification and appraisal methods, then supporting evidence.</span></p></div></footer>
 <div aria-labelledby="summaryTitle" aria-modal="true" class="modal" id="summaryModal" role="dialog"><div class="modal-card"><div class="modal-head"><div><div class="kicker" data-ar="ملخص أكاديمي · دقيقتان" data-en="Academic Summary · 2 minutes">Academic Summary · 2 minutes</div><h2 data-ar="ملخص AUS MSEP: بيانات حضرية ← أدلة اقتصادية ← تقييم سياسات عامة" data-en="AUS MSEP Summary: Urban Data → Economic Evidence → Policy Appraisal" id="summaryTitle">AUS MSEP Summary: Urban Data → Economic Evidence → Policy Appraisal</h2></div><button class="close" data-ar="إغلاق" data-en="Close" id="closeSummary" type="button">Close</button></div><div class="summary-grid"><article class="summary-card"><span class="summary-letter">G</span><h3 data-ar="الفجوة" data-en="Gap">Gap</h3><p data-ar="تعلن دبي عن مكاسب في أداء المرور الذكي، لكن التصريحات العامة لا تثبت تلقائياً أثراً مضاداً للواقع أو عائداً صافياً للرفاه." data-en="Dubai reports smart-traffic performance gains, but public claims do not automatically establish counterfactual effects or net welfare return.">Dubai reports smart-traffic performance gains, but public claims do not automatically establish counterfactual effects or net welfare return.</p></article><article class="summary-card"><span class="summary-letter">I</span><h3 data-ar="الفكرة" data-en="Idea">Idea</h3><p data-ar="استخدام تصميم قائم على بوابة بيانات: سجل تدخلات، وتعريف شبه تجريبي عند الإمكان، وبديل Hedonic، وتقييم منافع وتكاليف قائم على الرفاه." data-en="Use a data-gated design: treatment registry, quasi-experimental identification when feasible, hedonic fallback, and welfare-based cost-benefit appraisal.">Use a data-gated design: treatment registry, quasi-experimental identification when feasible, hedonic fallback, and welfare-based cost-benefit appraisal.</p></article><article class="summary-card"><span class="summary-letter">F</span><h3 data-ar="الجدوى" data-en="Feasibility">Feasibility</h3><p data-ar="تربط قاعدة الأدلة بين مشروع التخرج في الدار البيضاء، ومنهج QGIS/SUMO، والنمذجة المالية، ومقترح بحث AUS MSEP." data-en="The evidence base links my Casablanca PFE, QGIS/SUMO method, financial modelling, and the AUS MSEP research proposal.">The evidence base links my Casablanca PFE, QGIS/SUMO method, financial modelling, and the AUS MSEP research proposal.</p></article><article class="summary-card"><span class="summary-letter">T</span><h3 data-ar="الجدول الزمني" data-en="Timeline">Timeline</h3><p data-ar="يتسلسل البحث المقترح من تدقيق المصادر، إلى بوابة البيانات، وبناء قاعدة البيانات، والتشخيص، وحساب الرفاه، ثم مخرجات سياسات واعية بمستوى الادعاء." data-en="The proposed thesis sequence is source audit, data gate, dataset construction, diagnostics, welfare accounting, and claim-aware policy output.">The proposed thesis sequence is source audit, data gate, dataset construction, diagnostics, welfare accounting, and claim-aware policy output.</p></article></div><div class="small-note dark-note" data-ar="التموضع: هذه محفظة قبول أكاديمية وملخص ملاءمة بحثية. وهي تفصل بين الأدلة المنجزة، والمناهج المقترحة، والافتراضات التي تتطلب إشرافاً أو وصولاً إلى البيانات." data-en="Positioning: this is an academic admissions portfolio and research-fit summary. It separates completed evidence, proposed methods, and assumptions requiring supervision or data access.">Positioning: this is an academic admissions portfolio and research-fit summary. It separates completed evidence, proposed methods, and assumptions requiring supervision or data access.</div></div></div>
 <div aria-live="polite" class="toast" id="toast" role="status"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script>
 (function(){
-  'use strict';
+ 'use strict';
 
-  const EGS_ZONES = {
-    maarif: {
-      label:'Maârif', color:'#FF3355', center:[33.5866,-7.6325], zoom:14,
-      heatmapFile:'maarif_heatmap.json',
-      simulationFile:'maarif_simulation_geo.json',
-      analysis:'Maârif: central dense fabric. The layer can read real SUMO/GIS JSON when present; otherwise it displays a built-in demonstration dataset.',
-      analysisAr:'المعاريف: نسيج حضري مركزي كثيف. تستطيع الطبقة قراءة ملفات SUMO/GIS بصيغة JSON عند توفرها؛ وإلا تعرض مجموعة بيانات تجريبية مدمجة.'
-    },
-    hay_hassani: {
-      label:'Hay Hassani', color:'#FFB830', center:[33.5607,-7.6900], zoom:14,
-      heatmapFile:'hay_hassani_heatmap.json',
-      simulationFile:'hay_hassani_simulation_geo.json',
-      analysis:'Hay Hassani: peripheral flows and transition zones. Useful to inspect localized slowdowns and vehicle accumulation.',
-      analysisAr:'حي الحسني: تدفقات طرفية ومناطق انتقالية. مفيد لفحص التباطؤ المحلي وتراكم المركبات.'
-    },
-    ben_msick: {
-      label:"Ben M'Sick", color:'#00E676', center:[33.5500,-7.5800], zoom:14,
-      heatmapFile:'ben_msick_heatmap.json',
-      simulationFile:'ben_msick_simulation_geo.json',
-      analysis:"Ben M'Sick: dense urban network. The dashboard supports reading conflict points, secondary-road intensity and speed variations.",
-      analysisAr:"بن مسيك: شبكة حضرية كثيفة. تدعم اللوحة قراءة نقاط التعارض وكثافة الطرق الثانوية وتغيرات السرعة."
-    },
-    sidi_maarouf: {
-      label:'Sidi Maârouf', color:'#BF5AF2', center:[33.5250,-7.6500], zoom:14,
-      heatmapFile:'sidi_maarouf_heatmap.json',
-      simulationFile:'sidi_maarouf_simulation_geo.json',
-      analysis:'Sidi Maârouf: strategic employment and arterial area. Simulation shows flows related to business poles and major roads.',
-      analysisAr:'سيدي معروف: منطقة تشغيل ومحاور استراتيجية. تعرض المحاكاة تدفقات مرتبطة بأقطاب الأعمال والطرق الرئيسية.'
-    },
-    bd_mohammed_v: {
-      label:'Bd. Mohammed V', color:'#00B4D8', center:[33.5950,-7.6100], zoom:15,
-      heatmapFile:'bd_mohammed_v_heatmap.json',
-      simulationFile:'bd_mohammed_v_simulation_geo.json',
-      analysis:'Boulevard Mohammed V: major corridor. Heatmap and simulation identify concentration and slowdown segments.',
-      analysisAr:'شارع محمد الخامس: ممر رئيسي. تحدد الخريطة الحرارية والمحاكاة مقاطع التركّز والتباطؤ.'
-    }
-  };
+ const EGS_ZONES = {
+ maarif: {
+ label:'Maârif', color:'#FF3355', center:[33.5866,-7.6325], zoom:14,
+ heatmapFile:'maarif_heatmap.json',
+ simulationFile:'maarif_simulation_geo.json',
+ analysis:'Maârif: central dense fabric. The layer can read real SUMO/GIS JSON when present; otherwise it displays a built-in demonstration dataset.',
+ analysisAr:'المعاريف: نسيج حضري مركزي كثيف. تستطيع الطبقة قراءة ملفات SUMO/GIS بصيغة JSON عند توفرها؛ وإلا تعرض مجموعة بيانات تجريبية مدمجة.'
+ },
+ hay_hassani: {
+ label:'Hay Hassani', color:'#FFB830', center:[33.5607,-7.6900], zoom:14,
+ heatmapFile:'hay_hassani_heatmap.json',
+ simulationFile:'hay_hassani_simulation_geo.json',
+ analysis:'Hay Hassani: peripheral flows and transition zones. Useful to inspect localized slowdowns and vehicle accumulation.',
+ analysisAr:'حي الحسني: تدفقات طرفية ومناطق انتقالية. مفيد لفحص التباطؤ المحلي وتراكم المركبات.'
+ },
+ ben_msick: {
+ label:"Ben M'Sick", color:'#00E676', center:[33.5500,-7.5800], zoom:14,
+ heatmapFile:'ben_msick_heatmap.json',
+ simulationFile:'ben_msick_simulation_geo.json',
+ analysis:"Ben M'Sick: dense urban network. The dashboard supports reading conflict points, secondary-road intensity and speed variations.",
+ analysisAr:"بن مسيك: شبكة حضرية كثيفة. تدعم اللوحة قراءة نقاط التعارض وكثافة الطرق الثانوية وتغيرات السرعة."
+ },
+ sidi_maarouf: {
+ label:'Sidi Maârouf', color:'#BF5AF2', center:[33.5250,-7.6500], zoom:14,
+ heatmapFile:'sidi_maarouf_heatmap.json',
+ simulationFile:'sidi_maarouf_simulation_geo.json',
+ analysis:'Sidi Maârouf: strategic employment and arterial area. Simulation shows flows related to business poles and major roads.',
+ analysisAr:'سيدي معروف: منطقة تشغيل ومحاور استراتيجية. تعرض المحاكاة تدفقات مرتبطة بأقطاب الأعمال والطرق الرئيسية.'
+ },
+ bd_mohammed_v: {
+ label:'Bd. Mohammed V', color:'#00B4D8', center:[33.5950,-7.6100], zoom:15,
+ heatmapFile:'bd_mohammed_v_heatmap.json',
+ simulationFile:'bd_mohammed_v_simulation_geo.json',
+ analysis:'Boulevard Mohammed V: major corridor. Heatmap and simulation identify concentration and slowdown segments.',
+ analysisAr:'شارع محمد الخامس: ممر رئيسي. تحدد الخريطة الحرارية والمحاكاة مقاطع التركّز والتباطؤ.'
+ }
+ };
 
-  let map=null, heatLayer=null, canvas=null, ctx=null;
-  let mode='heatmap', zoneKey='maarif', currentData=null, heatPoints=[], stepIndex=0;
-  let playing=false, raf=null, lastFrame=0;
-  const MAX_HEAT_POINTS=12000;
-  const MAX_VEHICLES_PER_FRAME=1600;
+ let map=null, heatLayer=null, canvas=null, ctx=null;
+ let mode='heatmap', zoneKey='maarif', currentData=null, heatPoints=[], stepIndex=0;
+ let playing=false, raf=null, lastFrame=0;
+ const MAX_HEAT_POINTS=12000;
+ const MAX_VEHICLES_PER_FRAME=1600;
 
-  function byId(id){ return document.getElementById(id); }
-  function setText(id,value){ const el=byId(id); if(el) el.textContent=value; }
-  function setHidden(id,hidden){ const el=byId(id); if(el) el.classList.toggle('egs-hidden', !!hidden); }
-  function safeNumber(n, fallback=0){ const v=Number(n); return Number.isFinite(v)?v:fallback; }
-  function fr(n){ return Number(n||0).toLocaleString('fr-FR'); }
+ function byId(id){ return document.getElementById(id); }
+ function setText(id,value){ const el=byId(id); if(el) el.textContent=value; }
+ function setHidden(id,hidden){ const el=byId(id); if(el) el.classList.toggle('egs-hidden', !!hidden); }
+ function safeNumber(n, fallback=0){ const v=Number(n); return Number.isFinite(v)?v:fallback; }
+ function fr(n){ return Number(n||0).toLocaleString('fr-FR'); }
 
-  async function loadJson(file){
-    try{
-      const response = await fetch(file + '?v=' + Date.now(), { cache:'no-store' });
-      if(!response.ok) throw new Error('HTTP ' + response.status);
-      return await response.json();
-    }catch(error){
-      console.warn('[EGS SUMO] External JSON unavailable, using built-in demo data:', file, error);
-      return null;
-    }
-  }
+ async function loadJson(file){
+ try{
+ const response = await fetch(file + '?v=' + Date.now(), { cache:'no-store' });
+ if(!response.ok) throw new Error('HTTP ' + response.status);
+ return await response.json();
+ }catch(error){
+ console.warn('[EGS SUMO] External JSON unavailable, using built-in demo data:', file, error);
+ return null;
+ }
+ }
 
-  function seeded(seed){
-    let s=seed>>>0;
-    return function(){
-      s=(s*1664525+1013904223)>>>0;
-      return s/4294967296;
-    };
-  }
+ function seeded(seed){
+ let s=seed>>>0;
+ return function(){
+ s=(s*1664525+1013904223)>>>0;
+ return s/4294967296;
+ };
+ }
 
-  function zoneSeed(key){
-    return Array.from(key).reduce((a,c)=>a+c.charCodeAt(0), 2166136261)>>>0;
-  }
+ function zoneSeed(key){
+ return Array.from(key).reduce((a,c)=>a+c.charCodeAt(0), 2166136261)>>>0;
+ }
 
-  function demoHeatData(zone){
-    const rand=seeded(zoneSeed(zoneKey));
-    const [lat0,lng0]=zone.center;
-    const points=[];
-    const corridors=[
-      {a:-0.018,b:-0.012,c:1.00},
-      {a: 0.015,b:-0.006,c:.75},
-      {a:-0.012,b: 0.015,c:.58},
-      {a: 0.020,b: 0.011,c:.42}
-    ];
-    for(let i=0;i<900;i++){
-      const road=corridors[i%corridors.length];
-      const t=(rand()*2-1);
-      const jitterLat=(rand()-.5)*0.0034;
-      const jitterLng=(rand()-.5)*0.0034;
-      const lat=lat0 + road.a*t + jitterLat;
-      const lng=lng0 + road.b*t + jitterLng;
-      const intensity=Math.max(.08, Math.min(1, road.c*(.45+rand()*.65)));
-      points.push([lat,lng,intensity]);
-    }
-    return {
-      demo:true,
-      points,
-      kpis:{ vehicleRecords:5400, steps:180, averageSpeed:7.35 }
-    };
-  }
+ function demoHeatData(zone){
+ const rand=seeded(zoneSeed(zoneKey));
+ const [lat0,lng0]=zone.center;
+ const points=[];
+ const corridors=[
+ {a:-0.018,b:-0.012,c:1.00},
+ {a: 0.015,b:-0.006,c:.75},
+ {a:-0.012,b: 0.015,c:.58},
+ {a: 0.020,b: 0.011,c:.42}
+ ];
+ for(let i=0;i<900;i++){
+ const road=corridors[i%corridors.length];
+ const t=(rand()*2-1);
+ const jitterLat=(rand()-.5)*0.0034;
+ const jitterLng=(rand()-.5)*0.0034;
+ const lat=lat0 + road.a*t + jitterLat;
+ const lng=lng0 + road.b*t + jitterLng;
+ const intensity=Math.max(.08, Math.min(1, road.c*(.45+rand()*.65)));
+ points.push([lat,lng,intensity]);
+ }
+ return {
+ demo:true,
+ points,
+ kpis:{ vehicleRecords:5400, steps:180, averageSpeed:7.35 }
+ };
+ }
 
-  function demoSimulationData(zone){
-    const rand=seeded(zoneSeed(zoneKey)+99);
-    const [lat0,lng0]=zone.center;
-    const timesteps=[];
-    const routes=[
-      {a:-0.018,b:-0.011,phase:0,speed:7.4},
-      {a: 0.016,b:-0.006,phase:1.1,speed:5.8},
-      {a:-0.011,b: 0.016,phase:2.4,speed:9.2},
-      {a: 0.020,b: 0.010,phase:3.2,speed:4.9}
-    ];
-    const vehicleCount=110;
-    for(let t=0;t<220;t++){
-      const vehicles=[];
-      for(let i=0;i<vehicleCount;i++){
-        const route=routes[i%routes.length];
-        const progress=((t*0.006*(route.speed/6))+(i/vehicleCount)+route.phase)%1;
-        const x=(progress*2-1);
-        const pulse=Math.sin((t+i)*0.08);
-        const lat=lat0 + route.a*x + (rand()-.5)*0.00022 + Math.sin(progress*Math.PI*2+route.phase)*0.0011;
-        const lng=lng0 + route.b*x + (rand()-.5)*0.00022 + Math.cos(progress*Math.PI*2+route.phase)*0.0011;
-        const speed=Math.max(.8, route.speed + pulse*2.2 - (i%17===0?3.2:0));
-        const angle=Math.atan2(route.b, route.a)*180/Math.PI + 90;
-        vehicles.push({ id:'demo-'+i, lat, lng, speed, angle });
-      }
-      timesteps.push({ time:t, vehicles });
-    }
-    return {
-      demo:true,
-      timesteps,
-      kpis:{ vehicleRecords:vehicleCount*timesteps.length, steps:timesteps.length, averageSpeed:6.83 }
-    };
-  }
+ function demoSimulationData(zone){
+ const rand=seeded(zoneSeed(zoneKey)+99);
+ const [lat0,lng0]=zone.center;
+ const timesteps=[];
+ const routes=[
+ {a:-0.018,b:-0.011,phase:0,speed:7.4},
+ {a: 0.016,b:-0.006,phase:1.1,speed:5.8},
+ {a:-0.011,b: 0.016,phase:2.4,speed:9.2},
+ {a: 0.020,b: 0.010,phase:3.2,speed:4.9}
+ ];
+ const vehicleCount=110;
+ for(let t=0;t<220;t++){
+ const vehicles=[];
+ for(let i=0;i<vehicleCount;i++){
+ const route=routes[i%routes.length];
+ const progress=((t*0.006*(route.speed/6))+(i/vehicleCount)+route.phase)%1;
+ const x=(progress*2-1);
+ const pulse=Math.sin((t+i)*0.08);
+ const lat=lat0 + route.a*x + (rand()-.5)*0.00022 + Math.sin(progress*Math.PI*2+route.phase)*0.0011;
+ const lng=lng0 + route.b*x + (rand()-.5)*0.00022 + Math.cos(progress*Math.PI*2+route.phase)*0.0011;
+ const speed=Math.max(.8, route.speed + pulse*2.2 - (i%17===0?3.2:0));
+ const angle=Math.atan2(route.b, route.a)*180/Math.PI + 90;
+ vehicles.push({ id:'demo-'+i, lat, lng, speed, angle });
+ }
+ timesteps.push({ time:t, vehicles });
+ }
+ return {
+ demo:true,
+ timesteps,
+ kpis:{ vehicleRecords:vehicleCount*timesteps.length, steps:timesteps.length, averageSpeed:6.83 }
+ };
+ }
 
-  function initMap(){
-    const container=byId('egsSumoMap');
-    if(!container) return false;
-    if(!window.L || !L.map){
-      container.innerHTML='<div style="display:grid;place-items:center;height:100%;min-height:430px;padding:24px;text-align:center;color:#00FF88;background:#050505;border:1px solid #004400;font-family:monospace;line-height:1.6">Leaflet could not load from the CDN. Check your internet connection or host Leaflet locally.</div>';
-      setText('egsStatusText', document.body.classList.contains('rtl') ? 'مكتبة Leaflet غير متاحة. تحتاج لوحة SUMO إلى leaflet.min.js قبل leaflet-heat.js.' : 'Leaflet library unavailable. The SUMO panel needs leaflet.min.js before leaflet-heat.js.');
-      return false;
-    }
-    if(map) return true;
-    const z=EGS_ZONES[zoneKey];
-    map=L.map('egsSumoMap',{
-      center:z.center,
-      zoom:z.zoom,
-      zoomControl:true,
-      attributionControl:false,
-      preferCanvas:true
-    });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom:19 }).addTo(map);
-    canvas=byId('egsTrafficCanvas');
-    if(canvas) ctx=canvas.getContext('2d');
-    resizeCanvas();
-    map.on('move zoom resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
-    window.addEventListener('resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
-    setTimeout(()=>map.invalidateSize(),150);
-    return true;
-  }
+ function initMap(){
+ const container=byId('egsSumoMap');
+ if(!container) return false;
+ if(!window.L || !L.map){
+ container.innerHTML='<div style="display:grid;place-items:center;height:100%;min-height:430px;padding:24px;text-align:center;color:#00FF88;background:#050505;border:1px solid #004400;font-family:monospace;line-height:1.6">Leaflet could not load from the CDN. Check your internet connection or host Leaflet locally.</div>';
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'مكتبة Leaflet غير متاحة. تحتاج لوحة SUMO إلى leaflet.min.js قبل leaflet-heat.js.' : 'Leaflet library unavailable. The SUMO panel needs leaflet.min.js before leaflet-heat.js.');
+ return false;
+ }
+ if(map) return true;
+ const z=EGS_ZONES[zoneKey];
+ map=L.map('egsSumoMap',{
+ center:z.center,
+ zoom:z.zoom,
+ zoomControl:true,
+ attributionControl:false,
+ preferCanvas:true
+ });
+ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{ maxZoom:19 }).addTo(map);
+ canvas=byId('egsTrafficCanvas');
+ if(canvas) ctx=canvas.getContext('2d');
+ resizeCanvas();
+ map.on('move zoom resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
+ window.addEventListener('resize',()=>{ resizeCanvas(); if(mode==='simulation') drawStep(); });
+ setTimeout(()=>map.invalidateSize(),150);
+ return true;
+ }
 
-  function resizeCanvas(){
-    if(!canvas || !ctx) return;
-    const rect=canvas.getBoundingClientRect();
-    const dpr=window.devicePixelRatio || 1;
-    canvas.width=Math.max(1, Math.round(rect.width*dpr));
-    canvas.height=Math.max(1, Math.round(rect.height*dpr));
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
+ function resizeCanvas(){
+ if(!canvas || !ctx) return;
+ const rect=canvas.getBoundingClientRect();
+ const dpr=window.devicePixelRatio || 1;
+ canvas.width=Math.max(1, Math.round(rect.width*dpr));
+ canvas.height=Math.max(1, Math.round(rect.height*dpr));
+ ctx.setTransform(dpr,0,0,dpr,0,0);
+ }
 
-  function clearCanvas(){
-    if(!ctx || !canvas) return;
-    const rect=canvas.getBoundingClientRect();
-    ctx.clearRect(0,0,rect.width,rect.height);
-  }
+ function clearCanvas(){
+ if(!ctx || !canvas) return;
+ const rect=canvas.getBoundingClientRect();
+ ctx.clearRect(0,0,rect.width,rect.height);
+ }
 
-  function removeHeat(){
-    if(heatLayer && map){
-      map.removeLayer(heatLayer);
-      heatLayer=null;
-    }
-  }
+ function removeHeat(){
+ if(heatLayer && map){
+ map.removeLayer(heatLayer);
+ heatLayer=null;
+ }
+ }
 
-  function updateUI(){
-    const isHeat=mode==='heatmap';
-    const z=EGS_ZONES[zoneKey];
-    document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
-      btn.classList.toggle('active', btn.dataset.egsMode===mode);
-      btn.setAttribute('aria-pressed', String(btn.dataset.egsMode===mode));
-    });
-    document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
-      btn.classList.toggle('active', btn.dataset.egsZone===zoneKey);
-      btn.setAttribute('aria-pressed', String(btn.dataset.egsZone===zoneKey));
-    });
+ function updateUI(){
+ const isHeat=mode==='heatmap';
+ const z=EGS_ZONES[zoneKey];
+ document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
+ btn.classList.toggle('active', btn.dataset.egsMode===mode);
+ btn.setAttribute('aria-pressed', String(btn.dataset.egsMode===mode));
+ });
+ document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
+ btn.classList.toggle('active', btn.dataset.egsZone===zoneKey);
+ btn.setAttribute('aria-pressed', String(btn.dataset.egsZone===zoneKey));
+ });
 
-    setHidden('egsHeatControls', !isHeat);
-    setHidden('egsSimulationControls', isHeat);
-    setHidden('egsHeatLegend', !isHeat);
-    setHidden('egsSimulationLegend', isHeat);
+ setHidden('egsHeatControls', !isHeat);
+ setHidden('egsSimulationControls', isHeat);
+ setHidden('egsHeatLegend', !isHeat);
+ setHidden('egsSimulationLegend', isHeat);
 
-    setText('egsZoneTitle', z.label);
-    setText('egsAnalysisText', document.body.classList.contains('rtl') ? (z.analysisAr || z.analysis) : z.analysis);
-    setText('egsMainLabel', document.body.classList.contains('rtl') ? (isHeat ? 'النقاط' : 'الظاهر') : (isHeat ? 'POINTS' : 'VISIBLE'));
-    setText('egsKpiMain','—');
-    setText('egsKpiVehicles','—');
-    setText('egsKpiSteps','—');
-    setText('egsKpiSpeed','—');
-    setText('egsKpiMode', document.body.classList.contains('rtl') ? (isHeat ? 'حرارة' : 'محاكاة') : (isHeat ? 'HEAT' : 'SIM'));
-    setText('egsStatusTitle', z.label + ' · ' + (document.body.classList.contains('rtl') ? (isHeat ? 'خريطة حرارية' : 'محاكاة') : (isHeat ? 'Heatmap' : 'Simulation')));
-  }
+ setText('egsZoneTitle', z.label);
+ setText('egsAnalysisText', document.body.classList.contains('rtl') ? (z.analysisAr || z.analysis) : z.analysis);
+ setText('egsMainLabel', document.body.classList.contains('rtl') ? (isHeat ? 'النقاط' : 'الظاهر') : (isHeat ? 'POINTS' : 'VISIBLE'));
+ setText('egsKpiMain','—');
+ setText('egsKpiVehicles','—');
+ setText('egsKpiSteps','—');
+ setText('egsKpiSpeed','—');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? (isHeat ? 'حرارة' : 'محاكاة') : (isHeat ? 'HEAT' : 'SIM'));
+ setText('egsStatusTitle', z.label + ' · ' + (document.body.classList.contains('rtl') ? (isHeat ? 'خريطة حرارية' : 'محاكاة') : (isHeat ? 'Heatmap' : 'Simulation')));
+ }
 
-  async function loadCurrent(){
-    if(!map) return;
-    cancelAnimationFrame(raf);
-    raf=null;
-    playing=false;
-    stepIndex=0;
-    removeHeat();
-    clearCanvas();
-    updateUI();
-    const z=EGS_ZONES[zoneKey];
-    map.setView(z.center,z.zoom);
-    if(mode==='heatmap') await loadHeatmap();
-    else await loadSimulation();
-    setTimeout(()=>map.invalidateSize(),100);
-  }
+ async function loadCurrent(){
+ if(!map) return;
+ cancelAnimationFrame(raf);
+ raf=null;
+ playing=false;
+ stepIndex=0;
+ removeHeat();
+ clearCanvas();
+ updateUI();
+ const z=EGS_ZONES[zoneKey];
+ map.setView(z.center,z.zoom);
+ if(mode==='heatmap') await loadHeatmap();
+ else await loadSimulation();
+ setTimeout(()=>map.invalidateSize(),100);
+ }
 
-  async function loadHeatmap(){
-    const z=EGS_ZONES[zoneKey];
-    setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل طبقة الخريطة الحرارية من SUMO...' : 'Loading SUMO heatmap layer...');
-    const external=await loadJson(z.heatmapFile);
-    currentData=(external && Array.isArray(external.points)) ? external : demoHeatData(z);
-    heatPoints=normalizeHeat(currentData.points || []);
-    if(currentData.demo){
-      setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض خريطة حرارية تجريبية لأن الملف '+z.heatmapFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Demo heatmap shown because '+z.heatmapFile+' was not found or cannot be fetched locally.'));
-    }else{
-      setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.heatmapFile) : ('Loaded real data: '+z.heatmapFile));
-    }
-    drawHeatmap();
-    updateHeatKpis();
-  }
+ async function loadHeatmap(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل طبقة الخريطة الحرارية من SUMO...' : 'Loading SUMO heatmap layer...');
+ const external=await loadJson(z.heatmapFile);
+ currentData=(external && Array.isArray(external.points)) ? external : demoHeatData(z);
+ heatPoints=normalizeHeat(currentData.points || []);
+ if(currentData.demo){
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض خريطة حرارية تجريبية لأن الملف '+z.heatmapFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Demo heatmap shown because '+z.heatmapFile+' was not found or cannot be fetched locally.'));
+ }else{
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.heatmapFile) : ('Loaded real data: '+z.heatmapFile));
+ }
+ drawHeatmap();
+ updateHeatKpis();
+ }
 
-  function normalizeHeat(points){
-    const arr=[];
-    for(const p of points){
-      if(!Array.isArray(p) || p.length<2) continue;
-      const lat=safeNumber(p[0], NaN);
-      const lng=safeNumber(p[1], NaN);
-      const intensity=safeNumber(p[2], .4);
-      if(Number.isFinite(lat) && Number.isFinite(lng)){
-        arr.push([lat,lng,Math.max(.05,Math.min(intensity,1))]);
-      }
-    }
-    if(arr.length<=MAX_HEAT_POINTS) return arr;
-    const interval=Math.ceil(arr.length/MAX_HEAT_POINTS);
-    return arr.filter((_,i)=>i%interval===0).slice(0,MAX_HEAT_POINTS);
-  }
+ function normalizeHeat(points){
+ const arr=[];
+ for(const p of points){
+ if(!Array.isArray(p) || p.length<2) continue;
+ const lat=safeNumber(p[0], NaN);
+ const lng=safeNumber(p[1], NaN);
+ const intensity=safeNumber(p[2], .4);
+ if(Number.isFinite(lat) && Number.isFinite(lng)){
+ arr.push([lat,lng,Math.max(.05,Math.min(intensity,1))]);
+ }
+ }
+ if(arr.length<=MAX_HEAT_POINTS) return arr;
+ const interval=Math.ceil(arr.length/MAX_HEAT_POINTS);
+ return arr.filter((_,i)=>i%interval===0).slice(0,MAX_HEAT_POINTS);
+ }
 
-  function drawHeatmap(){
-    removeHeat();
-    clearCanvas();
-    if(!map || !heatPoints.length) return;
-    const radius=safeNumber(byId('egsRadiusRange')?.value,18);
-    const blur=safeNumber(byId('egsBlurRange')?.value,20);
-    const mult=safeNumber(byId('egsIntensityRange')?.value,5)/8;
-    const points=heatPoints.map(p=>[p[0],p[1],Math.min(1,p[2]*mult)]);
+ function drawHeatmap(){
+ removeHeat();
+ clearCanvas();
+ if(!map || !heatPoints.length) return;
+ const radius=safeNumber(byId('egsRadiusRange')?.value,18);
+ const blur=safeNumber(byId('egsBlurRange')?.value,20);
+ const mult=safeNumber(byId('egsIntensityRange')?.value,5)/8;
+ const points=heatPoints.map(p=>[p[0],p[1],Math.min(1,p[2]*mult)]);
 
-    if(L.heatLayer){
-      heatLayer=L.heatLayer(points,{
-        radius, blur, maxZoom:18, minOpacity:.08, max:1,
-        gradient:{0.15:'#00FF88',0.35:'#FFD700',0.60:'#FF8A00',1:'#FF3355'}
-      }).addTo(map);
-    }else{
-      heatLayer=L.layerGroup(points.slice(0,350).map(p=>
-        L.circleMarker([p[0],p[1]],{
-          radius:Math.max(2, radius/5),
-          stroke:false,
-          fill:true,
-          fillOpacity:Math.max(.25, Math.min(.85,p[2])),
-          fillColor:p[2]>.65?'#FF3355':p[2]>.35?'#FFD700':'#00FF88'
-        })
-      )).addTo(map);
-      setText('egsStatusText', document.body.classList.contains('rtl') ? 'إضافة Leaflet للخرائط الحرارية غير متاحة. يتم عرض طبقة نقاط بديلة.' : 'Leaflet heat plugin unavailable. Showing point fallback layer.');
-    }
-    fitPoints(points);
-  }
+ if(L.heatLayer){
+ heatLayer=L.heatLayer(points,{
+ radius, blur, maxZoom:18, minOpacity:.08, max:1,
+ gradient:{0.15:'#00FF88',0.35:'#FFD700',0.60:'#FF8A00',1:'#FF3355'}
+ }).addTo(map);
+ }else{
+ heatLayer=L.layerGroup(points.slice(0,350).map(p=>
+ L.circleMarker([p[0],p[1]],{
+ radius:Math.max(2, radius/5),
+ stroke:false,
+ fill:true,
+ fillOpacity:Math.max(.25, Math.min(.85,p[2])),
+ fillColor:p[2]>.65?'#FF3355':p[2]>.35?'#FFD700':'#00FF88'
+ })
+ )).addTo(map);
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'إضافة Leaflet للخرائط الحرارية غير متاحة. يتم عرض طبقة نقاط بديلة.' : 'Leaflet heat plugin unavailable. Showing point fallback layer.');
+ }
+ fitPoints(points);
+ }
 
-  function updateHeatKpis(){
-    const k=currentData?.kpis || {};
-    setText('egsKpiMain',fr(heatPoints.length));
-    setText('egsKpiVehicles',fr(k.vehicleRecords || heatPoints.length));
-    setText('egsKpiSteps',fr(k.steps || 0));
-    setText('egsKpiSpeed',safeNumber(k.averageSpeed,0).toFixed(2)+' m/s');
-    setText('egsKpiMode', document.body.classList.contains('rtl') ? 'حرارة' : 'HEAT');
-  }
+ function updateHeatKpis(){
+ const k=currentData?.kpis || {};
+ setText('egsKpiMain',fr(heatPoints.length));
+ setText('egsKpiVehicles',fr(k.vehicleRecords || heatPoints.length));
+ setText('egsKpiSteps',fr(k.steps || 0));
+ setText('egsKpiSpeed',safeNumber(k.averageSpeed,0).toFixed(2)+' m/s');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'حرارة' : 'HEAT');
+ }
 
-  async function loadSimulation(){
-    const z=EGS_ZONES[zoneKey];
-    setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل محاكاة SUMO الجغرافية...' : 'Loading SUMO geo simulation...');
-    const external=await loadJson(z.simulationFile);
-    currentData=(external && Array.isArray(external.timesteps)) ? external : demoSimulationData(z);
-    if(currentData.demo){
-      setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض محاكاة تجريبية لأن الملف '+z.simulationFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Demo simulation shown because '+z.simulationFile+' was not found or cannot be fetched locally.'));
-    }else{
-      setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.simulationFile) : ('Loaded real data: '+z.simulationFile));
-    }
-    setText('egsKpiSteps',fr(currentData.timesteps.length));
-    setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
-    if(currentData.kpis){
-      setText('egsKpiVehicles',fr(currentData.kpis.vehicleRecords || 0));
-      setText('egsKpiSpeed',safeNumber(currentData.kpis.averageSpeed,0).toFixed(2)+' m/s');
-    }
-    setTimeout(()=>{
-      resizeCanvas();
-      fitSimulation();
-      playing=true;
-      startAnimation();
-    },160);
-  }
+ async function loadSimulation(){
+ const z=EGS_ZONES[zoneKey];
+ setText('egsStatusText', document.body.classList.contains('rtl') ? 'جارٍ تحميل محاكاة SUMO الجغرافية...' : 'Loading SUMO geo simulation...');
+ const external=await loadJson(z.simulationFile);
+ currentData=(external && Array.isArray(external.timesteps)) ? external : demoSimulationData(z);
+ if(currentData.demo){
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تُعرض محاكاة تجريبية لأن الملف '+z.simulationFile+' غير موجود أو لا يمكن جلبه محلياً.') : ('Demo simulation shown because '+z.simulationFile+' was not found or cannot be fetched locally.'));
+ }else{
+ setText('egsStatusText', document.body.classList.contains('rtl') ? ('تم تحميل البيانات الحقيقية: '+z.simulationFile) : ('Loaded real data: '+z.simulationFile));
+ }
+ setText('egsKpiSteps',fr(currentData.timesteps.length));
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
+ if(currentData.kpis){
+ setText('egsKpiVehicles',fr(currentData.kpis.vehicleRecords || 0));
+ setText('egsKpiSpeed',safeNumber(currentData.kpis.averageSpeed,0).toFixed(2)+' m/s');
+ }
+ setTimeout(()=>{
+ resizeCanvas();
+ fitSimulation();
+ playing=true;
+ startAnimation();
+ },160);
+ }
 
-  function getLL(vehicle){
-    const lat=safeNumber(vehicle?.lat, NaN);
-    const lng=safeNumber(vehicle?.lng, NaN);
-    return Number.isFinite(lat) && Number.isFinite(lng) ? [lat,lng] : null;
-  }
+ function getLL(vehicle){
+ const lat=safeNumber(vehicle?.lat, NaN);
+ const lng=safeNumber(vehicle?.lng, NaN);
+ return Number.isFinite(lat) && Number.isFinite(lng) ? [lat,lng] : null;
+ }
 
-  function fitSimulation(){
-    if(!currentData?.timesteps?.length) return;
-    const points=[];
-    for(const step of currentData.timesteps){
-      for(const vehicle of (step.vehicles || [])){
-        const ll=getLL(vehicle);
-        if(ll) points.push(ll);
-      }
-      if(points.length>3000) break;
-    }
-    fitPoints(points);
-    drawStep();
-  }
+ function fitSimulation(){
+ if(!currentData?.timesteps?.length) return;
+ const points=[];
+ for(const step of currentData.timesteps){
+ for(const vehicle of (step.vehicles || [])){
+ const ll=getLL(vehicle);
+ if(ll) points.push(ll);
+ }
+ if(points.length>3000) break;
+ }
+ fitPoints(points);
+ drawStep();
+ }
 
-  function drawStep(){
-    if(mode!=='simulation' || !currentData?.timesteps?.length || !map || !ctx) return;
-    const step=currentData.timesteps[stepIndex % currentData.timesteps.length];
-    if(!step) return;
-    clearCanvas();
-    const vehicles=sampleVehicles(step.vehicles || [], MAX_VEHICLES_PER_FRAME);
-    let n=0, sum=0;
-    for(const vehicle of vehicles){
-      const ll=getLL(vehicle);
-      if(!ll) continue;
-      const pt=map.latLngToContainerPoint(ll);
-      const speed=safeNumber(vehicle.speed,0);
-      const angle=safeNumber(vehicle.angle,0);
-      if(!Number.isFinite(pt.x) || !Number.isFinite(pt.y)) continue;
-      drawVehicle(pt.x,pt.y,speed,angle);
-      n++;
-      sum+=speed;
-    }
-    setText('egsKpiMain',fr(n));
-    setText('egsKpiVehicles',fr(n));
-    setText('egsKpiSpeed',(n?sum/n:0).toFixed(2)+' m/s');
-    setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
-  }
+ function drawStep(){
+ if(mode!=='simulation' || !currentData?.timesteps?.length || !map || !ctx) return;
+ const step=currentData.timesteps[stepIndex % currentData.timesteps.length];
+ if(!step) return;
+ clearCanvas();
+ const vehicles=sampleVehicles(step.vehicles || [], MAX_VEHICLES_PER_FRAME);
+ let n=0, sum=0;
+ for(const vehicle of vehicles){
+ const ll=getLL(vehicle);
+ if(!ll) continue;
+ const pt=map.latLngToContainerPoint(ll);
+ const speed=safeNumber(vehicle.speed,0);
+ const angle=safeNumber(vehicle.angle,0);
+ if(!Number.isFinite(pt.x) || !Number.isFinite(pt.y)) continue;
+ drawVehicle(pt.x,pt.y,speed,angle);
+ n++;
+ sum+=speed;
+ }
+ setText('egsKpiMain',fr(n));
+ setText('egsKpiVehicles',fr(n));
+ setText('egsKpiSpeed',(n?sum/n:0).toFixed(2)+' m/s');
+ setText('egsKpiMode', document.body.classList.contains('rtl') ? 'محاكاة' : 'SIM');
+ }
 
-  function sampleVehicles(vehicles,max){
-    if(vehicles.length<=max) return vehicles;
-    const interval=Math.ceil(vehicles.length/max);
-    return vehicles.filter((_,i)=>i%interval===0);
-  }
+ function sampleVehicles(vehicles,max){
+ if(vehicles.length<=max) return vehicles;
+ const interval=Math.ceil(vehicles.length/max);
+ return vehicles.filter((_,i)=>i%interval===0);
+ }
 
-  function colorSpeed(speed){
-    return speed<3 ? '#FF3355' : speed<8 ? '#FFD700' : '#00FF88';
-  }
+ function colorSpeed(speed){
+ return speed<3 ? '#FF3355' : speed<8 ? '#FFD700' : '#00FF88';
+ }
 
-  function drawVehicle(x,y,speed,angle){
-    const size=safeNumber(byId('egsVehicleSizeRange')?.value,6);
-    const color=colorSpeed(speed);
-    const a=(safeNumber(angle,0)-90)*Math.PI/180;
-    ctx.save();
-    ctx.translate(x,y);
-    ctx.rotate(a);
-    ctx.fillStyle=color;
-    ctx.strokeStyle='rgba(255,255,255,.95)';
-    ctx.lineWidth=1.4;
-    ctx.shadowBlur=10;
-    ctx.shadowColor=color;
-    roundedRect(-size,-size/2,size*2.4,size*1.15,Math.max(2,size/2));
-    ctx.fill();
-    ctx.stroke();
-    ctx.restore();
-  }
+ function drawVehicle(x,y,speed,angle){
+ const size=safeNumber(byId('egsVehicleSizeRange')?.value,6);
+ const color=colorSpeed(speed);
+ const a=(safeNumber(angle,0)-90)*Math.PI/180;
+ ctx.save();
+ ctx.translate(x,y);
+ ctx.rotate(a);
+ ctx.fillStyle=color;
+ ctx.strokeStyle='rgba(255,255,255,.95)';
+ ctx.lineWidth=1.4;
+ ctx.shadowBlur=10;
+ ctx.shadowColor=color;
+ roundedRect(-size,-size/2,size*2.4,size*1.15,Math.max(2,size/2));
+ ctx.fill();
+ ctx.stroke();
+ ctx.restore();
+ }
 
-  function roundedRect(x,y,w,h,r){
-    ctx.beginPath();
-    ctx.moveTo(x+r,y);
-    ctx.lineTo(x+w-r,y);
-    ctx.quadraticCurveTo(x+w,y,x+w,y+r);
-    ctx.lineTo(x+w,y+h-r);
-    ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
-    ctx.lineTo(x+r,y+h);
-    ctx.quadraticCurveTo(x,y+h,x,y+h-r);
-    ctx.lineTo(x,y+r);
-    ctx.quadraticCurveTo(x,y,x+r,y);
-    ctx.closePath();
-  }
+ function roundedRect(x,y,w,h,r){
+ ctx.beginPath();
+ ctx.moveTo(x+r,y);
+ ctx.lineTo(x+w-r,y);
+ ctx.quadraticCurveTo(x+w,y,x+w,y+r);
+ ctx.lineTo(x+w,y+h-r);
+ ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h);
+ ctx.lineTo(x+r,y+h);
+ ctx.quadraticCurveTo(x,y+h,x,y+h-r);
+ ctx.lineTo(x,y+r);
+ ctx.quadraticCurveTo(x,y,x+r,y);
+ ctx.closePath();
+ }
 
-  function startAnimation(){
-    cancelAnimationFrame(raf);
-    lastFrame=0;
-    raf=requestAnimationFrame(loop);
-  }
+ function startAnimation(){
+ cancelAnimationFrame(raf);
+ lastFrame=0;
+ raf=requestAnimationFrame(loop);
+ }
 
-  function loop(timestamp){
-    if(mode!=='simulation' || !currentData?.timesteps?.length) return;
-    const delay=Math.max(20,280-safeNumber(byId('egsSpeedRange')?.value,6)*20);
-    if(playing && timestamp-lastFrame>=delay){
-      drawStep();
-      stepIndex=(stepIndex+1)%currentData.timesteps.length;
-      lastFrame=timestamp;
-    }
-    raf=requestAnimationFrame(loop);
-  }
+ function loop(timestamp){
+ if(mode!=='simulation' || !currentData?.timesteps?.length) return;
+ const delay=Math.max(20,280-safeNumber(byId('egsSpeedRange')?.value,6)*20);
+ if(playing && timestamp-lastFrame>=delay){
+ drawStep();
+ stepIndex=(stepIndex+1)%currentData.timesteps.length;
+ lastFrame=timestamp;
+ }
+ raf=requestAnimationFrame(loop);
+ }
 
-  function fitPoints(points){
-    if(!map || !points || !points.length) return;
-    const bounds=L.latLngBounds(points.map(p=>[p[0],p[1]]));
-    if(bounds.isValid()) map.fitBounds(bounds,{ padding:[30,30], maxZoom:EGS_ZONES[zoneKey].zoom });
-  }
+ function fitPoints(points){
+ if(!map || !points || !points.length) return;
+ const bounds=L.latLngBounds(points.map(p=>[p[0],p[1]]));
+ if(bounds.isValid()) map.fitBounds(bounds,{ padding:[30,30], maxZoom:EGS_ZONES[zoneKey].zoom });
+ }
 
-  function bindEvents(){
-    document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        mode=btn.dataset.egsMode || 'heatmap';
-        loadCurrent();
-      });
-    });
-    document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
-      btn.addEventListener('click',()=>{
-        zoneKey=btn.dataset.egsZone || 'maarif';
-        loadCurrent();
-      });
-    });
-    ['egsRadiusRange','egsBlurRange','egsIntensityRange'].forEach(id=>{
-      const el=byId(id);
-      if(el) el.addEventListener('input',()=>{ if(mode==='heatmap') drawHeatmap(); });
-    });
-    const resetHeat=byId('egsResetHeatmapBtn');
-    if(resetHeat) resetHeat.addEventListener('click',()=>{ if(mode==='heatmap') drawHeatmap(); });
-    const play=byId('egsPlayBtn');
-    if(play) play.addEventListener('click',()=>{ playing=true; if(mode==='simulation' && !raf) startAnimation(); });
-    const pause=byId('egsPauseBtn');
-    if(pause) pause.addEventListener('click',()=>{ playing=false; });
-    const restart=byId('egsRestartBtn');
-    if(restart) restart.addEventListener('click',()=>{ stepIndex=0; drawStep(); });
-    const vehicleSize=byId('egsVehicleSizeRange');
-    if(vehicleSize) vehicleSize.addEventListener('input',drawStep);
-    const resetSim=byId('egsResetSimulationBtn');
-    if(resetSim) resetSim.addEventListener('click',fitSimulation);
-  }
+ function bindEvents(){
+ document.querySelectorAll('.egs-mode-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+ mode=btn.dataset.egsMode || 'heatmap';
+ loadCurrent();
+ });
+ });
+ document.querySelectorAll('.egs-zone-btn').forEach(btn=>{
+ btn.addEventListener('click',()=>{
+ zoneKey=btn.dataset.egsZone || 'maarif';
+ loadCurrent();
+ });
+ });
+ ['egsRadiusRange','egsBlurRange','egsIntensityRange'].forEach(id=>{
+ const el=byId(id);
+ if(el) el.addEventListener('input',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ });
+ const resetHeat=byId('egsResetHeatmapBtn');
+ if(resetHeat) resetHeat.addEventListener('click',()=>{ if(mode==='heatmap') drawHeatmap(); });
+ const play=byId('egsPlayBtn');
+ if(play) play.addEventListener('click',()=>{ playing=true; if(mode==='simulation' && !raf) startAnimation(); });
+ const pause=byId('egsPauseBtn');
+ if(pause) pause.addEventListener('click',()=>{ playing=false; });
+ const restart=byId('egsRestartBtn');
+ if(restart) restart.addEventListener('click',()=>{ stepIndex=0; drawStep(); });
+ const vehicleSize=byId('egsVehicleSizeRange');
+ if(vehicleSize) vehicleSize.addEventListener('input',drawStep);
+ const resetSim=byId('egsResetSimulationBtn');
+ if(resetSim) resetSim.addEventListener('click',fitSimulation);
+ }
 
-  document.addEventListener('DOMContentLoaded',()=>{
-    const panel=byId('sumo-dashboard');
-    if(!panel) return;
-    bindEvents();
-    const boot=()=>{
-      if(initMap()) loadCurrent();
-    };
-    if('IntersectionObserver' in window){
-      const observer=new IntersectionObserver(entries=>{
-        if(entries[0] && entries[0].isIntersecting){
-          boot();
-          observer.disconnect();
-        }
-      },{threshold:.10});
-      observer.observe(panel);
-    }else{
-      boot();
-    }
-  });
+ document.addEventListener('DOMContentLoaded',()=>{
+ const panel=byId('sumo-dashboard');
+ if(!panel) return;
+ bindEvents();
+ const boot=()=>{
+ if(initMap()) loadCurrent();
+ };
+ if('IntersectionObserver' in window){
+ const observer=new IntersectionObserver(entries=>{
+ if(entries[0] && entries[0].isIntersecting){
+ boot();
+ observer.disconnect();
+ }
+ },{threshold:.10});
+ observer.observe(panel);
+ }else{
+ boot();
+ }
+ });
 })();
 </script>
 <script>
@@ -1456,34 +1456,34 @@ $('#lambdaRange')?.addEventListener('input',renderLab);$('#carbonRange')?.addEve
 </script>
 <script>
 (function(){
-  const line=document.querySelector('.fixed-line');
-  if(line){
-    const update=()=>{const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);const p=Math.min(1,window.scrollY/max);document.documentElement.style.setProperty('--scroll-scale',String(Math.max(.12,p)));};
-    update(); window.addEventListener('scroll',update,{passive:true});
-  }
-  const stops=[...document.querySelectorAll('.method-cycle-stop')];
-  const spokes=document.getElementById('methodCycleSpokeGroup');
-  const dots=document.getElementById('methodCycleDots');
-  if(spokes&&dots){
-    const cx=110,cy=110,r=94;
-    const colors=['#00A6B4','#C9A227','#7C3AED','#32D3C8','#102A43','#00A6B4','#C9A227'];
-    stops.forEach((stop,i)=>{
-      const angle=(-90+i*(360/stops.length))*Math.PI/180;
-      const x=cx+r*Math.cos(angle), y=cy+r*Math.sin(angle);
-      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',cx);line.setAttribute('y1',cy);line.setAttribute('x2',x);line.setAttribute('y2',y);line.setAttribute('stroke',colors[i]);line.setAttribute('stroke-width','1.6');line.setAttribute('opacity','.35');
-      spokes.appendChild(line);
-      const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r',i===0?'6':'4.8');circle.setAttribute('fill',colors[i]);circle.setAttribute('opacity',i===0?'1':'.72');circle.dataset.dot=String(i);
-      dots.appendChild(circle);
-      stop.addEventListener('mouseenter',()=>activate(i));
-      stop.addEventListener('focus',()=>activate(i));
-    });
-    function activate(i){
-      stops.forEach((s,idx)=>s.classList.toggle('active',idx===i));
-      dots.querySelectorAll('circle').forEach((c,idx)=>{c.setAttribute('r',idx===i?'6':'4.8');c.setAttribute('opacity',idx===i?'1':'.72');});
-    }
-  }
+ const line=document.querySelector('.fixed-line');
+ if(line){
+ const update=()=>{const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);const p=Math.min(1,window.scrollY/max);document.documentElement.style.setProperty('--scroll-scale',String(Math.max(.12,p)));};
+ update(); window.addEventListener('scroll',update,{passive:true});
+ }
+ const stops=[...document.querySelectorAll('.method-cycle-stop')];
+ const spokes=document.getElementById('methodCycleSpokeGroup');
+ const dots=document.getElementById('methodCycleDots');
+ if(spokes&&dots){
+ const cx=110,cy=110,r=94;
+ const colors=['#00A6B4','#C9A227','#7C3AED','#32D3C8','#102A43','#00A6B4','#C9A227'];
+ stops.forEach((stop,i)=>{
+ const angle=(-90+i*(360/stops.length))*Math.PI/180;
+ const x=cx+r*Math.cos(angle), y=cy+r*Math.sin(angle);
+ const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+ line.setAttribute('x1',cx);line.setAttribute('y1',cy);line.setAttribute('x2',x);line.setAttribute('y2',y);line.setAttribute('stroke',colors[i]);line.setAttribute('stroke-width','1.6');line.setAttribute('opacity','.35');
+ spokes.appendChild(line);
+ const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+ circle.setAttribute('cx',x);circle.setAttribute('cy',y);circle.setAttribute('r',i===0?'6':'4.8');circle.setAttribute('fill',colors[i]);circle.setAttribute('opacity',i===0?'1':'.72');circle.dataset.dot=String(i);
+ dots.appendChild(circle);
+ stop.addEventListener('mouseenter',()=>activate(i));
+ stop.addEventListener('focus',()=>activate(i));
+ });
+ function activate(i){
+ stops.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+ dots.querySelectorAll('circle').forEach((c,idx)=>{c.setAttribute('r',idx===i?'6':'4.8');c.setAttribute('opacity',idx===i?'1':'.72');});
+ }
+ }
 })();
 </script>
 </body>
